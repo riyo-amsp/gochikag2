@@ -1,4 +1,6 @@
-use gochikag
+insert into item values(1, 'table1', 2500, 'table1.jpg", 20, 0, '2017-3-7 20:20:00', '2017-3-7 20:20:00', 'kagu');
+
+insert into item values(2, 'table2', 2500, 'table2.jpg', 20, 0, '2017-3-7 20:20:00', '2017-3-7 20:20:00', 'kagu');
 
 insert into user values(1, "tom", "tom@gochikagu.com", "tom", "0", "1");
  
