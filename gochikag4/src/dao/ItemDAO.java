@@ -17,26 +17,27 @@ import util.DBConnector;
  */
 public class ItemDAO {
 
-	public ItemDTO select(String itemName) {
+	public ItemDTO select(int itemId) {
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
 
 		ItemDTO dto = new ItemDTO();
 
-		String sql = "select * from item inner join pictures on item.item_id = pictures.item_id inner join detail on detail.item_id = item.item_id where= item_name=?";
+		String sql = "select item_id,item_name,main_picture,price,detail_ja,item_count "
+				   + "from item inner join pictures on item.item_id = pictures.item_id inner join detail on detail.item_id = item.item_id where= item_id=?";
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 
-			ps.setString(1, itemName);
+			ps.setInt(1, itemId);
 
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
-				dto.setItem_id(rs.getInt("item_id"));
-				dto.setItem_name(rs.getString("item_name"));
-			    dto.setMain_pictures(rs.getString("main_picture"));
+				dto.setItemId(rs.getInt("item_id"));
+				dto.setItemName(rs.getString("item_name"));
+			    dto.setMainPictures(rs.getString("main_picture"));
 				dto.setPictures(rs.getString("price"));
 				dto.setPrice(rs.getFloat("detail_ja"));
-				dto.setItem_count(rs.getInt("item_count"));
+				dto.setItemCount(rs.getInt("item_count"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

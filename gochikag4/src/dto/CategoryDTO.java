@@ -1,10 +1,11 @@
 package dto;
 
 public class CategoryDTO {
+	private int itemId;
 	private String itemName;
 	private int price;
 	private String url;
-	
+
 	public String getItemName() {
 		return itemName;
 	}
@@ -23,6 +24,12 @@ public class CategoryDTO {
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	
-	
+	public int getItemId() {
+		return itemId;
+	}
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
+	}
+
+
 }
