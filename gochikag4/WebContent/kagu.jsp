@@ -12,7 +12,7 @@
 	<s:iterator value="items">
 		<s:iterator>
 			<p><s:property value="price" /></p>
-			<s:form>
+			<s:form action="ItemAction">
 				<s:hidden name="itemName" value="%{itemName}" />
 				<s:submit type="image" src="%{url}"/>
 			</s:form>
