@@ -2,10 +2,13 @@ package action;
 
 
 import java.util.Map;
+
 import org.apache.struts2.interceptor.SessionAware;
+
+import com.opensymphony.xwork2.ActionSupport;
+
 import dao.LoginDAO;
 import dto.LoginDTO;
-import com.opensymphony.xwork2.ActionSupport;
 
 
 
@@ -26,12 +29,13 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 		if(name.equals(dtoName)){
 			if(dtoPassword.equals(dto.getPassword())){
+				//dao.update();
 				ret=SUCCESS ;
 			}
 		}
 		session.put("name",dto.getName());
 		session.put("id",dto.getId());
-		
+
 		return ret;
 	}
 
@@ -59,7 +63,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		this.session = session;
 	}
 
-	
+
 	public LoginDTO getDto() {
 		return dto;
 	}

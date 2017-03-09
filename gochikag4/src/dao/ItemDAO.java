@@ -34,9 +34,11 @@ public class ItemDAO {
 				dto.setItemId(rs.getInt("item_id"));
 				dto.setItemName(rs.getString("item_name"));
 			    dto.setMainPictures(rs.getString("main_picture"));
-				dto.setPictures(rs.getString("price"));
-				dto.setPrice(rs.getFloat("detail_ja"));
+				dto.setDetailJa(rs.getInt("detail_ja"));
+				dto.setPrice(rs.getFloat("price"));
 				dto.setItemCount(rs.getInt("item_count"));
+				dto.setPictures(rs.getString("pictures"));
+
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

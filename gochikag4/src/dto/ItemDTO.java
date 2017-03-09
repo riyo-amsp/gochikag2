@@ -14,7 +14,7 @@ public class ItemDTO {
 	private float price;
 	private int itemCount;
 	private String pictures;
-	private int ditailJa;
+	private int detailJa;
 
 	public String getItemName() {
 		return itemName;
@@ -52,11 +52,11 @@ public class ItemDTO {
 	public void setPictures(String pictures) {
 		this.pictures = pictures;
 	}
-	public int getDitail_ja() {
-		return ditailJa;
+	public int getDetailJa() {
+		return detailJa;
 	}
-	public void setDitail_ja(int ditail_ja) {
-		this.ditailJa = ditail_ja;
+	public void setDetailJa(int detailJa) {
+		this.detailJa = detailJa;
 	}
 
 }
