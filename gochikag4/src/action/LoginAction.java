@@ -27,16 +27,15 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		String dtoPassword = dto.getPassword();
 		String dtoUser_flg = dto.getUser_flg();
 
-		if (dto.getUser_flg() == "3") {
+		if (dtoUser_flg == "3") {
 			if (name.equals(dtoName)) {
 				if (dtoPassword.equals(dto.getPassword())) {
 			
-					String admin = null;
-					// dao.update();
-					ret = admin;
+					ret = "admin";
 				}
 			}
 		}
+
 
 		if (name.equals(dtoName)) {
 			if (dtoPassword.equals(dto.getPassword())) {
@@ -44,7 +43,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 				ret = SUCCESS;
 			}
 		}
-
+		}
 		session.put("name", dto.getName());
 		session.put("id", dto.getUser_id());
 

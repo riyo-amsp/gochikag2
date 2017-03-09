@@ -21,6 +21,7 @@ public class LoginDAO {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, name);
 			ps.setString(2, password);
+
 			ResultSet rs = ps.executeQuery();
 			
 
@@ -43,27 +44,28 @@ public class LoginDAO {
 		return dto;
 
 	}
-
-	public void  update(String Login_flg) {
-
-		DBConnector db = new DBConnector();
-		Connection con = db.getConnection();
-
-		String sql = "update user set login_flg=1";
-		try {
-			PreparedStatement ps = con.prepareStatement(sql);
-			int rs = ps.executeUpdate();
-
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		try {
-			con.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-	}
-
 }
+
+//	public void  update(String Login_flg) {
+//
+//		DBConnector db = new DBConnector();
+//		Connection con = db.getConnection();
+//
+//		String sql = "update user set login_flg=1";
+//		try {
+//			PreparedStatement ps = con.prepareStatement(sql);
+//			int rs = ps.executeUpdate();
+//
+//
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		try {
+//			con.close();
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		
+//	}
+//
+//}
