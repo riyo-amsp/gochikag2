@@ -12,13 +12,14 @@ public class CartDeleteAction extends ActionSupport{
 
 	//フィールド
 	private String item_id;
+	int user_id=getSession;
 
 
 	//executeメソッド
 	public String execute() throws SQLException{
 
 		CartDeleteDAO dao=new CartDeleteDAO();
-		int rs=dao.delete(Integer.parseInt(item_id));
+		int rs=dao.delete(Integer.parseInt(item_id),Integer.parseInt(user_id));
 
 		if(rs==0){
 			return ERROR;

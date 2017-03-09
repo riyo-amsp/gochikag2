@@ -85,8 +85,8 @@
 		<s:form action="CartDeleteAction">
 
 			<!-- ★item_id=1と設定中 -->
-			<input type="hidden" name="item_id" value="1">
-			<s:submit type="button" name="item_id" label="削除"/>
+			<input type="hidden" name="item_id" value="1"/>
+			<s:submit type="button" label="削除"/>
 		</s:form>
 
 

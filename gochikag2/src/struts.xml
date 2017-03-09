@@ -35,7 +35,7 @@
 
 		<!-- CartDeleteAction カート削除画面アクション -->
 		<action name="CartDeleteAction" class="action.CartDeleteAction" method="execute">
-			<result name="success">cart.jasp</result>
+			<result name="success">cart.jsp</result>
 		</action>
 	</package>
 </struts>

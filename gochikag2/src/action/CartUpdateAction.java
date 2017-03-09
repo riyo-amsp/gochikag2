@@ -1,10 +1,11 @@
 package action;
 
-import java.sql.SQLException;
+import java.util.Map;
 
 import com.opensymphony.xwork2.ActionSupport;
 
 import dao.CartUpdateDAO;
+import dto.CartUpdateDTO;
 
 public class CartUpdateAction extends ActionSupport{
 
@@ -12,13 +13,15 @@ public class CartUpdateAction extends ActionSupport{
 	//フィールド
 	private String item_id;
 	private String item_count;
+	private Map<String,Object> session;
 
 
 	//executeメソッド
-	public String execute() throws SQLException{
+	public String execute(){
 
 		CartUpdateDAO dao=new CartUpdateDAO();
-		int rs=dao.update1(Integer.parseInt(item_id),Integer.parseInt(item_count));
+		CartUpdateDTO dto=new CartUpdateDTO();
+		int rs=dao.update(Integer.parseInt(item_id),Integer.parseInt(item_count));
 
 		if(rs==0){
 			return ERROR;
