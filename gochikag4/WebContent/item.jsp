@@ -17,7 +17,9 @@
 			<s:form action="PayAction">
 			<s:select name="choice" list="countList" />
 			<s:hidden name="itemId" value="%{dto.itemId}" />
-			<s:submit value="送信" />
+			<s:submit value="カートへ" />
 			</s:form>
 </body>
 </html>
+
+
