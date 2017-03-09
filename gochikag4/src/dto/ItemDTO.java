@@ -10,11 +10,11 @@ package dto;
 public class ItemDTO {
 	private String itemName;
 	private int itemId;
-	private String mainPictures;
+	private String mainPicture;
 	private float price;
 	private int itemCount;
 	private String pictures;
-	private int detailJa;
+	private String detailJa;
 
 	public String getItemName() {
 		return itemName;
@@ -28,11 +28,12 @@ public class ItemDTO {
 	public void setItemId(int itemId) {
 		this.itemId = itemId;
 	}
-	public String getMainPictures() {
-		return mainPictures;
+
+	public String getMainPicture() {
+		return mainPicture;
 	}
-	public void setMainPictures(String mainPictures) {
-		this.mainPictures = mainPictures;
+	public void setMainPicture(String mainPicture) {
+		this.mainPicture = mainPicture;
 	}
 	public float getPrice() {
 		return price;
@@ -52,10 +53,10 @@ public class ItemDTO {
 	public void setPictures(String pictures) {
 		this.pictures = pictures;
 	}
-	public int getDetailJa() {
+	public String getDetailJa() {
 		return detailJa;
 	}
-	public void setDetailJa(int detailJa) {
+	public void setDetailJa(String detailJa) {
 		this.detailJa = detailJa;
 	}
 
