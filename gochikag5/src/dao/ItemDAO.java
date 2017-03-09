@@ -17,7 +17,7 @@ import util.DBConnector;
  */
 public class ItemDAO {
 
-	public ItemDTO select(int item_id) {
+	public ItemDTO select(int itemId) {
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
 
@@ -27,7 +27,7 @@ public class ItemDAO {
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 
-			ps.setInt(1, item_id);
+			ps.setInt(1, itemId);
 
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
