@@ -23,7 +23,7 @@ public class ItemDAO {
 
 		ItemDTO dto = new ItemDTO();
 
-		String sql = "select item_id,item_name,main_picture,price,detail_ja,item_count,pictures from (item inner join detail using(item_id)) inner join pictures usibg(item_id) where item_id = ?";
+		String sql = "select item_id,item_name,main_picture,price,detail_ja,item_count,pictures from (item inner join detail using(item_id)) inner join pictures using(item_id) where item_id = ?";
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 
