@@ -9,23 +9,33 @@
 		<action name="LoginAction" class="action.LoginAction" method="execute">
 			<result name="success">main.jsp</result>
 		</action>
-		
+
 		<action name="LogoutAction" class="action.LogoutAction" method="execute">
 			<result name="success">top.jsp</result>
 		</action>
-		
+
 		<action name="MainAction" class="action.MainAction" method="execute">
 			<result name="success">practice.jsp</result>
 		</action>
-		
+
 		<action name="CategoryAction" class="action.CategoryAction" method="execute">
 			<result name="kagu">kagu.jsp</result>
 			<result name="kaden">kaden.jsp</result>
 			<result name="sale">sale.jsp</result>
 		</action>
-		
+
 		<action name="MyPageAction" class="action.MyPageAction" method="execute">
 			<result name="success">my_page.jsp</result>
+		</action>
+
+		<!-- CartUpdateAction カート数量更新画面アクション -->
+		<action name="CartUpdateAction" class="action.CartUpdateAction" method="execute">
+			<result name="success">cart.jsp</result>
+		</action>
+
+		<!-- CartDeleteAction カート削除画面アクション -->
+		<action name="CartDeleteAction" class="action.CartDeleteAction" method="execute">
+			<result name="success">cart.jasp</result>
 		</action>
 	</package>
 </struts>
