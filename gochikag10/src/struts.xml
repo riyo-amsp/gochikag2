@@ -9,23 +9,35 @@
 		<action name="LoginAction" class="action.LoginAction" method="execute">
 			<result name="success">main.jsp</result>
 		</action>
-		
+
 		<action name="LogoutAction" class="action.LogoutAction" method="execute">
 			<result name="success">top.jsp</result>
 		</action>
-		
+
 		<action name="MainAction" class="action.MainAction" method="execute">
 			<result name="success">practice.jsp</result>
 		</action>
-		
+
 		<action name="CategoryAction" class="action.CategoryAction" method="execute">
 			<result name="kagu">kagu.jsp</result>
 			<result name="kaden">kaden.jsp</result>
 			<result name="sale">sale.jsp</result>
 		</action>
-		
+
 		<action name="MyPageAction" class="action.MyPageAction" method="execute">
 			<result name="success">my_page.jsp</result>
 		</action>
+
+		<action name="CartInsertAction" class="action.CartInsertAction" method="execute">
+			<result name="success">cart.jsp</result>
+			<result name="error">item.jsp</result>
+		</action>
+
+		<action name="PayAction" class="action.PayAction" method="execute">
+			<result name="success">confirm.jsp</result>
+			<result name="error">pay.jsp</result>
+		</action>
+
+
 	</package>
 </struts>
