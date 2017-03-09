@@ -1,5 +1,6 @@
 package action;
 
+import java.sql.SQLException;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -13,10 +14,11 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	private String name;
 	private String password;
 	private LoginDTO dto;
+	private String user_flg;
 
 	private Map<String, Object> session;
 
-	public String execute() {
+	public String execute()throws SQLException {
 		String ret = ERROR;
 		LoginDAO dao = new LoginDAO();
 
@@ -25,10 +27,11 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		String dtoPassword = dto.getPassword();
 		String dtoUser_flg = dto.getUser_flg();
 
-		if (dto.getUser_flg == 3) {
+		if (dto.getUser_flg() == "3") {
 			if (name.equals(dtoName)) {
 				if (dtoPassword.equals(dto.getPassword())) {
-					String admin;
+			
+					String admin = null;
 					// dao.update();
 					ret = admin;
 				}
@@ -43,7 +46,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		}
 
 		session.put("name", dto.getName());
-		session.put("id", dto.getId());
+		session.put("id", dto.getUser_id());
 
 		return ret;
 	}

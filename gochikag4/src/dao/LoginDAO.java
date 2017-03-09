@@ -9,24 +9,27 @@ import dto.LoginDTO;
 import util.DBConnector;
 
 public class LoginDAO {
-	public LoginDTO select(String name, String password) {
+	public LoginDTO select(String name, String password,String user_flg) {
 		// System.out.println(name +" SODA " +password);
 
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
 		LoginDTO dto = new LoginDTO();
 
-		String sql = "select user_id,name,password,user_id from user where name=? and password=?";
+		String sql = "select user_id,name,password,user_flg from user  where name=? and password=?";
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, name);
 			ps.setString(2, password);
 			ResultSet rs = ps.executeQuery();
+			
 
 			if (rs.next()) {
-				dto.setId(rs.getInt("user_id"));
+				dto.setUser_id(rs.getInt("user_id"));
 				dto.setName(rs.getString("name"));
-				dto.setPassword(rs.getString("password"));	
+				dto.setPassword(rs.getString("password"));
+				dto.setUser_flg(rs.getString("user_flg"));
+				
 			}
 
 		} catch (SQLException e) {
@@ -38,6 +41,7 @@ public class LoginDAO {
 			e.printStackTrace();
 		}
 		return dto;
+
 	}
 
 	public void  update(String Login_flg) {
