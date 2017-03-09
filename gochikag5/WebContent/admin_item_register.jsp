@@ -6,9 +6,12 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>商品検索/更新/削除</title>
+	<title>商品登録</title>
 </head>
 <body>
 
+    <s:form action="AdminDeleteAction">
+    <s:textfield name="itemName">
+    <s:
 </body>
 </html>
