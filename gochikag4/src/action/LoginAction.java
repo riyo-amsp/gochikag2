@@ -13,37 +13,34 @@ import dto.LoginDTO;
 public class LoginAction extends ActionSupport implements SessionAware {
 	private String name;
 	private String password;
-	private LoginDTO dto;
 	private String user_flg;
+	private LoginDTO dto;
 
 	private Map<String, Object> session;
 
-	public String execute()throws SQLException {
+	public String execute() throws SQLException {
 		String ret = ERROR;
 		LoginDAO dao = new LoginDAO();
 
-		dto = dao.select(name, password,user_flg);
+		dto = dao.select(name, password);
 		String dtoName = dto.getName();
 		String dtoPassword = dto.getPassword();
-		String dtoUser_flg = dto.getUser_flg();
 
-		if (dtoUser_flg == "3") {
-			if (name.equals(dtoName)) {
-				if (dtoPassword.equals(dto.getPassword())) {
-			
+		System.out.println("jsao");
+
+		if (name.equals(dto.getName())) {
+			if (password.equals(dto.getPassword())) {
+				if (dto.getUser_flg().equals("3")) {
 					ret = "admin";
 				}
 			}
+		} else {
+			// dao.update();
+			System.out.println(dto.getUser_flg());
+			ret = SUCCESS;
+
 		}
 
-
-		if (name.equals(dtoName)) {
-			if (dtoPassword.equals(dto.getPassword())) {
-				// dao.update();
-				ret = SUCCESS;
-			}
-		}
-		}
 		session.put("name", dto.getName());
 		session.put("id", dto.getUser_id());
 

@@ -9,7 +9,7 @@ import dto.LoginDTO;
 import util.DBConnector;
 
 public class LoginDAO {
-	public LoginDTO select(String name, String password,String user_flg) {
+	public LoginDTO select(String name, String password) {
 		// System.out.println(name +" SODA " +password);
 
 		DBConnector db = new DBConnector();
@@ -23,14 +23,14 @@ public class LoginDAO {
 			ps.setString(2, password);
 
 			ResultSet rs = ps.executeQuery();
-			
+
 
 			if (rs.next()) {
 				dto.setUser_id(rs.getInt("user_id"));
 				dto.setName(rs.getString("name"));
 				dto.setPassword(rs.getString("password"));
 				dto.setUser_flg(rs.getString("user_flg"));
-				
+
 			}
 
 		} catch (SQLException e) {
@@ -65,7 +65,7 @@ public class LoginDAO {
 //		} catch (SQLException e) {
 //			e.printStackTrace();
 //		}
-//		
+//
 //	}
 //
 //}
