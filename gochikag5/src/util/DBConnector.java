@@ -12,9 +12,6 @@ private static String url="jdbc:mysql://localhost/gochikag";
 private static String user="root";
 private static String password="mysql";
 
-public DBConnector(String string, String string2, String string3, String string4, String string5) {
-	// TODO 自動生成されたコンストラクター・スタブ
-}
 
 
 public Connection getConnection(){

@@ -10,7 +10,7 @@ import util.DBConnector;
 public class ItemAddDAO {
 
 	public int insert(String itemName, float price, int itemCount, String registrationDate, String updatedDate, String mainPicture, String pictures, String detailJa, String detailEn) {
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql").getConnection();
 		Connection con = null;
 		con = db.getConnection();
 		int count = 0;
