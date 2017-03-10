@@ -12,6 +12,8 @@ private static String url="jdbc:mysql://localhost/gochikag";
 private static String user="root";
 private static String password="mysql";
 
+
+
 public Connection getConnection(){
 	Connection con = null;
 	try{
