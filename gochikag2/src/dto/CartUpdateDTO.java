@@ -3,46 +3,53 @@ package dto;
 public class CartUpdateDTO {
 
 	//フィールド
-	private int item_id;
-	private String item_name;
+	private int itemId;
+	private String itemName;
 	private int price;
-	private int item_count;
+	private int itemCount;
+	private int amount;
+	private String userId;
 
 
-	//item_count getter setter
-	public int getItem_count() {
-		return item_count;
+
+	public int getItemId() {
+		return itemId;
 	}
-
-	public void setItem_count(int item_count) {
-		this.item_count = item_count;
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
 	}
-
-	//item_id getter_setter
-	public int getItem_id(){
-		return item_id;
+	public String getItemName() {
+		return itemName;
 	}
-
-	public void setItem_id(int item_id){
-		this.item_id=item_id;
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
 	}
-
-	//item_name getter_setter
-	public String getItem_name(){
-		return item_name;
-	}
-
-	public void setItem_name(String item_name){
-		this.item_name=item_name;
-	}
-
-	//price getter_setter
-	public int getPrice(){
+	public int getPrice() {
 		return price;
 	}
-
-	public void setPrice(int price){
-		this.price=price;
+	public void setPrice(int price) {
+		this.price = price;
 	}
+	public int getItemCount() {
+		return itemCount;
+	}
+	public void setItemCount(int itemCount) {
+		this.itemCount = itemCount;
+	}
+	public int getAmount() {
+		return amount;
+	}
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+
+
 
 }
