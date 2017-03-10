@@ -4,8 +4,9 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="./js/jquery-3.1.1.min.js"></script>
-<script src="./js/admin.js"></script>
+<script src="./js/admin-control.js"></script>
 
 
 <title>Insert title here</title>
