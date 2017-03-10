@@ -47,6 +47,7 @@ public class ItemDAO {
 				dto.setItemCount(rs.getInt("item_count"));
 				dto.setPictures(rs.getString("pictures"));
 
+
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -58,5 +59,7 @@ public class ItemDAO {
 		}
 		return dto;
 	}
+
+
 
 }

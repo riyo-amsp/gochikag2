@@ -1,4 +1,4 @@
-<%@ page language="java" 
+<%@ page language="java"
 	contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
@@ -11,10 +11,7 @@
 </head>
 <body>
 
-<s:form action="AdminItemRegisterAction">
-	<s:hidden name="" value=""/>
-	<s:submit value="商品登録"/>
-</s:form>
+<a href="admin_item_register.jsp">商品登録</a>
 
 <s:form action="AdminItemManageAction">
 	<s:hidden name="" value=""/>
