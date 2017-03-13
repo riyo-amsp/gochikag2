@@ -30,13 +30,13 @@
 
 		<!-- CartUpdateAction カート数量更新画面アクション -->
 		<action name="CartUpdateAction" class="action.CartUpdateAction" method="execute">
-			<result name="success">cart.jsp</result>
+			<result name="success" type="chain">CartSelectAction</result>
 			<result name="error">cart.jsp</result>
 		</action>
 
 		<!-- CartDeleteAction カート削除画面アクション -->
 		<action name="CartDeleteAction" class="action.CartDeleteAction" method="execute">
-			<result name="success">cart.jsp</result>
+			<result name="success" type="chain">CartSelectAction</result>
 		</action>
 
 

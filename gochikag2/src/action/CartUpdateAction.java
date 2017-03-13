@@ -1,8 +1,6 @@
 package action;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -10,7 +8,6 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.opensymphony.xwork2.ActionSupport;
 
 import dao.CartUpdateDAO;
-import dto.CartUpdateDTO;
 
 public class CartUpdateAction extends ActionSupport implements SessionAware{
 
@@ -21,9 +18,7 @@ public class CartUpdateAction extends ActionSupport implements SessionAware{
 	private String itemId;
 	private int price;
 	private int amount;
-	private List<CartUpdateDTO> itemList;
 	private Map<String,Object> session;
-	private int totalPrice;
 
 
 	//executeメソッド
@@ -32,7 +27,6 @@ public class CartUpdateAction extends ActionSupport implements SessionAware{
 		System.out.println("tt");
 
 		CartUpdateDAO dao=new CartUpdateDAO();
-		CartUpdateDTO dto=new CartUpdateDTO();
 
 		System.out.println("tekito");
 
@@ -49,12 +43,6 @@ public class CartUpdateAction extends ActionSupport implements SessionAware{
 
 		//System.out.println("hima");
 
-		itemList = new ArrayList<CartUpdateDTO>();
-		itemList = dao.select(userId);
-		totalPrice = 0;
-		for(CartUpdateDTO item : itemList){
-			totalPrice += item.getAmount();
-		}
 
 		//setItemList(new ArrayList<CartUpdateDTO>());
 		//setItemList(dao.select(userId));
@@ -130,24 +118,6 @@ public class CartUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 
-	public List<CartUpdateDTO> getItemList() {
-		return itemList;
-	}
-
-
-	public void setItemList(List<CartUpdateDTO> itemList) {
-		this.itemList = itemList;
-	}
-
-
-	public int getTotalPrice() {
-		return totalPrice;
-	}
-
-
-	public void setTotalPrice(int totalPrice) {
-		this.totalPrice = totalPrice;
-	}
 
 
 }
