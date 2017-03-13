@@ -1,14 +1,11 @@
 package action;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import com.opensymphony.xwork2.ActionSupport;
 
 import dao.CartDeleteDAO;
-import dto.CartUpdateDTO;
 
 
 public class CartDeleteAction extends ActionSupport{
@@ -32,9 +29,7 @@ public class CartDeleteAction extends ActionSupport{
 		System.out.println("userId");
 		System.out.println(userId);
 		CartDeleteDAO dao=new CartDeleteDAO();
-		List<CartUpdateDTO> itemList=new ArrayList<>();
 		int rs=dao.delete(Integer.parseInt(itemId),userId);
-		itemList = dao.select(userId);
 
 		System.out.println(rs);
 

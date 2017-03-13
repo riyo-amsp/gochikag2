@@ -3,7 +3,7 @@
  */
 package action;
 
-import java.util.ArrayList;
+import java.sql.SQLException;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -22,10 +22,16 @@ public class PayAction extends ActionSupport{
 	private String cardBrand;
 	private String securityCode;
 
-	public String execute(){
+	public String execute() throws SQLException{
 		String ret = ERROR;
 		PayDAO dao = new PayDAO();
 		PayDTO dto = new PayDTO();
+
+		dao.select(securityCode,creditNumber,cardBrand,nameE);
+		System.out.println("action");
+
+		if(creditNumber==dto.getCreditNumber()){
+		ret = SUCCESS;
 
 		System.out.println("Action");
 		System.out.println(nameE);
@@ -34,12 +40,8 @@ public class PayAction extends ActionSupport{
 		System.out.println(cardBrand);
 		System.out.println(securityCode);
 
-		ArrayList<PayDTO> arrayDto = new ArrayList<PayDTO>();
-		arrayDto = dao.select(securityCode,creditNumber,cardBrand,nameE);
-		//if((userId==dto.getUserId())&&(securityCode==dto.getSecurityCode())&&(creditNumber==dto.getCreditNumber())){
-		ret = SUCCESS;
+		}
 		return ret;
-
 	}
 
 	/**
@@ -111,7 +113,7 @@ public class PayAction extends ActionSupport{
 	 * @return securityCode
 	 */
 	public String getSecurityCode() {
-	    return securityCode;
+	    return this.securityCode;
 	}
 
 	/**
