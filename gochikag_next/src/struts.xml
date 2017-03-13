@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="action" extends="struts-default">
+
+<!--   GOCHIKAG4 -->
+		<action name="LoginAction" class="action.LoginAction" method="execute">
+			<result name="success">main.jsp</result>
+			<result name="error">sale.jsp</result>
+			<result name="admin">admin.jsp</result>
+		</action>
+
+		<action name="ItemAction" class="action.ItemAction" method="execute">
+			<result name="success">item.jsp</result>
+		</action>
+
+
+
+<!--  GOCHIKAG5 -->
+		<action name="LogoutAction" class="action.LogoutAction" method="execute">
+			<result name="success">top.jsp</result>
+		</action>
+
+
+		<action name="CategoryAction" class="action.CategoryAction" method="execute">
+			<result name="kagu">kagu.jsp</result>
+			<result name="kaden">kaden.jsp</result>
+			<result name="sale">sale.jsp</result>
+		</action>
+
+
+		<action name="MyPageAction" class="action.MyPageAction" method="execute">
+			<result name="success">my_page.jsp</result>
+		</action>
+
+
+
+<!--  GOCHIKAG10 -->
+
+		<action name="CartInsertAction" class="action.CartInsertAction" method="execute">
+			<result name="success" type="chain">CartSelectAction</result>
+			<result name="error">cart.jsp</result>
+		</action>
+
+		<action name="CartSelectAction" class="action.CartSelectAction" method="execute">
+			<result name="success">cart.jsp</result>
+			<result name="error">cart.jsp</result>
+		</action>
+
+
+
+
+<!-- Gochikag2 -->
+		<!-- CartUpdateAction カート数量更新画面アクション -->
+		<action name="CartUpdateAction" class="action.CartUpdateAction" method="execute">
+			<result name="success">cart.jsp</result>
+			<result name="error">cart.jsp</result>
+		</action>
+
+		<!-- CartDeleteAction カート削除画面アクション -->
+		<action name="CartDeleteAction" class="action.CartDeleteAction" method="execute">
+			<result name="success">cart.jsp</result>
+		</action>
+
+		<action name="InfoAction" class="action.InfoAction" method="execute">
+			<result name="success">info_done.jsp</result>
+			<result name="error">info.jsp</result>
+		</action>
+
+
+
+
+<!--  GOCHIKAG5 -->
+		<!-- Twitter認証を行うアクション -->
+		<action name="TwitterAction" class="action.GoTwitterAction" method="execute">
+           <result name="success">main.jsp</result>
+           <result name="error">top.jsp</result>
+       </action>
+
+		<!-- Twitter認証のコールバックアクション -->
+		<action name="login-twitter-action" class="action.LoginTwitterAction" method="execute">
+			<result name="success">main.jsp</result>
+			<result name="error">top.jsp</result>
+        </action>
+	</package>
+</struts>
