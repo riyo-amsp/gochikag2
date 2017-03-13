@@ -33,7 +33,7 @@
 
 		<action name="AdminAddAction" class="action.AdminAddAction" method="execute">
 			<result name="success">admindone.jsp</result>
+			
 		</action>
-
 </package>
 </struts>
