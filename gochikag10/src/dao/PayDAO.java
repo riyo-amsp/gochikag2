@@ -19,7 +19,7 @@ import util.DBConnector;
 */
 public class PayDAO {
 
-	public List<PayDTO> select(String securityCode,String creditNumber, String cardBrand, String nameE)throws SQLException{
+	public List<PayDTO> select(String creditNumber, String securityCode, String cardBrand, String nameE)throws SQLException{
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
 		PreparedStatement ps= null;
@@ -27,7 +27,10 @@ public class PayDAO {
 
 		List<PayDTO> dtoList = new ArrayList<PayDTO>();
 
-		String sql = "select * from credit2 where credit_number = ???? ";
+		String sql = "select * from credit2 where credit_number = ? "
+				+ "and security_code = ? "
+				+ "and card_brand = ? "
+				+ "and name_e = ? ";
 
 		try{
 			ps = con.prepareStatement(sql);
@@ -64,8 +67,8 @@ public class PayDAO {
 		}catch(SQLException e){
 			e.printStackTrace();
 		}finally{
-			if(ps != null) ps.close();
-			if(con != null) con.close();
+			 ps.close();
+			 con.close();
 		}
 	return dtoList;
 	}
