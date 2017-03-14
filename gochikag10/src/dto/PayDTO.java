@@ -14,6 +14,14 @@ public class PayDTO {
 	private String creditNumber;
 	private String cardBrand;
 	private String securityCode;
+	private String expirationDate;
+
+	public String getExpirationDate() {
+		return expirationDate;
+	}
+	public void setExpirationDate(String expirationDate) {
+		this.expirationDate = expirationDate;
+	}
 	/**
 	 * nameEを取得します。
 	 * @return nameE
@@ -85,5 +93,5 @@ public class PayDTO {
 	    this.securityCode = securityCode;
 	}
 
-	
+
 }

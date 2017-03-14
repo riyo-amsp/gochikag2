@@ -4,9 +4,12 @@
 package action;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import dao.PayCheckDAO;
 import dao.PayDAO;
 import dto.PayDTO;
 
@@ -21,17 +24,22 @@ public class PayAction extends ActionSupport{
 	private String creditNumber;
 	private String cardBrand;
 	private String securityCode;
+	private String expirationDate;
 
 	public String execute() throws SQLException{
 		String ret = ERROR;
 		PayDAO dao = new PayDAO();
-		PayDTO dto = new PayDTO();
+		PayCheckDAO dao2 = new PayCheckDAO();
+		List<PayDTO> dto = new ArrayList<PayDTO>();
+		List<PayDTO> dto2 = new ArrayList<PayDTO>();
 
-		dao.select(securityCode,creditNumber,cardBrand,nameE);
-		System.out.println("action");
+		dto = dao.select(nameE,creditNumber,securityCode,cardBrand);
+		System.out.println("1"+dto);
 
-		if(creditNumber==dto.getCreditNumber()){
-		ret = SUCCESS;
+		dto2 = dao2.select(nameE,creditNumber,securityCode,cardBrand);
+		System.out.println("2"+dto2);
+
+		if(dto==dto2){
 
 		System.out.println("Action");
 		System.out.println(nameE);
@@ -39,6 +47,8 @@ public class PayAction extends ActionSupport{
 		System.out.println(creditNumber);
 		System.out.println(cardBrand);
 		System.out.println(securityCode);
+
+		ret = SUCCESS;
 
 		}
 		return ret;
@@ -122,6 +132,22 @@ public class PayAction extends ActionSupport{
 	 */
 	public void setSecurityCode(String securityCode) {
 	    this.securityCode = securityCode;
+	}
+
+	/**
+	 * expirationDateを取得します。
+	 * @return expirationDate
+	 */
+	public String getExpirationDate() {
+	    return expirationDate;
+	}
+
+	/**
+	 * expirationDateを設定します。
+	 * @param expirationDate expirationDate
+	 */
+	public void setExpirationDate(String expirationDate) {
+	    this.expirationDate = expirationDate;
 	}
 
 }
