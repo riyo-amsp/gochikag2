@@ -32,16 +32,15 @@ public class AdminItemManageDAO {
 	 * @return searchList
 	 */
 
-	public ArrayList<ItemDTO> select(String SearchItem_name, int SearchItem_id) {
+	public ArrayList<ItemDTO> select(String SearchItem_name) {
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
 
-		String sql = "select item_name,item_id,price,item_count,main_pictures,detail_ja from item where item_name=? and item_id=?";
+		String sql = "select item_name,item_id,price,item_count,main_pictures,detail_ja,categroy from item where item_name=?";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, SearchItem_name);
-			ps.setInt(2, SearchItem_id);
 
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
@@ -52,6 +51,7 @@ public class AdminItemManageDAO {
 				dto.setPrice(rs.getFloat("price"));
 				dto.setMainPicture(rs.getString("main_pictures"));
 				dto.setDetailJa(rs.getString("detail_ja"));
+				dto.setCategory(rs.getString("ctegory"));
 			}
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック

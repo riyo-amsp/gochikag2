@@ -15,6 +15,7 @@ public class ItemDTO {
 	private int itemCount;
 	private String pictures;
 	private String detailJa;
+	private String category;
 
 	public String getItemName() {
 		return itemName;
@@ -59,5 +60,12 @@ public class ItemDTO {
 	public void setDetailJa(String detailJa) {
 		this.detailJa = detailJa;
 	}
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
+	
 
 }
