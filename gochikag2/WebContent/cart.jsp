@@ -155,6 +155,8 @@
 						<!-- 小計 -->
 
 						<td><s:property value="amount"/></td>
+
+
 						<s:hidden name="itemId" value="%{itemId}"></s:hidden>
 						</s:form>
 

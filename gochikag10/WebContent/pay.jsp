@@ -23,9 +23,9 @@
 		<s:textfield size ="6" maxlength = "6" />
 		<s:textfield size ="6" maxlength = "6" />--%>
 		<s:textfield name="securityCode" size ="4" maxlength = "4" label="セキュリティコード"/>
-    	<s:textfield name="cardBrand" type="radio" value="VISA" label="VISA"/>
-   		<s:textfield name="cardBrand" type="radio" value="MASTER" label="master"/>
-    	<s:textfield name="cardBrand" type="radio" value="AMEX" label="american"/>
+    	<s:textfield name="cardBrand" type="radio" value="1" label="VISA"/>
+   		<s:textfield name="cardBrand" type="radio" value="2" label="master"/>
+    	<s:textfield name="cardBrand" type="radio" value="3" label="american"/>
     	<s:hidden name="userId" value="1" />
  		<s:submit value="次へ" />
 	</s:form>

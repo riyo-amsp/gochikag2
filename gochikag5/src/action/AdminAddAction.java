@@ -2,63 +2,58 @@ package action;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import dao.ItemAddDAO;
+import dao.AdminAddDAO;
 
 public class AdminAddAction extends ActionSupport {
 
-	private String itemName;
+	private int itemId;
 
+	private String itemName;
 
 	private float price;
 
 	private int itemCount;
 
-
-	private String registrationDate;
-
-
-	private String updatedDate;
-
-
 	private String mainPicture;
 
+	private String category;
 
 	private String pictures;
 
 	private String detailJa;
 
-
-	private String detailEn;
-
-
-	private String category;
-
-	private String textMsg;
+   private String detailEn;
 
 
-
-	public String execute(){
+	public String execute() {
 		String result = ERROR;
 
-		ItemAddDAO dao = new ItemAddDAO();
-        dao.itemInsert(itemName, price, itemCount, registrationDate, updatedDate, mainPicture, pictures, detailJa, detailEn, category);
-		//if(itemName!=null && price!=0 && mainPicture!=null && itemCount!=0 && registrationDate!=null && updatedDate!=null && pictures!=null && detailJa!=null && detailEn!=null && category!=null ){
-		System.out.println("追加しました");
-		result = SUCCESS;
+		AdminAddDAO dao = new AdminAddDAO();
+		dao.itemInsert1(itemName, price, itemCount, mainPicture, category);
+		int itemId = dao.select();
+
+		dao.itemInsert2(itemId, pictures);
+		dao.itemInsert3(itemId, detailJa, detailEn);
+		if (itemName!=null || price!=0 || mainPicture!=null || itemCount!=0 || pictures!=null || detailJa!=null || detailEn!=null || category!=null) {
+			System.out.println("追加しました");
+			result = SUCCESS;
+
+		}
 		return result;
-        }
-
-
-
-
-	public String getTextMsg() {
-		return textMsg;
 	}
 
 
-	public void setTextMsg(String textMsg) {
-		this.textMsg = textMsg;
+
+	public int getItemId() {
+		return itemId;
 	}
+
+
+
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
+	}
+
 
 
 	public String getItemName() {
@@ -91,25 +86,6 @@ public class AdminAddAction extends ActionSupport {
 	}
 
 
-	public String getRegistrationDate() {
-		return registrationDate;
-	}
-
-
-	public void setRegistrationDate(String registrationDate) {
-		this.registrationDate = registrationDate;
-	}
-
-
-	public String getUpdatedDate() {
-		return updatedDate;
-	}
-
-
-	public void setUpdatedDate(String updatedDate) {
-		this.updatedDate = updatedDate;
-	}
-
 
 	public String getMainPicture() {
 		return mainPicture;
@@ -119,6 +95,7 @@ public class AdminAddAction extends ActionSupport {
 	public void setMainPicture(String mainPicture) {
 		this.mainPicture = mainPicture;
 	}
+
 
 
 	public String getPictures() {
@@ -159,10 +136,6 @@ public class AdminAddAction extends ActionSupport {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-
-
-
-
 
 
 }

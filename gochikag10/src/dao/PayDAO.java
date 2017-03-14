@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import dto.PayDTO;
 import util.DBConnector;
@@ -18,28 +19,46 @@ import util.DBConnector;
 */
 public class PayDAO {
 
-	DBConnector db = new DBConnector();
-	Connection con = db.getConnection();
-	PayDTO dto = new PayDTO();
-	ArrayList<PayDTO> dtoList = new ArrayList<PayDTO>();
+	//gochikagDBからクレジットカード番号・セキュリティコード・カード会社・名義を取得
+	public List<PayDTO> select(String nameE, String creditNumber, String securityCode, String cardBrand)throws SQLException{
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
+		PayDTO dto = new PayDTO();
+		List<PayDTO> dtoList = new ArrayList<PayDTO>();
+		PreparedStatement ps = null;
 
-	public ArrayList<PayDTO> select(String securityCode,String creditNumber, String cardBrand, String nameE){
-		String sql = "select * from credit2 where name_e = ?";
+		String sql = "select * from credit_card where name_e = ? "
+				+ "and credit_number = ? "
+				+ "and security_code = ? "
+				+ "and card_brand = ?";
+
 		try{
-			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1,securityCode);
+			ps = con.prepareStatement(sql);
+
+			System.out.println(ps);
+
+			ps.setString(1,nameE);
 			ps.setString(2,creditNumber);
-			ps.setString(3,cardBrand);
-			ps.setString(4,nameE);
+			ps.setString(3,securityCode);
+			ps.setString(4,cardBrand);
+
+			System.out.println("dao"+ps);
 
 			ResultSet rs = ps.executeQuery();
+
+			System.out.println("dao"+rs);
+
 			while(rs.next()){
-				dto = new PayDTO();
-				dto.setSecurityCode(rs.getString("security_code"));
-				dto.setCardBrand(rs.getString("card_brand"));
-				dto.setNameE(rs.getString("name_e"));
+
+				dto.setSecurityCode(rs.getString("name_e"));
 				dto.setCreditNumber(rs.getString("credit_number"));
+				dto.setCardBrand(rs.getString("security_code"));
+				dto.setNameE(rs.getString("card_brand"));
+				System.out.println(dto);
+
 				dtoList.add(dto);
+
+				System.out.println("dao"+dtoList);
 			}
 		}
 		catch(SQLException e){
@@ -48,6 +67,9 @@ public class PayDAO {
 			con.close();
 		}catch(SQLException e){
 			e.printStackTrace();
+		}finally{
+			 ps.close();
+			 con.close();
 		}
 	return dtoList;
 	}
