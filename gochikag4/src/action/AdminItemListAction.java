@@ -4,6 +4,7 @@
 package action;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -11,6 +12,7 @@ import dto.ItemDTO;
 
 /**
  * 管理者画面にて商品検索する為のアクション
+ *
  * @author SAKAMOTO YOSHIKAZU
  * @since 2017/03/13
  */
@@ -20,21 +22,22 @@ public class AdminItemListAction extends ActionSupport {
 	private String item_name;
 	private String price;
 	private String item_count;
-	public ArrayList <String> nameList;
-	ArrayList<String> dtoList = new ArrayList<String>();
+	private String category;
+	List<String> nameList = new ArrayList<String>();
+	List<String> dtoList = new ArrayList<String>();
 
-	public String execute(){
+	public String execute() {
 		String ret = ERROR;
 		ItemDTO dto = new ItemDTO();
-	for(int i = 0; i <= dtoList.length();i++){
-	nameList.add(dto.getItemName());
-	nameList.add(dto.getDetailJa());
-	System.out.println(nameList);
+		for (String category : dtoList) {
+			nameList.add(dto.getItemName());
+			nameList.add(dto.getDetailJa());
+			System.out.println(nameList);
 
-	ret = SUCCESS;}
+			ret = SUCCESS;
+		}
 
-
-	return ret;
+		return ret;
 	}
 
 	public int getItem_id() {
@@ -69,20 +72,20 @@ public class AdminItemListAction extends ActionSupport {
 		this.item_count = item_count;
 	}
 
-	public ArrayList<String> getNameList() {
-		return nameList;
-	}
-
 	public void setNameList(ArrayList<String> nameList) {
 		this.nameList = nameList;
 	}
 
-	public ArrayList<String> getDtoList() {
-		return dtoList;
-	}
-
 	public void setDtoList(ArrayList<String> dtoList) {
 		this.dtoList = dtoList;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 }
