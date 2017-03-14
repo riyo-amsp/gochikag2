@@ -32,16 +32,17 @@ public class AdminItemManageDAO {
 	 * @return searchList
 	 */
 
-	public ArrayList<ItemDTO> select(String Item_name) {
+	public ArrayList<ItemDTO> select(String category) {
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
 		ArrayList<ItemDTO> searchList = new ArrayList<ItemDTO>();
 
-		String sql = "select item_name,item_id,price,item_count,main_picture,detail_ja,categroy from item where item_name=?";
+		String sql = "select item_name,item_id,price,item_count,main_picture,detail_ja "
+				    + "from item inner join detail using(item_id) where category = ?";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1,Item_name);
+			ps.setString(1,category);
 
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
@@ -50,9 +51,9 @@ public class AdminItemManageDAO {
 				dto.setItemId(rs.getInt("item_id"));
 				dto.setItemCount(rs.getInt("item_count"));
 				dto.setPrice(rs.getFloat("price"));
-				dto.setMainPicture(rs.getString("main_pictures"));
+				dto.setMainPicture(rs.getString("main_picture"));
 				dto.setDetailJa(rs.getString("detail_ja"));
-				dto.setCategory(rs.getString("ctegory"));
+				//dto.setCategory(rs.getString("category"));
 				searchList.add(dto);
 			}
 		} catch (SQLException e) {

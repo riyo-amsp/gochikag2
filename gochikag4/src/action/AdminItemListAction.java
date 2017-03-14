@@ -19,10 +19,10 @@ import dto.ItemDTO;
  */
 public class AdminItemListAction extends ActionSupport {
 
-	private int item_id;
-	private String item_name;
+	private int itemId;
+	private String itemName;
 	private String price;
-	private String item_count;
+	private String itemCount;
 	private String category;
 	List<String> nameList = new ArrayList<String>();
 	List<ItemDTO> dtoList;
@@ -31,30 +31,34 @@ public class AdminItemListAction extends ActionSupport {
 
 		String ret = ERROR;
 		AdminItemManageDAO dao = new AdminItemManageDAO();
-		dtoList = dao.select(item_name);
-		
+		dtoList = dao.select(category);
+	
 		for (ItemDTO dto : dtoList) {
+			System.out.println("Action");
+			System.out.println(dto.getItemName());
 			nameList.add(dto.getItemName());
 		}
-		
-		if(!nameList.isEmpty()) ret = SUCCESS;
+
+		if (!nameList.isEmpty()) {
+			ret = SUCCESS;
+		}
 		return ret;
 	}
 
-	public int getItem_id() {
-		return item_id;
+	public int getItemId() {
+		return itemId;
 	}
 
-	public void setItem_id(int item_id) {
-		this.item_id = item_id;
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
 	}
 
-	public String getItem_name() {
-		return item_name;
+	public String getItemName() {
+		return itemName;
 	}
 
-	public void setItem_name(String item_name) {
-		this.item_name = item_name;
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
 	}
 
 	public String getPrice() {
@@ -65,16 +69,20 @@ public class AdminItemListAction extends ActionSupport {
 		this.price = price;
 	}
 
-	public String getItem_count() {
-		return item_count;
+	public String getItemCount() {
+		return itemCount;
 	}
 
-	public void setItem_count(String item_count) {
-		this.item_count = item_count;
+	public void setItemCount(String itemCount) {
+		this.itemCount = itemCount;
 	}
 
-	public void setNameList(ArrayList<String> nameList) {
-		this.nameList = nameList;
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 	public List<String> getNameList() {
@@ -91,14 +99,6 @@ public class AdminItemListAction extends ActionSupport {
 
 	public void setDtoList(List<ItemDTO> dtoList) {
 		this.dtoList = dtoList;
-	}
-
-	public String getCategory() {
-		return category;
-	}
-
-	public void setCategory(String category) {
-		this.category = category;
 	}
 
 }
