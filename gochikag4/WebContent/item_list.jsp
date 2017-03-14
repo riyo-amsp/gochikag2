@@ -10,54 +10,29 @@
 <body>
 
 
-	<s:iterator value="dtoList">
-		<s:property value="itemName" />
-		<s:property value="mainPicture" />
-		<s:property value="mainPicture" />
-		<s:property value="detailJa" />
-	</s:iterator>
-	<h1>sasaas</h1>
-
-	<table>
+	<table border="1">
 
 		<tr>
 			<th>商品名</th>
 			<th>価格</th>
-			<th>画像</th>
+			<th>在庫</th>
+		</tr>
 
-			<td><s:property value="itemName" /></td>
-			<td><s:property value="mainPicture" /></td>
-			<td><s:property value="mainPicture" /></td>
-			<td><s:property value="detailJa" /></td>
 
-			<td><s:iterator value="dtoList">
-		<s:property value="itemName" />
-		<s:property value="mainPicture" />
-		<s:property value="mainPicture" />
-		<s:property value="detailJa" />
-	</s:iterator></td>
-			</tr>
+		<tr>
+			<td><s:iterator value="nameList">
+					<s:property value="nameList" />
+				</s:iterator></td>
+			<td><s:iterator value="priceList">
+					<s:property value="priceList" />
+				</s:iterator></td>
+			<td><s:iterator value="countList">
+					<s:property value="countList" />
+				</s:iterator></td>
+		</tr>
 
 	</table>
 
-<table>
-  <caption>身近な果物</caption>
-  <tr>
-    <th>名称</th>
-    <th>味の特徴</th>
-    <th>色</th>
-  </tr>
-  <tr>
-    <td>りんご</td>
-    <td>甘酸っぱい</td>
-    <td>おおむね赤</td>
-  </tr>
-  <tr>
-    <td>なつみかん</td>
-    <td>かなり酸っぱいと思う</td>
-    <td>たいてい黄色</td>
-  </tr>
-</table>
 
 </body>
 </html>
