@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import dao.AdminItemManageDAO;
 import dto.ItemDTO;
 
 /**
@@ -24,19 +25,19 @@ public class AdminItemListAction extends ActionSupport {
 	private String item_count;
 	private String category;
 	List<String> nameList = new ArrayList<String>();
-	List<String> dtoList = new ArrayList<String>();
+	List<ItemDTO> dtoList;
 
 	public String execute() {
+
 		String ret = ERROR;
-		ItemDTO dto = new ItemDTO();
-		for (String category : dtoList) {
+		AdminItemManageDAO dao = new AdminItemManageDAO();
+		dtoList = dao.select(item_name);
+		
+		for (ItemDTO dto : dtoList) {
 			nameList.add(dto.getItemName());
-			nameList.add(dto.getDetailJa());
-			System.out.println(nameList);
-
-			ret = SUCCESS;
 		}
-
+		
+		if(!nameList.isEmpty()) ret = SUCCESS;
 		return ret;
 	}
 
@@ -76,7 +77,19 @@ public class AdminItemListAction extends ActionSupport {
 		this.nameList = nameList;
 	}
 
-	public void setDtoList(ArrayList<String> dtoList) {
+	public List<String> getNameList() {
+		return nameList;
+	}
+
+	public void setNameList(List<String> nameList) {
+		this.nameList = nameList;
+	}
+
+	public List<ItemDTO> getDtoList() {
+		return dtoList;
+	}
+
+	public void setDtoList(List<ItemDTO> dtoList) {
 		this.dtoList = dtoList;
 	}
 

@@ -11,7 +11,7 @@
 </head>
 <body>
 	<p>カテゴリを選んでください</p>
-	<s:form>
+	<s:form action= "AdminItemListAction">
 		<select name="category">
 			<option value="a">家具</option>
 			<option value="b">家電</option>
@@ -20,7 +20,7 @@
 		</select>
 
 		<s:hidden name="category" value="category">
-			<s:submit value="">
+			<s:submit value="検索">
 			</s:submit>
 		</s:hidden>
 

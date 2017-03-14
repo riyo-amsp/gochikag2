@@ -23,7 +23,7 @@ import util.DBConnector;
  *
  */
 public class AdminItemManageDAO {
-	public ArrayList<ItemDTO> searchList = new ArrayList<ItemDTO>();
+	//public ArrayList<ItemDTO> searchList = new ArrayList<ItemDTO>();
 
 	/**
 	 *
@@ -32,15 +32,16 @@ public class AdminItemManageDAO {
 	 * @return searchList
 	 */
 
-	public ArrayList<ItemDTO> select(String SearchItem_name) {
+	public ArrayList<ItemDTO> select(String Item_name) {
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
+		ArrayList<ItemDTO> searchList = new ArrayList<ItemDTO>();
 
-		String sql = "select item_name,item_id,price,item_count,main_pictures,detail_ja,categroy from item where item_name=?";
+		String sql = "select item_name,item_id,price,item_count,main_picture,detail_ja,categroy from item where item_name=?";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1, SearchItem_name);
+			ps.setString(1,Item_name);
 
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
@@ -52,6 +53,7 @@ public class AdminItemManageDAO {
 				dto.setMainPicture(rs.getString("main_pictures"));
 				dto.setDetailJa(rs.getString("detail_ja"));
 				dto.setCategory(rs.getString("ctegory"));
+				searchList.add(dto);
 			}
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック
