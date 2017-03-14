@@ -20,9 +20,9 @@
 
 
 		<tr>
-			<td><s:iterator value="nameList">
+			<td>
 					<s:property value="nameList" />
-				</s:iterator></td>
+				</td>
 			<td><s:iterator value="priceList">
 					<s:property value="priceList" />
 				</s:iterator></td>

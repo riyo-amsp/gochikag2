@@ -25,7 +25,7 @@ public class AdminItemListAction extends ActionSupport {
 	private String itemCount;
 	private String category;
 	List<String> nameList = new ArrayList<String>();
-	List<Integer>priceList = new ArrayList<Integer>();
+	List<Float>priceList = new ArrayList<Float>();
 	List<Integer>countList = new ArrayList<Integer>();
 	List<ItemDTO> dtoList;
 
@@ -36,12 +36,11 @@ public class AdminItemListAction extends ActionSupport {
 		dtoList = dao.select(category);
 
 		for (ItemDTO dto : dtoList) {
-			System.out.println("Action");
 			System.out.println(dto.getItemName());
 			System.out.println(dto.getPrice());
 			System.out.println(dto.getItemCount());
 			nameList.add(dto.getItemName());
-			priceList.add(dto.getItemCount());
+			priceList.add(dto.getPrice());
 			countList.add(dto.getItemCount());
 		}
 
@@ -53,11 +52,11 @@ public class AdminItemListAction extends ActionSupport {
 		return ret;
 	}
 
-	public List<Integer> getPriceList() {
+	public List<Float> getPriceList() {
 		return priceList;
 	}
 
-	public void setPriceList(List<Integer> priceList) {
+	public void setPriceList(List<Float> priceList) {
 		this.priceList = priceList;
 	}
 
