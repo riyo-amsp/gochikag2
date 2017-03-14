@@ -25,6 +25,8 @@ public class AdminItemListAction extends ActionSupport {
 	private String itemCount;
 	private String category;
 	List<String> nameList = new ArrayList<String>();
+	List<Integer>priceList = new ArrayList<Integer>();
+	List<Integer>countList = new ArrayList<Integer>();
 	List<ItemDTO> dtoList;
 
 	public String execute() {
@@ -32,17 +34,39 @@ public class AdminItemListAction extends ActionSupport {
 		String ret = ERROR;
 		AdminItemManageDAO dao = new AdminItemManageDAO();
 		dtoList = dao.select(category);
-	
+
 		for (ItemDTO dto : dtoList) {
 			System.out.println("Action");
 			System.out.println(dto.getItemName());
+			System.out.println(dto.getPrice());
+			System.out.println(dto.getItemCount());
 			nameList.add(dto.getItemName());
+			priceList.add(dto.getItemCount());
+			countList.add(dto.getItemCount());
 		}
+
+		System.out.println("dtoチェック：" + nameList.size());
 
 		if (!nameList.isEmpty()) {
 			ret = SUCCESS;
 		}
 		return ret;
+	}
+
+	public List<Integer> getPriceList() {
+		return priceList;
+	}
+
+	public void setPriceList(List<Integer> priceList) {
+		this.priceList = priceList;
+	}
+
+	public List<Integer> getCountList() {
+		return countList;
+	}
+
+	public void setCountList(List<Integer> countList) {
+		this.countList = countList;
 	}
 
 	public int getItemId() {

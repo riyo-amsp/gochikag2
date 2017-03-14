@@ -45,7 +45,7 @@ public class AdminItemManageDAO {
 			ps.setString(1,category);
 
 			ResultSet rs = ps.executeQuery();
-			while (rs.next()) {
+			while(rs.next()) {
 				ItemDTO dto = new ItemDTO();
 				dto.setItemName(rs.getString("item_name"));
 				dto.setItemId(rs.getInt("item_id"));
@@ -55,6 +55,8 @@ public class AdminItemManageDAO {
 				dto.setDetailJa(rs.getString("detail_ja"));
 				//dto.setCategory(rs.getString("category"));
 				searchList.add(dto);
+
+
 			}
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック
