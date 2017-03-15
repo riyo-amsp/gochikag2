@@ -24,7 +24,7 @@ public class LoginDAO {
 		DBConnector db = new DBConnector(url);
 		Connection con =db.getConnection();
 
-		String sql = "select user_id, phone_email, login_flg, user_flg, from user where name = ? and email = ?";
+		String sql = "select user_id, phone_email, login_flg, user_flg, from users where name = ? and email = ?";
 
 		try{
 			PreparedStatement ps= con.prepareStatement(sql);
@@ -58,7 +58,7 @@ public class LoginDAO {
 
 		System.out.println(phoneEmail);
 
-		String sql = "select phone_email, password from user where phone_email = ? and password = ?";
+		String sql = "select phone_email, password from users where phone_email = ? and password = ?";
 
 		try{
 			PreparedStatement ps= con.prepareStatement(sql);
@@ -113,7 +113,7 @@ public class LoginDAO {
 		DBConnector db = new DBConnector(url);
 		Connection con =db.getConnection();
 
-		String sql = "insert into  user (user_id, phone_email, login_flg, user_flg) values (?, ?, ?, ?)";
+		String sql = "insert into  users (user_id, phone_email, login_flg, user_flg) values (?, ?, ?, ?)";
 
 		try{
 			PreparedStatement ps= con.prepareStatement(sql);
