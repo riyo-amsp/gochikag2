@@ -6,6 +6,9 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/header.css">
+	<link rel="stylesheet" type="text/css" href="css/top.css">
+	<link rel="stylesheet" type="text/css" href="css/sakura.css">
 	<title>トップ</title>
 </head>
 <body>
@@ -21,7 +24,7 @@
 	<!-- kagu.jspへ遷移 : 実装済み -->
 		<p>
 		<table><tr>
-		<s:form action="CategoryAction" cssClass="btn-wrapper" theme="css_xhtml">
+		<s:form action="CategoryAction" cssClass="btn_a" theme="css_xhtml">
 		<s:hidden name="category" value="kagu" />
 		<td>
 		<input class="btn_a" type="submit"name="submit"value="家具" />
@@ -29,7 +32,7 @@
 	</s:form>
 
 
-	<s:form action="CategoryAction" cssClass="btn-wrapper" theme="css_xhtml">
+	<s:form action="CategoryAction" cssClass="btn_a" theme="css_xhtml">
 		<s:hidden name="category" value="kagen" />
 		<td><input class="btn_a" type="submit"name="submit"value="家電" /></td>
 	</s:form>
@@ -45,7 +48,7 @@
 	<%-- 	</s:form> --%>
 
 	<!-- sale.jspへ遷移 : 実装済み -->
-	<s:form action="CategoryAction" cssClass="btn-wrapper" theme="css_xhtml">
+	<s:form action="CategoryAction" cssClass="btn_a" theme="css_xhtml">
 		<s:hidden name="category" value="sale" />
 		<td><input class="btn_a" type="submit"name="submit"value="セール" /></td>
 	</s:form>
