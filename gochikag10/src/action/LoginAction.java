@@ -53,7 +53,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 					if(!(phoneEmail.equals(dto2.getPhoneEmail())) && !(password.equals(dto2.getPassword()))){
 
-						int in = 0;
+						LoginDTO in ;
 						in = dao.insert(userId,phoneEmail,loginFlg,userFlg);
 					}
 
@@ -70,7 +70,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 					if(!(phoneEmail.equals(dto2.getPhoneEmail())) && !(password.equals(dto2.getPassword()))){
 
-						int in = 0;
+						LoginDTO in ;
 						in = dao.insert(userId,phoneEmail,loginFlg,userFlg);
 
 					}
