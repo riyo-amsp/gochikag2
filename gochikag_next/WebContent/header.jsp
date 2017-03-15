@@ -10,7 +10,7 @@
 <body>
     <h1>＊"すべてが、かわいい。" アンティーク家具の通販サイト 『ごちかぐ』＊</h1>
 	<h2><a href="top.jsp"><img class="item" src="img/logo2.png"></a></h2>
-
+<br>
 
 <div class = "menu">
 	<!--  info.jspへ遷移 : aタグのため実装なし-->
