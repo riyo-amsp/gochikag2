@@ -6,8 +6,11 @@
 <struts>
 	<constant name="struts.devMode" value="true" />
 	<package name="action" extends="struts-default">
+
 		<action name="LoginAction" class="action.LoginAction" method="execute">
 			<result name="success">main.jsp</result>
+			<result name="admin">admin.jsp</result>
+			<result name ="error">top.jsp</result>
 		</action>
 
 		<action name="LogoutAction" class="action.LogoutAction" method="execute">

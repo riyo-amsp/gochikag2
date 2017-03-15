@@ -25,11 +25,6 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		dto = dao.select(name, password);
 		String dtoName = dto.getName();
 		String dtoPassword = dto.getPassword();
-		/*
-		System.out.println("Action");
-		System.out.println(dtoName);
-		System.out.println(dtoPassword);
-		*/
 
 		System.out.println("jsao");
 		System.out.println(dto.getUser_flg());

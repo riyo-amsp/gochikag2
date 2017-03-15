@@ -9,6 +9,13 @@
 	<title>家具</title>
 </head>
 <body>
+	<s:if test="%{#session.id != null}">
+		<s:include value="header_done.jsp" />
+	</s:if>
+	<s:else>
+		<s:include value="header.jsp" />
+	</s:else>
+
 	<s:iterator value="items">
 		<s:iterator>
 			<p><s:property value="itemName" /></p>

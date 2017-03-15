@@ -22,24 +22,20 @@
 	</style>
 </head>
 <body>
-<!--  ここで"sタグ"を使ってheader.jspを読み込むよ -->
-
+	<s:if test="%{#session.id != null}">
+		<s:include value="header_done.jsp" />
+	</s:if>
+	<s:else>
+		<s:include value="header.jsp" />
+	</s:else>
 
 	<h1>お問い合わせ</h1>
 	<h1>完了しました</h1>
-<br><br><br><br><br><br><br><br><br>
+	
 	<s:property value="name"/><br>
 	<s:property value="email"/><br>
 	<s:property value="info"/><br>
 
 	<a href="main.jsp">トップへ</a>
-
-        <div>
-
-        	<c:import url="http://localhost:8080/openconnect/footer.jsp" />
-
-        </div>
-
-
 </body>
 </html>

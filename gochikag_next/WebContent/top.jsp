@@ -9,16 +9,26 @@
 	<title>トップ</title>
 </head>
 <body>
-	<s:form action="LoginAction">
-		<s:textfield name="name"/>
-		<s:password name="password" />
-		<s:submit value="SUBMIT" />
+<!-- ヘッダー読み込み -->	
+	<s:include value="header.jsp" />
+
+<!-- kagu.jspへ遷移 : 実装済み -->
+	<s:form action="CategoryAction">
+		<s:hidden name="category" value="kagu"/>
+		<s:submit value="家具" />
 	</s:form>
 	
+<!-- kaden.jspへ遷移 : 実装済み -->
+	<s:form action="CategoryAction">
+		<s:hidden name="category" value="kaden"/>
+		<s:submit value="家電" />
+	</s:form>
 	
-	<a href="<s:url action="TwitterAction"/>">
-    	<img src="twitter-j.png"/>
-    </a>
+<!-- sale.jspへ遷移 : 実装済み -->
+	<s:form action="CategoryAction">
+		<s:hidden name="category" value="sale"/>
+		<s:submit value="セール" />
+	</s:form>
 
 </body>
 </html>

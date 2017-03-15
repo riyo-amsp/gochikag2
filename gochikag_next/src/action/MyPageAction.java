@@ -9,19 +9,19 @@ import java.util.*;
 
 public class MyPageAction extends ActionSupport {
 	private List<MyPageDTO> myInfo;
-	private String userId;
+	private int userId;
 	
 	public String execute() throws NumberFormatException, SQLException{
 		MyPageDAO dao = new MyPageDAO();
-		myInfo = dao.select(Integer.parseInt(userId));
+		myInfo = dao.select(userId);
 		return SUCCESS;
 	}
 
-	public String getUserId() {
+	public int getUserId() {
 		return userId;
 	}
 
-	public void setUserId(String userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 
