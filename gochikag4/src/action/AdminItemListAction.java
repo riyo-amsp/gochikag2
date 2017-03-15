@@ -27,6 +27,34 @@ public class AdminItemListAction extends ActionSupport {
 	List<String> nameList = new ArrayList<String>();
 	List<Float>priceList = new ArrayList<Float>();
 	List<Integer>countList = new ArrayList<Integer>();
+	List<Integer>itemIdList = new ArrayList<Integer>();
+	List<String>mainPictureList = new ArrayList<String>();
+	List<String> detailJaList = new ArrayList<String>();
+
+	public List<Integer> getItemIdList() {
+		return itemIdList;
+	}
+
+	public void setItemIdList(List<Integer> itemIdList) {
+		this.itemIdList = itemIdList;
+	}
+
+	public List<String> getMainPictureList() {
+		return mainPictureList;
+	}
+
+	public void setMainPictureList(List<String> mainPictureList) {
+		this.mainPictureList = mainPictureList;
+	}
+
+	public List<String> getDetailJaList() {
+		return detailJaList;
+	}
+
+	public void setDetailJaList(List<String> detailJaList) {
+		this.detailJaList = detailJaList;
+	}
+
 	List<ItemDTO> dtoList;
 
 	public String execute() {
@@ -42,6 +70,10 @@ public class AdminItemListAction extends ActionSupport {
 			nameList.add(dto.getItemName());
 			priceList.add(dto.getPrice());
 			countList.add(dto.getItemCount());
+			itemIdList.add(dto.getItemId());
+			mainPictureList.add(dto.getMainPicture());
+			detailJaList.add(dto.getDetailJa());
+
 		}
 
 		System.out.println("dtoチェック：" + nameList.size());

@@ -5,7 +5,7 @@ package action;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import dao.ItemDAO;
+import dao.AdminItemManageDAO;
 
 /**
  * @author SAKAMOTO
@@ -24,13 +24,12 @@ public class AdminItemManageAction extends ActionSupport {
 
 	public String execute() {
 		String result = ERROR;
-		this.msg = "更新できませんでした";
-
-		ItemDAO dao = new ItemDAO();
-		int con = dao.update(itemName, mainPicture, price, itemCount, pictures, detailJa);
-		if (con > 0) {
-			result = SUCCESS;
-			this.msg = "更新しました";
+		AdminItemManageDAO dao = new ItemSearchDAO();
+		if(id!=null || name!=null){
+			searchList = dao.select(id, name);
+			if (searchList.size() > 0) {
+				result = SUCCESS;
+			}
 		}
 		return result;
 	}
