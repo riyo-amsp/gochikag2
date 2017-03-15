@@ -7,16 +7,21 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Insert title here</title>
+	<title>ログイン</title>
 </head>
 <body>
+	<s:include value="header.jsp" />
 
 	<s:form action="LoginAction">
 		<s:textfield name="name" />
 		<s:password name="password" />
-		<s:submit type="image" src="learn.jpg" />
+		<s:submit value="送信"/>
 	</s:form>
 
+
+
+<!-- 後でOAUTH機能追加します -->
+<!-- TWITTERだよ -->
 	<a href="<s:url action="TwitterAction"/>">
     	<img src="twitter-j.png"/>
     </a>

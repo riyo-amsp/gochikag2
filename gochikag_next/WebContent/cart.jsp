@@ -2,6 +2,7 @@
 	contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="/struts-tags" prefix="s" %>
+<%@page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -14,193 +15,117 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	</head>
 	<style>
-	body{
-  		background-color:  #F9F8F4;
-  	}
-	article{
-		width: 400px;
-		margin:0 auto;
-	}
-	submit_btn {
-		display:inline-block;
-	}
+		body{
+			text-align: center;
+	  		background-color:  #F9F8F4;
+	  		list-style: none;
+	  	}
+		submit_btn {
+			display:inline-block;
+		}
+		.container{
+			width: 600px;
+		}
+		ul {
+			claer: both;
+		}
+		li {
+			width: 100px;
+			height: 100px;
+			list-style: none;
+			text-align: center;
+			float: left;
+			padding: 25px;
+			margin: 0 auto;
+		}
+		.styleManage1{
+			float: left;
+			text-align: center;
+		}
+		.styleManage2{
+			display: inline-block;
+			margin: auto 0;
+			align: center;
+		}
+		
+		table{
+			display: none;
+		}
 	</style>
-
+	<script>
+		$(function(){
+			$('.add').children('div').attr('align', 'center');
+		})
+	</script>
 	<body>
-		<article>
-		<!-- ★ためしはじめカートリスト：消す -->
-				<!-- カートリスト -->
-		<h1>カートリスト①</h1>
-		<table border="1">
-			<!--  カラム名 -->
-			<tr>
-				<td>アイテム名</td>
-				<td>単価(円)</td>
-				<td>数量</td>
-				<td>小計</td>
-				<td>削除</td>
-			</tr>
-			<!-- データ -->
-			<tr>
-				<s:form action="CartUpdateAction">
-					<s:hidden name="price" value="2500"/>
-					<s:hidden name="itemName" value="table1"/>
-					<s:hidden name="amount" value="2500"/>
-					<!-- アイテム名 -->
-					<td>テーブル</td>
-
-					<!-- 単価 -->
-					<td>20</td>
-
-					<!--  数量選択ボタン -->
-					<input type="hidden" name="itemId" value="1"/>
-
-					<td style="display:inline-block;">
-						<select name="itemCount" onChange="this.form.submit()">
-						<!-- 数量選択し、action後は、設定した数量を表示 -->
-							<option value="<s:property value="1"/>" selected>
-								<s:property value="itemCount"/>
-							</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-						</select>
-					</td>
-					<!-- 小計 -->
-					<td>20</td>
-				</s:form>
-
-				<s:form action="CartDeleteAction">
-					<!-- 削除ボタン -->
-					<s:hidden name="itemId" value="1" cssClass="submit_btn" theme="css_xhtml"/>
-					<s:hidden name="userId" value="%{#session.id}"/>
-					<td>
-						<!-- ★item_id=1と設定中 -->
-						<s:submit value="削除" cssClass="submit_btn" theme="css_xhtml"/>
-					</td>
-				</s:form>
-			</tr>
-		</table>
+		<s:if test="%{#session.id != null}">
+			<s:include value="header_done.jsp" />
+		</s:if>
+		<s:else>
+			<s:include value="header.jsp" />
+		</s:else>
 
 		<!-- 本ちゃん：カートリスト -->
-		<h1>カートリスト</h1>
-		<table border="1">
-
-			<!--  カラム名 -->
-			<tr>
-				<td>アイテム名</td>
-				<td>単価(円)</td>
-				<td>数量</td>
-				<td>小計</td>
-				<td>削除</td>
-			</tr>
-
+		<div class="container">
+			<ul>
+				<!--  カラム名 -->
+					<li>アイテム名</li>
+					<li>単価(円)</li>
+					<li>数量</li>
+					<li>小計</li>
+					<li>削除</li>
+			</ul>
+		</div>
 			<!-- データ -->
-			<tr>
-				<s:iterator value="itemList">
-
-					<s:iterator>
-
-						<p><s:property value="itemName"/></p>
-						<p><s:property value="price"/></p>
-
-
+		<s:iterator value="itemList">
+			<s:iterator>
+				<div class="container">
+					<ul>
 						<s:form action="CartUpdateAction">
-
+						<!--  パラメーターの送信: params = itemId, price, amount-->
+							<s:hidden name="itemId" value="%{itemId}" />
+							<s:hidden name="price" value="%{price}" />
+							<s:hidden name="amount" value="%{amount}" />
 						<!-- アイテム名 -->
-						<td><s:property value="itemName"/></td>
-
+							<li><s:property value="itemName"/> | </li>
 						<!-- 単価 -->
-						<td><s:property value="price"/></td>
-
+							<li><s:property value="price"/> | </li>
 						<!--  数量選択ボタン -->
-						<td>
-							<select name="itemCount" onChange="this.form.submit()">
-
-							<!-- 数量選択し、action後は、設定した数量を表示 -->
-							<option value="<s:property value="itemCount"/>" selected>
-							<s:property value="itemCount"/></option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-								<option value="7">7</option>
-								<option value="8">8</option>
-								<option value="9">9</option>
-								<option value="10">10</option>
-							</select>
-						</td>
-
-
-
+							<li class="styleManage1">
+								<s:select name="itemCount" 
+										  list="%{itemStockList.get(index)}" 
+										  onChange="this.form.submit()" 
+										  cssClass="styleManage2" theme="css_xhtml"/>
+							</li>
 						<!-- 小計 -->
-
-						<td><s:property value="amount"/></td>
-						<s:hidden name="itemId" value="%{itemId}"></s:hidden>
+							<li><s:property value="amount"/> | </li>
 						</s:form>
-
-
+	
 						<!-- 削除ボタン -->
-						<td>
-							<s:form action="CartDeleteAction">
-
-								<!-- ★item_id -->
-								<s:hidden name="itemId" value="%{itemId}"/>
-								<s:submit type="button" label="削除"/>
-							</s:form>
-						</td>
-
-				</s:iterator>
-
+						<s:form action="CartDeleteAction">
+							<!-- ★item_id -->
+							<s:hidden name="itemId" value="%{itemId}"/>
+							<li class="styleManage1">
+								<s:submit type="button" label="削除"
+										  cssClass="styleManage2" theme="css_xhtml"/>
+							</li>
+						</s:form>
+					</ul>
+				</div>
 			</s:iterator>
-
-		</tr>
-	</table>
-
-
-
-
-
-
-
-
-
-
-
-
-		<!-- 小計 -->
-
-
-
-
-
-
-		<!-- カートが空のとき、クレジットカード入力画面へ進もうとするとエラーメッセージを表示 -->
-
-
-		<!-- 合計 -->
-		<h1>合計</h1>
-		合計：<s:property value="totalPrice"/><br><br><br><Br><Br>
-
-		<!-- 購入を続ける画面へ遷移 -->
-
-		<a href="main.jsp">買い物を続ける</a>
-
-
-
-		<!-- 購入画面へ遷移 -->
-
-		<a href="pay.jsp">購入手続きへ</a>
-
-
-
-
-
-	</article>
-
+		</s:iterator>
+		<div class="container">
+			<h1>合計 ：<s:property value="totalPrice"/></h1>
+			
+			<!-- 購入を続ける画面へ遷移 -->
+			<a href="main.jsp">買い物を続ける</a>
+		
+			<!-- 購入画面へ遷移 -->
+			<!-- カートが空のとき、クレジットカード入力画面へ進もうとするとエラーメッセージを表示 -->
+			<s:if test="{!itemList.isEmpty()}" >
+				<a href="pay.jsp">購入手続きへ</a>
+			</s:if>
+		</div>
 
 </body>
 </html>
