@@ -6,13 +6,13 @@ import dao.AdminAddDAO;
 
 public class AdminAddAction extends ActionSupport {
 
-	private String itemName;
+	private int itemId;
 
+	private String itemName;
 
 	private float price;
 
 	private int itemCount;
-
 
 	private String mainPicture;
 
@@ -29,8 +29,11 @@ public class AdminAddAction extends ActionSupport {
 		String result = ERROR;
 
 		AdminAddDAO dao = new AdminAddDAO();
-		System.out.println("updatddate" + itemName);
-		dao.itemInsert(itemName, price, itemCount, mainPicture, pictures, detailJa, detailEn, category);
+		dao.itemInsert1(itemName, price, itemCount, mainPicture, category);
+		int itemId = dao.select();
+
+		dao.itemInsert2(itemId, pictures);
+		dao.itemInsert3(itemId, detailJa, detailEn);
 		if (itemName!=null || price!=0 || mainPicture!=null || itemCount!=0 || pictures!=null || detailJa!=null || detailEn!=null || category!=null) {
 			System.out.println("追加しました");
 			result = SUCCESS;
@@ -38,6 +41,19 @@ public class AdminAddAction extends ActionSupport {
 		}
 		return result;
 	}
+
+
+
+	public int getItemId() {
+		return itemId;
+	}
+
+
+
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
+	}
+
 
 
 	public String getItemName() {
