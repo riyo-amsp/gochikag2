@@ -19,20 +19,20 @@ public class LoginDAO {
 	LoginDTO dto = new LoginDTO();
 
 	public LoginDTO select(String phoneEmail, String password){
-		System.out.println("ue");
+
 		url =  "openconnect";
 		DBConnector db = new DBConnector(url);
 		Connection con =db.getConnection();
-		System.out.println("ki");
 
-		String sql = "select user_id, phone_email, login_flg, user_flg ,password from users where  phone_email = ? and password = ?";
+		String sql = "select user_id, phone_email, login_flg, user_flg ,password "
+				+ "from users where  phone_email = ? and password = ?";
 
 		try{
 			PreparedStatement ps= con.prepareStatement(sql);
 			ps.setString(1, phoneEmail);
 			ps.setString(2, password);
+
 			ResultSet rs =ps.executeQuery();
-			System.out.println("kayo");
 
 			if(rs.next()){
 				dto.setUserId(rs.getString("user_id"));
@@ -52,16 +52,17 @@ public class LoginDAO {
         return dto;
 	}
 
-	public ResultSet select2(String phoneEmail, String password){
+	public LoginDTO select2(String phoneEmail, String password){
+
 		url="gochikag2";
 		DBConnector db = new DBConnector();
 		Connection con =db.getConnection();
 		ResultSet rs = null;
 
-		System.out.println("dao2"+phoneEmail);
+		System.out.println("dao2_"+phoneEmail);
 
-		//String sql = "select phone_email, password from users where phone_email = ? and password = ?";
-		String sql = "select user_id from users where phone_email = ? and password = ?";
+		String sql = "select phone_email, password from users where phone_email = ? and password = ?";
+		//String sql = "select user_id from users where phone_email = ? and password = ?";
 
 
 		try{
@@ -71,12 +72,12 @@ public class LoginDAO {
 
 			rs=ps.executeQuery();
 
-			if(rs.next()){
+			//if(rs.next()){
 				/*dto.setPhoneEmail(rs.getString("phone_email"));
 				dto.setPassword(rs.getString("password"));
 				System.out.println(rs.getString("phone_email"));*/
 
-			}
+			//}
 
 
 		}catch(SQLException e){
@@ -86,11 +87,12 @@ public class LoginDAO {
         }catch(SQLException e){
         	e.printStackTrace();
         }
-        return rs;
+        return dto;
 	}
 
 
 	public int update(String phoneEmail, String password){
+
 		url="gochikag2";
 		DBConnector db = new DBConnector(url);
 		Connection con =db.getConnection();
@@ -115,13 +117,14 @@ public class LoginDAO {
         return count;
 	}
 
-	public LoginDTO insert(String userId, String phoneEmail, String loginFlg, String userFlg){
+	public LoginDTO insert(String userId, String phoneEmail, String loginFlg, String userFlg, String password){
 
 		DBConnector db = new DBConnector(url);
+		url="gochikag2";
 		Connection con =db.getConnection();
 
 		String sql = "insert into  users (user_id, phone_email, login_flg, user_flg) values (?, ?, ?, ?)";
-		url="gochikag2";
+
 		try{
 			PreparedStatement ps= con.prepareStatement(sql);
 			ps.setString(1,userId);
@@ -130,7 +133,6 @@ public class LoginDAO {
 			ps.setString(4,userFlg);
 			ResultSet rs =ps.executeQuery();
 
-			System.out.println("ko");
 
 			System.out.println(userId);
 
