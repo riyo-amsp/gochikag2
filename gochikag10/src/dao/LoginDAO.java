@@ -13,13 +13,15 @@ public class LoginDAO {
 	 *
 	 */
 
-	String url = "openconnect";
+	String url;
 
 	DBConnector db = new DBConnector(url);
 	Connection con =db.getConnection();
 	LoginDTO dto = new LoginDTO();
 
 	public LoginDTO select(String userId, String phoneEmail, String loginFlg, String userFlg ){
+
+		url =  "openconnect";
 
 		System.out.println(phoneEmail);
 
@@ -49,6 +51,35 @@ public class LoginDAO {
         }
         return dto;
 	}
+
+public LoginDTO select2(String phoneEmail, String password){
+
+		url =  "gochikag";
+
+		System.out.println(phoneEmail);
+
+		String sql = "select phone_email, password from user where phone_email = ? and password = ?";
+		try{
+			PreparedStatement ps= con.prepareStatement(sql);
+			ps.setString(1, phoneEmail);
+			ps.setString(2, password);
+			ResultSet rs =ps.executeQuery();
+
+			if(rs.next()){
+				dto.setPhoneEmail(rs.getString("phone_email"));
+				dto.setPassword(rs.getString("password"));
+			}
+
+		}catch(SQLException e){
+			e.printStackTrace();
+        }try{
+        	con.close();
+        }catch(SQLException e){
+        	e.printStackTrace();
+        }
+        return dto;
+	}
+
 
 	public int update(String phoneEmail, String password){
 		int count = 0;
