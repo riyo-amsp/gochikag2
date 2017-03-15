@@ -13,57 +13,114 @@ import dto.LoginDTO;
 
 
 public class LoginAction extends ActionSupport implements SessionAware{
-	private String name;
+
+	private String phoneEmail;
 	private String password;
+	private String userId;
+	//private String name;
+	private String userFlg;
+	private String loginFlg;
 	private LoginDTO dto;
 
 	private Map<String,Object>session;
 
+
 	public String execute(){
-		String ret =ERROR;
-		LoginDAO dao =new LoginDAO();
 
-		System.out.println("ACTION");
-		System.out.println(name);
-		System.out.println(password);
+		String ret = ERROR;
+		LoginDAO dao = new LoginDAO();
 
-		dto=dao.select(name,password);
-		String dtoName=dto.getName();
-		String dtoPassword=dto.getPassword();
+		dto = dao.select(userId,phoneEmail,loginFlg,userFlg);
 
-		if(name.equals(dtoName)){
-			if(dtoPassword.equals(dto.getPassword())){
-				ret=SUCCESS ;
+		if(phoneEmail.equals(dto.getPhoneEmail())){
+			if(password.equals(dto.getPassword())){
+				if(dto.getUserFlg().equals("3")) {
+
+					int rs =0;
+
+					rs = dao.update(phoneEmail,password);
+
+					ret = "admin";
+
+				} else {
+					int rs = 0;
+
+					rs = dao.update(phoneEmail,password);
+
+
+					ret=SUCCESS ;
+				}
 			}
 		}
-		session.put("name",dto.getName());
-		session.put("id",dto.getId());
+
+
+
+		session.put("id",dto.getUserId());
 
 		return ret;
 	}
 
-	/*public String getName() {
-		return name;
-	}*/
 
-	public void setName(String name) {
-		this.name = name;
+	public String getPhoneEmail() {
+		return phoneEmail;
 	}
-	/*
+
+
+	public void setPhoneEmail(String phoneEmail) {
+		this.phoneEmail = phoneEmail;
+	}
+
+
 	public String getPassword() {
 		return password;
-	}*/
+	}
+
 
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	public Map<String, Object> getSession() {
-		return session;
+
+	public String getUserId() {
+		return userId;
 	}
 
-	public void setSession(Map<String, Object> session) {
-		this.session = session;
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+
+	/*public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}*/
+
+
+
+
+	public String getUserFlg() {
+		return userFlg;
+	}
+
+
+	public void setUserFlg(String userFlg) {
+		this.userFlg = userFlg;
+	}
+
+
+
+	public String getLoginFlg() {
+		return loginFlg;
+	}
+
+
+	public void setLoginFlg(String loginFlg) {
+		this.loginFlg = loginFlg;
 	}
 
 
@@ -71,7 +128,20 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		return dto;
 	}
 
+
 	public void setDto(LoginDTO dto) {
 		this.dto = dto;
 	}
+
+
+	public Map<String, Object> getSession() {
+		return session;
+	}
+
+
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
+
 }
