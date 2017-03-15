@@ -12,31 +12,21 @@ public class ItemAction extends ActionSupport {
 
 	private String itemId;
 	private ItemDTO dto;
-	private int count;
+	private int stockNumber;
 	private int price;
-	private List<Integer>countList;
+	private List<Integer> stockNumberList;
 
-	public int getPrice() {
-		return price;
-	}
-
-	public void setPrice(int price) {
-		this.price = price;
-	}
 
 	public String execute() {
 
 		ItemDAO dao = new ItemDAO();
 		dto = dao.select(Integer.parseInt(itemId));
-		count = dto.getItemCount();
+		stockNumber = dto.getStockNumber();
 		price = (int) dto.getPrice();
-		countList = new ArrayList<Integer>();
-		for(int i=0; i<=count; i++){
-			countList.add(i);
+		stockNumberList = new ArrayList<Integer>();
+		for(int i=0; i<=stockNumber; i++){
+			stockNumberList.add(i);
 		}
-
-		//itemList= dao.select(item_id);
-
 		return SUCCESS;
 		}
 
@@ -55,21 +45,31 @@ public class ItemAction extends ActionSupport {
 	public void setDto(ItemDTO dto) {
 		this.dto = dto;
 	}
+	
 
-	public int getCount() {
-		return count;
+	public int getPrice() {
+		return price;
 	}
 
-	public void setCount(int count) {
-		this.count = count;
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	public int getStockNumber() {
+		return stockNumber;
 	}
 
-	public List<Integer> getCountList() {
-		return countList;
+	public void setStockNumber(int stockNumber) {
+		this.stockNumber = stockNumber;
 	}
 
-	public void setCountList(List<Integer> countList) {
-		this.countList = countList;
+	public List<Integer> getStockNumberList() {
+		return stockNumberList;
 	}
+
+	public void setStockNumberList(List<Integer> stockNumberList) {
+		this.stockNumberList = stockNumberList;
+	}
+
+
 
 }

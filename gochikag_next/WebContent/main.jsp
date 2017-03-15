@@ -9,40 +9,9 @@
 	<title>メイン画面</title>
 </head>
 <body>
-	<p>ログインユーザー: <s:property value="#session.name" /></p>
+	
+	<s:include value="header_done.jsp" />
 
-	<!-- top.jspへ遷移 : 実装済み -->
-	<s:form action="LogoutAction">
-		<s:submit value="ログアウト"/>
-	</s:form>
-	
-	
-
-	<!--  my_page.jspへ遷移 : 実装済み -->
-	<s:form action="MyPageAction">
-		<!-- valueはのちにセッションから取得 value="%{#session.id}" -->
-		<s:hidden name="userId" value="1" />
-		<s:submit value="マイページ"/>
-	</s:form>
-	
-	
-	<!--  info.jspへ遷移 : aタグのため実装なし-->
-	<a href="info.jsp">問い合わせ</a>
-	
-	
-	<!-- 後で実装しまーす!!! -->	
-	<s:form action="CartAction">
-		<s:submit value="カートへ" />
-	</s:form>
-	
-	<a href="cart.jsp">カートへ</a>
-	
-	
-	<!--  main.jspへ遷移 : aタグのため実装なし -->
-	<a href="main.jsp">タイトル</a>
-	
-	
-	
 	<!-- kagu.jspへ遷移 : 実装済み -->
 	<s:form action="CategoryAction">
 		<s:hidden name="category" value="kagu"/>
