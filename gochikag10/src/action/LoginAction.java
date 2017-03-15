@@ -21,6 +21,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	private String userFlg;
 	private String loginFlg;
 	private LoginDTO dto;
+	private LoginDTO dto2;
 
 	private Map<String,Object>session;
 
@@ -32,9 +33,29 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 		dto = dao.select(userId,phoneEmail,loginFlg,userFlg);
 
+		/*
+		 * ログイン時のメールとパスワード認証
+		 */
 		if(phoneEmail.equals(dto.getPhoneEmail())){
 			if(password.equals(dto.getPassword())){
+
+				/*
+				 * user_flg = 3 （管理者）
+				 */
 				if(dto.getUserFlg().equals("3")) {
+
+					/*
+					 * ログイン時のメールとパスワードが
+					 * gochikag user(DB) と照合
+					 */
+
+					dto2 = dao.select2(phoneEmail, password);
+
+					if(!(phoneEmail.equals(dto2.getPhoneEmail())) && !(password.equals(dto2.getPassword()))){
+
+						int in = 0;
+						in = dao.insert(userId,phoneEmail,loginFlg,userFlg);
+					}
 
 					int rs =0;
 
@@ -43,6 +64,17 @@ public class LoginAction extends ActionSupport implements SessionAware{
 					ret = "admin";
 
 				} else {
+
+
+					dto2 = dao.select2(phoneEmail, password);
+
+					if(!(phoneEmail.equals(dto2.getPhoneEmail())) && !(password.equals(dto2.getPassword()))){
+
+						int in = 0;
+						in = dao.insert(userId,phoneEmail,loginFlg,userFlg);
+
+					}
+
 					int rs = 0;
 
 					rs = dao.update(phoneEmail,password);
@@ -141,6 +173,16 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
+	}
+
+
+	public LoginDTO getDto2() {
+		return dto2;
+	}
+
+
+	public void setDto2(LoginDTO dto2) {
+		this.dto2 = dto2;
 	}
 
 
