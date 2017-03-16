@@ -10,6 +10,17 @@
 	<link rel="stylesheet" type="text/css" href="css/top.css">
 	<link rel="stylesheet" type="text/css" href="css/sakura.css">
 	<title>トップ</title>
+
+
+
+
+<!-- ファビコンです　米島 -->
+
+<link rel="shortcut icon" href="img/favcon.ico">
+
+
+
+
 </head>
 <body>
 <script src="js/sakura.js"></script>

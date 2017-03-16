@@ -7,8 +7,8 @@
 <link rel="stylesheet" type="text/css" href="css/header.css">
 
 
-<body>
-    <h1>＊"すべてが、かわいい。" アンティーク家具の通販サイト 『ごちかぐ』＊</h1>
+<html><body>
+    <h1>"すべてが、かわいい。" アンティーク家具の通販サイト 『ごちかぐ』</h1>
 	<h2><a href="top.jsp"><img class="item" src="img/logo2.png"></a></h2>
 
 
@@ -16,4 +16,4 @@
 	<!--  info.jspへ遷移 : aタグのため実装なし-->
 	<a class = "menu" href="login.jsp">ログイン</a> <a class = "menu" href="info.jsp">問い合わせ</a>  </div>
 
-</body><HR size="8" color="#8b0000">
+</body></html><HR size="8" color="#8b0000">

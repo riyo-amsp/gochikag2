@@ -5,10 +5,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<link rel="stylesheet" type="text/css" href="css/kagu.css">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>家具</title>
 </head>
 <body>
+
+<!-- -->
+<h3 class="headline">　　　家具</h3>
+
+
 	<s:if test="%{#session.id != null}">
 		<s:include value="header_done.jsp" />
 	</s:if>

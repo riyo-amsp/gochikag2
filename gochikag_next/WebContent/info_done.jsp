@@ -4,6 +4,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
+
+
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -29,9 +31,24 @@
 		<s:include value="header.jsp" />
 	</s:else>
 
-	<h1>お問い合わせ</h1>
-	<h1>完了しました</h1>
-	
+<img src="img/flowerline.png">
+
+
+<link rel="stylesheet" type="text/css" href="css/info_done.css">
+
+
+	<h1>お問い合わせが完了しました。<br>
+
+お問い合わせいただきありがとうございました。<br>
+お問い合わせを受け付けました。<br>
+
+折り返し、担当者よりご連絡いたしますので、<br>
+恐れ入りますが、しばらくお待ちください。<br>
+
+なお、ご入力いただいたメールアドレス宛に受付完了メールを配信しております。<br>
+完了メールが届かない場合、処理が正常に行われていない可能性があります。<br>
+大変お手数ですが、再度お問い合わせの手続きをお願い致します。</h1>
+
 	<s:property value="name"/><br>
 	<s:property value="email"/><br>
 	<s:property value="info"/><br>

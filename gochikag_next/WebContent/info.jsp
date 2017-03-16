@@ -43,8 +43,18 @@
 	<s:form action="InfoAction">
 		<div class="container">
 			<div class="contents">
+
+
+
+
 				<h1>お問い合わせ</h1>
 				<div>
+
+メールアドレスをお間違えの場合はお返事が届きません。ご注意ください。<br>
+また、弊店からのお返事が迷惑メールとして処理される場合がございますので、迷惑メールフォルダもご確認ください。<br>
+
+<img src="img/flowerline.png">
+
 					<h2> <s:textfield name="name" label = "名前"/></h2>
 					<h2> <s:textfield name="email" label = "メールアドレス"/></h2>
 					<h2>
@@ -53,13 +63,15 @@
 				</div>
 			</div>
 		</div>
-	
+
 	    <s:submit value="送信"/>
 	</s:form>
-	
+
 	<s:property value="name"/>
 	<s:property value="email"/>
 	<s:property value="info"/>
+
+ <img src="img/flowerline.png">
 
 
 

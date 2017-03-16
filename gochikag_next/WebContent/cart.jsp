@@ -13,6 +13,14 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+	<!-- ファビコンです　米島 -->
+
+<link rel="shortcut icon" href="img/favcon.ico">
+
+
+
 	</head>
 	<style>
 		body{
@@ -47,7 +55,7 @@
 			margin: auto 0;
 			align: center;
 		}
-		
+
 		table{
 			display: none;
 		}
@@ -92,15 +100,15 @@
 							<li><s:property value="price"/> | </li>
 						<!--  数量選択ボタン -->
 							<li class="styleManage1">
-								<s:select name="itemCount" 
-										  list="%{itemStockList.get(index)}" 
-										  onChange="this.form.submit()" 
+								<s:select name="itemCount"
+										  list="%{itemStockList.get(index)}"
+										  onChange="this.form.submit()"
 										  cssClass="styleManage2" theme="css_xhtml"/>
 							</li>
 						<!-- 小計 -->
 							<li><s:property value="amount"/> | </li>
 						</s:form>
-	
+
 						<!-- 削除ボタン -->
 						<s:form action="CartDeleteAction">
 							<!-- ★item_id -->
@@ -116,10 +124,10 @@
 		</s:iterator>
 		<div class="container">
 			<h1>合計 ：<s:property value="totalPrice"/></h1>
-			
+
 			<!-- 購入を続ける画面へ遷移 -->
 			<a href="main.jsp">買い物を続ける</a>
-		
+
 			<!-- 購入画面へ遷移 -->
 			<!-- カートが空のとき、クレジットカード入力画面へ進もうとするとエラーメッセージを表示 -->
 			<s:if test="{!itemList.isEmpty()}" >
