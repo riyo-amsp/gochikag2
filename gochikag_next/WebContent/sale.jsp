@@ -6,7 +6,17 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>セール</title>
+	<title>ご注文は家具ですか？　｜　セール商品</title>
+
+
+	<head>
+<!-- ファビコンです　米島 -->
+
+<link rel="shortcut icon" href="img/favcon.ico">
+
+</head>
+
+
 </head>
 <body>
 	<s:if test="%{#session.id != null}">

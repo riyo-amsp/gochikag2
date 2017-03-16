@@ -9,6 +9,12 @@
 
 
 <title>商品詳細</title>
+
+<!-- ファビコンです　米島 -->
+
+<link rel="shortcut icon" href="img/favcon.ico">
+
+
 </head>
 <body>
 	<s:if test="%{#session.id != null}">

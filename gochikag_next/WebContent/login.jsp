@@ -1,4 +1,4 @@
-<%@ page language="java" 
+<%@ page language="java"
 	contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
@@ -8,6 +8,15 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>ログイン</title>
+
+<head>
+<!-- ファビコンです　米島 -->
+
+<link rel="shortcut icon" href="img/favcon.ico">
+
+</head>
+
+
 </head>
 <body>
 	<s:include value="header.jsp" />

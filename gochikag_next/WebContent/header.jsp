@@ -7,6 +7,14 @@
 <link rel="stylesheet" type="text/css" href="css/header.css">
 
 
+<head>
+<!-- ファビコンです　米島 -->
+
+<link rel="shortcut icon" href="img/favcon.ico">
+
+</head>
+
+
 <html><body>
     <h1>"すべてが、かわいい。" アンティーク家具の通販サイト 『ごちかぐ』</h1>
 	<h2><a href="top.jsp"><img class="item" src="img/logo2.png"></a></h2>

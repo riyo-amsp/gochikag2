@@ -7,6 +7,10 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>家電</title>
+
+	<!-- ファビコンです　米島 -->
+
+<link rel="shortcut icon" href="img/favcon.ico">
 </head>
 <body>
 	<s:if test="%{#session.id != null}">
@@ -15,8 +19,8 @@
 	<s:else>
 		<s:include value="header.jsp" />
 	</s:else>
-	
-	
+
+
 	<s:iterator value="items">
 		<s:iterator>
 			<p><s:property value="itemName" /></p>

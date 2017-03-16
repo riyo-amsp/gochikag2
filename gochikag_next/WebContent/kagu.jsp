@@ -9,6 +9,10 @@
 <link rel="stylesheet" type="text/css" href="css/kagu.css">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>家具</title>
+
+	<!-- ファビコンです　米島 -->
+
+<link rel="shortcut icon" href="img/favcon.ico">
 </head>
 <body>
 
