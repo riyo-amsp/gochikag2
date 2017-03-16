@@ -34,10 +34,8 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 		dto = dao.select(phoneEmail,password);
 
-		System.out.println("action="+dto);
 		System.out.println(phoneEmail);
 		System.out.println(password);
-
 
 		/*
 		 * ログイン時のメールとパスワード認証
@@ -46,7 +44,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 			if(password.equals(dto.getPassword())){
 				String flg = dto.getUserFlg();
 				count = dao.count(phoneEmail,password);
-				System.out.println(count);
+				System.out.println("actionCount="+count);
 				ret = SUCCESS;
 				/*gochikagDBにデータが無ければinsertする
 				 *
@@ -80,10 +78,10 @@ public class LoginAction extends ActionSupport implements SessionAware{
 				/*ログインフラグをtrueにする
 				 *
 				 */
-				System.out.println(count);
+				System.out.println(flg);
 				int rs =0;
 				rs= dao.update(phoneEmail, password);
-				System.out.println("up="+rs);
+				System.out.println("up="+flg);
 				if(rs==0){
 					/*update出来なければエラーを返す
 					 *
@@ -126,19 +124,6 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-
-
-	/*public String getName() {
-		return name;
-	}
-
-
-	public void setName(String name) {
-		this.name = name;
-	}*/
-
-
-
 
 	public String getUserFlg() {
 		return userFlg;

@@ -18,6 +18,7 @@ public class LoginDAO {
 
 	LoginDTO dto = new LoginDTO();
 	LoginDTO dto2 = new LoginDTO();
+	PreparedStatement ps;
 
 	/**
 	 * @param phoneEmail
@@ -35,7 +36,7 @@ public class LoginDAO {
 				+ "from users where  phone_email = ? and password = ?";
 
 		try{
-			PreparedStatement ps= con.prepareStatement(sql);
+			ps= con.prepareStatement(sql);
 			ps.setString(1, phoneEmail);
 			ps.setString(2, password);
 
@@ -55,7 +56,7 @@ public class LoginDAO {
         	con.close();
         }catch(SQLException e){
         	e.printStackTrace();
-        }System.out.println("select");
+        }
         return dto;
 
 	}
@@ -70,26 +71,20 @@ public class LoginDAO {
 
 		url = "gochikag2";
 		DBConnector db = new DBConnector(url);
-		System.out.println("gochikag2="+db);
 		Connection con =db.getConnection();
 		int count2 = 0 ;
 
 		String sql = "select count(*) count from users where phone_email = ? and password = ? ";
 
 		try{
-			PreparedStatement ps= con.prepareStatement(sql);
+			ps= con.prepareStatement(sql);
 			ps.setString(1, phoneEmail);
 			ps.setString(2, password);
-
-			System.out.println(ps);
-
 			ResultSet rs=ps.executeQuery();
-			System.out.println(rs);
 
 			if(rs.next()){
 				count2 = rs.getInt("count");
 			}
-			System.out.println(count2);
 
 
 		}catch(SQLException e){
@@ -98,7 +93,7 @@ public class LoginDAO {
         	con.close();
         }catch(SQLException e){
         	e.printStackTrace();
-        }System.out.println(count2);
+        }System.out.println("count2="+count2);
         return count2;
 	}
 
@@ -119,7 +114,7 @@ public class LoginDAO {
 		String sql = "update users set login_flg = true where phone_email = ? and password = ?";
 
 		try{
-			PreparedStatement ps= con.prepareStatement(sql);
+			ps= con.prepareStatement(sql);
 			ps.setString(1, phoneEmail);
 			ps.setString(2,password);
 
@@ -129,6 +124,7 @@ public class LoginDAO {
 			e.printStackTrace();
         }try{
         	con.close();
+        	ps.close();
         }catch(SQLException e){
         	e.printStackTrace();
         }System.out.println("update");
@@ -153,7 +149,7 @@ public class LoginDAO {
 		String sql = "insert into  users (user_id, phone_email, login_flg, user_flg, password) values (?, ?, ?, ?, ?)";
 
 		try{
-			PreparedStatement ps= con.prepareStatement(sql);
+			ps= con.prepareStatement(sql);
 			ps.setString(1,userId);
 			ps.setString(2,phoneEmail);
 			ps.setString(3,loginFlg);
@@ -167,6 +163,7 @@ public class LoginDAO {
 			e.printStackTrace();
         }try{
         	con.close();
+        	ps.close();
         }catch(SQLException e){
         	e.printStackTrace();
         }System.out.println("insert");
