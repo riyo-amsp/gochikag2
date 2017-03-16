@@ -17,12 +17,11 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	private String phoneEmail;
 	private String password;
 	private String userId;
-	//private String name;
 	private String userFlg;
 	private String loginFlg;
+	private int count;
 	private LoginDTO dto;
 	private LoginDTO dto2;
-	private LoginDTO dto3;
 
 	private Map<String,Object>session;
 
@@ -30,43 +29,71 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	public String execute(){
 
 		String ret = ERROR;
+
 		LoginDAO dao = new LoginDAO();
 
 		dto = dao.select(phoneEmail,password);
-		dto2 = dao.select2(phoneEmail, password);
 
 		System.out.println("action="+dto);
 		System.out.println(phoneEmail);
 		System.out.println(password);
-		System.out.println(dto.getPhoneEmail());
-		System.out.println(dto.getPassword());
+
 
 		/*
 		 * ログイン時のメールとパスワード認証
 		 */
 		if(phoneEmail.equals(dto.getPhoneEmail())){
 			if(password.equals(dto.getPassword())){
+				String flg = dto.getUserFlg();
+				count = dao.count(phoneEmail,password);
+				System.out.println(count);
+				ret = SUCCESS;
+				/*gochikagDBにデータが無ければinsertする
+				 *
+				 */
+				if(count==0){
+					dto2 = dao.insert(dto.getUserId(),dto.getPhoneEmail(),dto.getLoginFlg(),dto.getUserFlg(),dto.getPassword());
+					System.out.println("dto2="+dto2);
+					System.out.println(userId);
 
-				System.out.println(dto.getUserFlg());
+					if(dto2==null){
+						/*insert出来なければエラーを返す
+						 *
+						 */
+						return ret;
+					}
+				}
 				/*
 				 * user_flg = 3 （管理者）
 				 */
-				if(dto.getUserFlg().equals("3")) {
+				if(flg.equals("3")) {
 					ret = "admin";
-				}else if(dto2!=null){
-				/*
-				 * ログイン時のメールとパスワードが
-				 * gochikag user(DB) と照合
+					System.out.println(ret);
+
+				/*user_flg =1, 2 (一般)
+				 *
 				 */
-				dto3 = dao.insert(userId,phoneEmail,loginFlg,userFlg,password);
+				}else if((flg.equals("1"))&&(flg.equals("2"))){
+				ret = SUCCESS;
 				}
+
+				/*ログインフラグをtrueにする
+				 *
+				 */
+				System.out.println(count);
+				int rs =0;
+				rs= dao.update(phoneEmail, password);
+				System.out.println("up="+rs);
+				if(rs==0){
+					/*update出来なければエラーを返す
+					 *
+					 */
+					return ret;
+				}
+
 			}
 		}
-
-
-
 		session.put("id",dto.getUserId());
-
 		return ret;
 	}
 
@@ -134,6 +161,24 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	}
 
 
+	/**
+	 * countを取得します。
+	 * @return count
+	 */
+	public int getCount() {
+	    return count;
+	}
+
+
+	/**
+	 * countを設定します。
+	 * @param count count
+	 */
+	public void setCount(int count) {
+	    this.count = count;
+	}
+
+
 	public LoginDTO getDto() {
 		return dto;
 	}
@@ -155,12 +200,12 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 
 	public LoginDTO getDto2() {
-		return dto2;
+		return (LoginDTO) dto2;
 	}
 
 
 	public void setDto2(LoginDTO dto2) {
-		this.dto2 = dto2;
+		this.dto2 = (LoginDTO) dto2;
 	}
 
 

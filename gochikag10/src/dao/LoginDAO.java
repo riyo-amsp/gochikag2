@@ -13,11 +13,18 @@ public class LoginDAO {
 	 *
 	 */
 
-	String url;
+	String url = null;
 
 
 	LoginDTO dto = new LoginDTO();
+	LoginDTO dto2 = new LoginDTO();
 
+	/**
+	 * @param phoneEmail
+	 * @param password
+	 * @return
+	 * openconnectからアドレスとパスワードを持ってくる
+	 */
 	public LoginDTO select(String phoneEmail, String password){
 
 		url =  "openconnect";
@@ -48,36 +55,41 @@ public class LoginDAO {
         	con.close();
         }catch(SQLException e){
         	e.printStackTrace();
-        }
+        }System.out.println("select");
         return dto;
+
 	}
 
-	public LoginDTO select2(String phoneEmail, String password){
+	/**
+	 * @param phoneEmail
+	 * @param password
+	 * @return
+	 * gochikagDBのデータ件数を持ってくる
+	 */
+	public int count (String phoneEmail, String password){
 
-		url="gochikag2";
-		DBConnector db = new DBConnector();
+		url = "gochikag2";
+		DBConnector db = new DBConnector(url);
+		System.out.println("gochikag2="+db);
 		Connection con =db.getConnection();
-		ResultSet rs = null;
+		int count2 = 0 ;
 
-		System.out.println("dao2_"+phoneEmail);
-
-		String sql = "select phone_email, password from users where phone_email = ? and password = ?";
-		//String sql = "select user_id from users where phone_email = ? and password = ?";
-
+		String sql = "select count(*) count from users where phone_email = ? and password = ? ";
 
 		try{
 			PreparedStatement ps= con.prepareStatement(sql);
 			ps.setString(1, phoneEmail);
 			ps.setString(2, password);
 
-			rs=ps.executeQuery();
+			System.out.println(ps);
 
-			//if(rs.next()){
-				/*dto.setPhoneEmail(rs.getString("phone_email"));
-				dto.setPassword(rs.getString("password"));
-				System.out.println(rs.getString("phone_email"));*/
+			ResultSet rs=ps.executeQuery();
+			System.out.println(rs);
 
-			//}
+			if(rs.next()){
+				count2 = rs.getInt("count");
+			}
+			System.out.println(count2);
 
 
 		}catch(SQLException e){
@@ -86,11 +98,17 @@ public class LoginDAO {
         	con.close();
         }catch(SQLException e){
         	e.printStackTrace();
-        }
-        return dto;
+        }System.out.println(count2);
+        return count2;
 	}
 
 
+	/**
+	 * @param phoneEmail
+	 * @param password
+	 * @return
+	 * GochikagDBのログインフラグをtrueにする
+	 */
 	public int update(String phoneEmail, String password){
 
 		url="gochikag2";
@@ -98,12 +116,12 @@ public class LoginDAO {
 		Connection con =db.getConnection();
 		int count = 0;
 
-		String sql = "update users set login_flg = true where phoneEmail = ? and password = ?";
+		String sql = "update users set login_flg = true where phone_email = ? and password = ?";
 
 		try{
 			PreparedStatement ps= con.prepareStatement(sql);
 			ps.setString(1, phoneEmail);
-			ps.setString(3,password);
+			ps.setString(2,password);
 
 			count =ps.executeUpdate();
 
@@ -113,17 +131,26 @@ public class LoginDAO {
         	con.close();
         }catch(SQLException e){
         	e.printStackTrace();
-        }
+        }System.out.println("update");
         return count;
 	}
 
+	/**
+	 * @param userId
+	 * @param phoneEmail
+	 * @param loginFlg
+	 * @param userFlg
+	 * @param password
+	 * @return
+	 * gochikagDBにデータをinsertする
+	 */
 	public LoginDTO insert(String userId, String phoneEmail, String loginFlg, String userFlg, String password){
-
-		DBConnector db = new DBConnector(url);
 		url="gochikag2";
+		DBConnector db = new DBConnector(url);
 		Connection con =db.getConnection();
+		int rs = 0;
 
-		String sql = "insert into  users (user_id, phone_email, login_flg, user_flg) values (?, ?, ?, ?)";
+		String sql = "insert into  users (user_id, phone_email, login_flg, user_flg, password) values (?, ?, ?, ?, ?)";
 
 		try{
 			PreparedStatement ps= con.prepareStatement(sql);
@@ -131,18 +158,10 @@ public class LoginDAO {
 			ps.setString(2,phoneEmail);
 			ps.setString(3,loginFlg);
 			ps.setString(4,userFlg);
-			ResultSet rs =ps.executeQuery();
-
+			ps.setString(5, password);
+			rs =ps.executeUpdate();
 
 			System.out.println(userId);
-
-			if(rs.next()){
-				dto.setUserId(rs.getString("user_id"));
-				dto.setPhoneEmail(rs.getString("phone_email"));
-				dto.setLoginFlg(rs.getString("login_flg"));
-				dto.setUserFlg(rs.getString("user_flg"));
-
-			}
 
 		}catch(SQLException e){
 			e.printStackTrace();
@@ -150,7 +169,7 @@ public class LoginDAO {
         	con.close();
         }catch(SQLException e){
         	e.printStackTrace();
-        }
+        }System.out.println("insert");
         return dto;
 	}
 

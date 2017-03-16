@@ -1,33 +1,12 @@
 package dto;
 
 public class LoginDTO {
-	//private String name;
 	private String password;
 	private String phoneEmail;
 	private String userId;
 	private String loginFlg;
 	private String userFlg;
-	/**
-	 * nameを取得します。
-	 * @return name
-	 */
-	/*public String getName() {
-	    return name;
-	}*/
-	/**
-	 * nameを設定します。
-	 * @param name name
-	 */
-	/*public void setName(String name) {
-	    this.name = name;
-	}*/
-	/**
-	 * passwordを取得します。
-	 * @return password
-	 */
-	public String getPassword() {
-	    return password;
-	}
+	private int count;
 	/**
 	 * passwordを設定します。
 	 * @param password password
@@ -79,16 +58,42 @@ public class LoginDTO {
 	    this.userFlg = userFlg;
 	}
 	/**
+	 * passwordを取得します。
+	 * @return password
+	 */
+	public String getPassword() {
+	    return password;
+	}
+	/**
+	 * phoneEmailを取得します。
 	 * @return phoneEmail
 	 */
 	public String getPhoneEmail() {
 		return phoneEmail;
 	}
+
 	/**
-	 * @param phoneEmail セットする phoneEmail
+	 * phoneEmailを設定します。
+	 * @param phoneEmail phoneEmail
 	 */
 	public void setPhoneEmail(String phoneEmail) {
 		this.phoneEmail = phoneEmail;
+	}
+
+	/**
+	 * countを取得します。
+	 * @return count
+	 */
+	public int getCount() {
+	    return count;
+	}
+
+	/**
+	 * countを設定します。
+	 * @param count count
+	 */
+	public void setCount(int count) {
+	    this.count = count;
 	}
 
 
