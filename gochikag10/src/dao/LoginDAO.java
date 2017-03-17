@@ -57,6 +57,7 @@ public class LoginDAO {
         }catch(SQLException e){
         	e.printStackTrace();
         }
+        System.out.println("select_"+"userId="+dto.getUserId()+",password="+dto.getPassword());
         return dto;
 
 	}
@@ -109,7 +110,7 @@ public class LoginDAO {
 		url="gochikag2";
 		DBConnector db = new DBConnector(url);
 		Connection con =db.getConnection();
-		int count = 0;
+		int flg = 0;
 
 		String sql = "update users set login_flg = true where phone_email = ? and password = ?";
 
@@ -118,7 +119,7 @@ public class LoginDAO {
 			ps.setString(1, phoneEmail);
 			ps.setString(2,password);
 
-			count =ps.executeUpdate();
+			flg =ps.executeUpdate();
 
 		}catch(SQLException e){
 			e.printStackTrace();
@@ -127,9 +128,43 @@ public class LoginDAO {
         	ps.close();
         }catch(SQLException e){
         	e.printStackTrace();
-        }System.out.println("update");
-        return count;
+        }System.out.println("update_lFlg="+flg);
+        return flg;
 	}
+
+	/**
+	 * @param phoneEmail
+	 * @param password
+	 * @return
+	 * openconnectのログインフラグをtrueにする
+	 */
+	public int update2(String phoneEmail, String password){
+
+		url="openconnect";
+		DBConnector db = new DBConnector(url);
+		Connection con =db.getConnection();
+		int flg2 = 0;
+
+		String sql = "update users set login_flg = true where phone_email = ? and password = ?";
+
+		try{
+			ps= con.prepareStatement(sql);
+			ps.setString(1, phoneEmail);
+			ps.setString(2,password);
+
+			flg2 =ps.executeUpdate();
+
+		}catch(SQLException e){
+			e.printStackTrace();
+        }try{
+        	con.close();
+        	ps.close();
+        }catch(SQLException e){
+        	e.printStackTrace();
+        }System.out.println("update2_lFlg="+flg2);
+        return flg2;
+	}
+
 
 	/**
 	 * @param userId

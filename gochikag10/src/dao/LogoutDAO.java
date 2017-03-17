@@ -17,8 +17,8 @@ import util.DBConnector;
 public class LogoutDAO {
 
 	String url = null;
-	int flg;
-	int flg2;
+	int lFlg;
+	int lFlg2;
 
 	LoginDTO dto = new LoginDTO();
 	LoginDTO dto2 = new LoginDTO();
@@ -42,7 +42,7 @@ public class LogoutDAO {
 			ps.setString(1, phoneEmail);
 			ps.setString(2,password);
 
-			flg =ps.executeUpdate();
+			lFlg =ps.executeUpdate();
 
 		}catch(SQLException e){
 			e.printStackTrace();
@@ -50,8 +50,8 @@ public class LogoutDAO {
         	con.close();
         }catch(SQLException e){
         	e.printStackTrace();
-        }System.out.println("daoUp="+flg);
-        return flg;
+        }System.out.println("daoUp="+lFlg);
+        return lFlg;
 	}
 
 	/**
@@ -73,7 +73,7 @@ public class LogoutDAO {
 			ps.setString(1, phoneEmail);
 			ps.setString(2,password);
 
-			flg2 =ps.executeUpdate();
+			lFlg2 =ps.executeUpdate();
 
 		}catch(SQLException e){
 			e.printStackTrace();
@@ -81,8 +81,8 @@ public class LogoutDAO {
         	con.close();
         }catch(SQLException e){
         	e.printStackTrace();
-        }System.out.println("daoUp2"+flg2);
-        return flg2;
+        }System.out.println("daoUp2="+lFlg2);
+        return lFlg2;
 	}
 	/**
 	 *
@@ -90,31 +90,21 @@ public class LogoutDAO {
 	 * @param userId
 	 * @return
 	 * @throws SQLException
-	 * gochikagDBのcartテーブルのデータの削除<table:cart>
+	 * gochikagDBのcartテーブルのデータの削除
 	 */
 	//
-		public int delete(int userId,int itemId) throws SQLException{
+		public int delete(int userId) throws SQLException{
 			url="gochikag2";
 			DBConnector db = new DBConnector(url);
 			Connection con =db.getConnection();
 			PreparedStatement ps = null;
 			int rs=0;
 
-
-			String sql="delete from cart where user_id = ? and item_id = ? ";
+			String sql="delete from cart where user_id = ? ";
 
 			try{
-
 				ps=con.prepareStatement(sql);
 				ps.setInt(1,userId);
-				ps.setInt(2,itemId);
-
-				System.out.println("PS");
-				System.out.println(ps);
-
-				rs=ps.executeUpdate();
-				System.out.println("RS");
-				System.out.println(rs);
 
 			}catch(SQLException e){
 				e.printStackTrace();
@@ -123,7 +113,7 @@ public class LogoutDAO {
 				if(ps!=null) ps.close();
 				if(con!=null) con.close();
 			}
-
+			System.out.println("dao_delete="+rs);
 			return rs;
 
 		}

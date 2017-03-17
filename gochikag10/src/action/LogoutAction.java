@@ -19,11 +19,6 @@ public class LogoutAction extends ActionSupport implements SessionAware{
 
 	public String execute()throws SQLException{
 
-		/*
-		  session.remove("name");
-		  session.remove("id");
-		 */
-
 		System.out.println("user_id="+session);
 
 		String ret = ERROR;
@@ -44,7 +39,9 @@ public class LogoutAction extends ActionSupport implements SessionAware{
 		/*gochikagDBのcartテーブルのデータを削除
 		 *
 		 */
-		int rs=dao.delete(Integer.parseInt(itemId),userId);
+		int rs=dao.delete(userId);
+
+		System.out.println("action_delete");
 
 		/*sessionを破棄する
 		 *
@@ -52,7 +49,7 @@ public class LogoutAction extends ActionSupport implements SessionAware{
 		if((flg==0)&&(flg2==0)){
 			((SessionMap<String, Object>)session).invalidate();
 			ret = SUCCESS;
-			System.out.println("sessionOut="+session+"3");
+			System.out.println("sessionOut="+session);
 			System.out.println(ret);
 		}else{
 			/*update出来なければエラーを返す
@@ -79,7 +76,7 @@ public class LogoutAction extends ActionSupport implements SessionAware{
 	 */
 	@Override
 	public void setSession(Map<String, Object> session) {
-		this.session = session;
+		this.session = (SessionMap<String, Object>)session;
 
 	}
 

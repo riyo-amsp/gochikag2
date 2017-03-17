@@ -3,6 +3,7 @@ package action;
 
 import java.util.Map;
 
+import org.apache.struts2.dispatcher.SessionMap;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -26,7 +27,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	private Map<String,Object>session;
 
 
-	public String execute(){
+	public String execute()throws Exception{
 
 		String ret = ERROR;
 
@@ -34,25 +35,27 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 		dto = dao.select(phoneEmail,password);
 
-		System.out.println(phoneEmail);
-		System.out.println(password);
+		session.put("userId",dto.getUserId());
+		System.out.println("userId="+ session.get("userId"));
+
+		System.out.println("action");
+		System.out.println("phoneEmail="+phoneEmail);
+		System.out.println("password="+password);
 
 		/*
 		 * ログイン時のメールとパスワード認証
 		 */
 		if(phoneEmail.equals(dto.getPhoneEmail())){
 			if(password.equals(dto.getPassword())){
-				String flg = dto.getUserFlg();
-				count = dao.count(phoneEmail,password);
-				System.out.println("actionCount="+count);
-				ret = SUCCESS;
 				/*gochikagDBにデータが無ければinsertする
 				 *
 				 */
+				count = dao.count(phoneEmail,password);
+				System.out.println("actionCount="+count);
+				ret = SUCCESS;
+
 				if(count==0){
 					dto2 = dao.insert(dto.getUserId(),dto.getPhoneEmail(),dto.getLoginFlg(),dto.getUserFlg(),dto.getPassword());
-					System.out.println("dto2="+dto2);
-					System.out.println(userId);
 
 					if(dto2==null){
 						/*insert出来なければエラーを返す
@@ -64,6 +67,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 				/*
 				 * user_flg = 3 （管理者）
 				 */
+				String flg = dto.getUserFlg();
 				if(flg.equals("3")) {
 					ret = "admin";
 					System.out.println(ret);
@@ -72,16 +76,19 @@ public class LoginAction extends ActionSupport implements SessionAware{
 				 *
 				 */
 				}else if((flg.equals("1"))&&(flg.equals("2"))){
+					System.out.println("userFlg="+flg);
 				ret = SUCCESS;
 				}
 
 				/*ログインフラグをtrueにする
 				 *
 				 */
-				System.out.println(flg);
+				int lFlg = dao.update(phoneEmail, password);
+				int lFlg2 = dao.update2(phoneEmail, password);
+				System.out.println("update="+lFlg);
+				System.out.println("update2="+lFlg2);
+
 				int rs =0;
-				rs= dao.update(phoneEmail, password);
-				System.out.println("up="+flg);
 				if(rs==0){
 					/*update出来なければエラーを返す
 					 *
@@ -91,7 +98,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 			}
 		}
-		session.put("id",dto.getUserId());
+    	System.out.println("session="+session);
 		return ret;
 	}
 
@@ -180,7 +187,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 
 	public void setSession(Map<String, Object> session) {
-		this.session = session;
+		this.session = (SessionMap<String, Object>)session;
 	}
 
 
