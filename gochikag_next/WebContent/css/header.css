@@ -1,35 +1,34 @@
 @CHARSET "UTF-8";
 
-
 body { background: url("../img/back.png");
        background-repeat : repeat;
-
 	}
 
- h1 {
+header {
+	height: 200px;
+	width: 100%;
+}	
+	
+header h1 {
       color: #ff8096;
       text-align: center;
       font-size : 15px;
-
  }
 
-
-image.item{
+.item{
 	text-align: center;
-	width: 180px;
-	height: 200px;
+	width: 20%;
+	height: 100px;
 	}
 
-
- h2 {
+header h2 {
  	color: red;
     text-align: center;
   }
 
- .menu {
- 		font-size : 15px;
-        color : #d86c6c;
-        text-align: right;
-	}
-	
+.menu {
+ 	font-size : 15px;
+    color : #d86c6c;
+    text-align: right;
+  }
 	
