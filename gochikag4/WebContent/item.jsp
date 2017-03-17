@@ -8,17 +8,20 @@
 <title>商品詳細</title>
 </head>
 <body>
+
+			
+			
 			<p><s:property value="dto.detailJa" /></p>
 			<p><s:property value="dto.itemName"/></p>
 			<p><s:property value="dto.price" /></p>
 			<img src="<s:property value="dto.mainPicture" />" >
 			<img src="<s:property value="dto.pictures" />" >
 
-			<s:form action="PayAction">
+			
 			<s:select name="choice" list="countList" />
 			<s:hidden name="itemId" value="%{dto.itemId}" />
 			<s:submit value="カートへ" />
-			</s:form>
+			
 </body>
 </html>
 
