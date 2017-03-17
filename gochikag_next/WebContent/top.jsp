@@ -14,7 +14,6 @@
 <script src="js/slider.js"></script>
 
 <style>
-
 </style>
 
 
@@ -33,29 +32,24 @@
 
 	<!-- ヘッダー読み込み -->
 	<s:include value="header.jsp" />
-	<div class="wrapper">
-		<ul id="slideshow">
-			<li class="current"><img src="img/house.jpg" class="img"></li>
-			<li><img src="img/house2.jpg" class="img"></li>
-		</ul>
-	</div>
+
 
 	<div class="container">
 
-		<table style="width: 700px; margin-left: auto; margin-right: auto;">
+		<table style="width: 400px; margin-left: auto; margin-right: auto;">
 			<tr>
 				<!-- kagu.jspへ遷移 : 実装済み -->
 				<s:form action="CategoryAction" cssClass="btn_a" theme="css_xhtml">
 					<s:hidden name="category" value="kagu" />
 					<td><input class="btn_a" type="submit" name="submit"
-						value="家具" /></td>
+						value="" /></td>
 				</s:form>
 
 				<!-- kaden.jspへ遷移 : 実装済み -->
 				<s:form action="CategoryAction" cssClass="btn_a" theme="css_xhtml">
 					<s:hidden name="category" value="kagen" />
-					<td><input class="btn_a" type="submit" name="submit"
-						value="家電" /></td>
+					<td><input class="btn_b" type="submit" name="submit"
+						value="" /></td>
 				</s:form>
 
 				<%-- 	<s:form action="CategoryAction"> --%>
@@ -68,11 +62,17 @@
 				<!-- sale.jspへ遷移 : 実装済み -->
 				<s:form action="CategoryAction" cssClass="btn_a" theme="css_xhtml">
 					<s:hidden name="category" value="sale" />
-					<td><input class="btn_a" type="submit" name="submit"
-						value="セール" /></td>
+					<td><input class="btn_c" type="submit" name="submit"
+						value="" /></td>
 				</s:form>
 			</tr>
 		</table>
+	</div>
+	<div class="wrapper">
+		<ul id="slideshow">
+			<li class="current"><img src="img/house３.jpg" class="img"></li>
+			<li><img src="img/house4.jpg" class="img"></li>
+		</ul>
 	</div>
 </body>
 </html>

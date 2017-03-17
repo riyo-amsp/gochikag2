@@ -3,15 +3,46 @@
 .btn_a {
 	width: 200px;
 	height: 200px;
-	font-size: 150%;
-	border-radius: 100px;
-	background-color:#FFD5EC;
+	font-size: 100%;
+	border-radius: 50px;
+	background: url("../img/isu.jpg") no-repeat;
+	box-shadow:2px 2px 2px #555;
+	trandsition: 
+
+}
+.btn_a:hover {
+	background: url("../img/isu2.jpg") no-repeat;
+	color: #FFF;
+	border: 1px solid #FFF;
+}
+
+.btn_b {
+	width: 200px;
+	height: 200px;
+	font-size: 100%;
+	border-radius: 50px;
+	background: url("../img/kaden.jpg") no-repeat;
+	box-shadow:2px 2px 2px #555;
+
+}
+.btn_b:hover {
+	background: url("../img/kaden2.jpg") no-repeat;
+	color: #FFF;
+	border: 1px solid #FFF;
+}
+
+.btn_c {
+	width: 200px;
+	height: 200px;
+	font-size: 100%;
+	border-radius: 50px;
+	background: url("../img/sale2.jpg") no-repeat;
 	porder-radius:100px;
 	box-shadow:2px 2px 2px #555;
 
 }
-.btn_a:hover {
-	background: #FFBEDA;
+.btn_c:hover {
+	background: url("../img/Dust box_main.jpg") no-repeat;
 	color: #FFF;
 	border: 1px solid #FFF;
 }
@@ -25,7 +56,7 @@
 
 #slideshow {
   pointer-events: none;
-  width: 300px;
+  width: 800px;
   margin : 0px auto;
   padding : 0px;
 }
@@ -33,7 +64,7 @@
 #slideshow > li {
   padding : 0px;
   box-align: center;  
-  width: 300px;
+  width: 800px;
   list-style: none;
   opacity: 0;
   position: absolute;
@@ -48,7 +79,7 @@
 }
 
 .img{
-  width: 300px;
-  height: 100px;
+  width: 800px;
+  height: 400px;
 }
 
