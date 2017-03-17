@@ -84,4 +84,47 @@ public class LogoutDAO {
         }System.out.println("daoUp2"+flg2);
         return flg2;
 	}
+	/**
+	 *
+	 * @param itemId
+	 * @param userId
+	 * @return
+	 * @throws SQLException
+	 * gochikagDBのcartテーブルのデータの削除<table:cart>
+	 */
+	//
+		public int delete(int userId,int itemId) throws SQLException{
+			url="gochikag2";
+			DBConnector db = new DBConnector(url);
+			Connection con =db.getConnection();
+			PreparedStatement ps = null;
+			int rs=0;
+
+
+			String sql="delete from cart where user_id = ? and item_id = ? ";
+
+			try{
+
+				ps=con.prepareStatement(sql);
+				ps.setInt(1,userId);
+				ps.setInt(2,itemId);
+
+				System.out.println("PS");
+				System.out.println(ps);
+
+				rs=ps.executeUpdate();
+				System.out.println("RS");
+				System.out.println(rs);
+
+			}catch(SQLException e){
+				e.printStackTrace();
+
+			}finally{
+				if(ps!=null) ps.close();
+				if(con!=null) con.close();
+			}
+
+			return rs;
+
+		}
 }

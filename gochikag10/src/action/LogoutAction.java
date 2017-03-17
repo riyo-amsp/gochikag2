@@ -41,6 +41,11 @@ public class LogoutAction extends ActionSupport implements SessionAware{
 
 		System.out.println(session+"2");
 
+		/*gochikagDBのcartテーブルのデータを削除
+		 *
+		 */
+		int rs=dao.delete(Integer.parseInt(itemId),userId);
+
 		/*sessionを破棄する
 		 *
 		 */
