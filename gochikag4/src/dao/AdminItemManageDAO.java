@@ -37,8 +37,8 @@ public class AdminItemManageDAO {
 		Connection con = db.getConnection();
 		ArrayList<ItemDTO> searchList = new ArrayList<ItemDTO>();
 
-		String sql = "select item_name,item_id,price,item_count,main_picture,detail_ja "
-				    + "from item inner join detail using(item_id) where category = ?";
+		String sql = "select item_name,item_id,price,stock_number,main_picture,detail_ja "
+				    + "from item inner join detail using(item_id) where category=?";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -49,7 +49,7 @@ public class AdminItemManageDAO {
 				ItemDTO dto = new ItemDTO();
 				dto.setItemName(rs.getString("item_name"));
 				dto.setItemId(rs.getInt("item_id"));
-				dto.setItemCount(rs.getInt("item_count"));
+				dto.setStockNumber(rs.getInt("stock_number"));
 				dto.setPrice(rs.getFloat("price"));
 				dto.setMainPicture(rs.getString("main_picture"));
 				dto.setDetailJa(rs.getString("detail_ja"));

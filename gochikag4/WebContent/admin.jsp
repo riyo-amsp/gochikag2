@@ -1,4 +1,4 @@
-<%@ page language="java" 
+<%@ page language="java"
 	contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
@@ -17,7 +17,10 @@
 </s:form>
 
 <s:form action="AdminItemManageAction">
-	<s:hidden name="" value=""/>
+	<s:hidden name="category" value="kagu"/>
+	<s:hidden name="category" value="kaden"/>
+	<s:hidden name="category" value="sale"/>
+	<s:hidden name="nameList" value="category"/>
 	<s:submit value="商品検索/更新/削除"/>
 </s:form>
 

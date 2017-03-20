@@ -12,7 +12,7 @@ public class ItemDTO {
 	private int itemId;
 	private String mainPicture;
 	private float price;
-	private int itemCount;
+	private int stockNumber;
 	private String pictures;
 	private String detailJa;
 	private String category;
@@ -42,12 +42,7 @@ public class ItemDTO {
 	public void setPrice(float price) {
 		this.price = price;
 	}
-	public int getItemCount() {
-		return itemCount;
-	}
-	public void setItemCount(int itemCount) {
-		this.itemCount = itemCount;
-	}
+
 	public String getPictures() {
 		return pictures;
 	}
@@ -66,6 +61,12 @@ public class ItemDTO {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	
+	public int getStockNumber() {
+		return stockNumber;
+	}
+	public void setStockNumber(int stockNumber) {
+		this.stockNumber = stockNumber;
+	}
+
 
 }

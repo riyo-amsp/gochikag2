@@ -22,11 +22,11 @@ public class AdminItemListAction extends ActionSupport {
 	private int itemId;
 	private String itemName;
 	private String price;
-	private String itemCount;
+	private int stockNumber;
 	private String category;
 	List<String> nameList = new ArrayList<String>();
 	List<Float>priceList = new ArrayList<Float>();
-	List<Integer>countList = new ArrayList<Integer>();
+	List<Integer>stockNumberList = new ArrayList<Integer>();
 	List<Integer>itemIdList = new ArrayList<Integer>();
 	List<String>mainPictureList = new ArrayList<String>();
 	List<String> detailJaList = new ArrayList<String>();
@@ -63,27 +63,32 @@ public class AdminItemListAction extends ActionSupport {
 		AdminItemManageDAO dao = new AdminItemManageDAO();
 		dtoList = dao.select(category);
 
+		System.out.println("deoListチェック"+dtoList);
+
 		for (ItemDTO dto : dtoList) {
 			System.out.println(dto.getItemName());
 			System.out.println(dto.getPrice());
-			System.out.println(dto.getItemCount());
+			System.out.println(dto.getStockNumber());
 			nameList.add(dto.getItemName());
 			priceList.add(dto.getPrice());
-			countList.add(dto.getItemCount());
+			stockNumberList.add(dto.getStockNumber());
 			itemIdList.add(dto.getItemId());
 			mainPictureList.add(dto.getMainPicture());
 			detailJaList.add(dto.getDetailJa());
 
 		}
 
+
+		System.out.println("dtoListが"+dtoList);
 		System.out.println("dtoチェック：" + nameList.size());
 
 		if (!nameList.isEmpty()) {
 			ret = SUCCESS;
+			System.out.println("dtoListが"+dtoList);
+			System.out.println("dtoチェック：" + nameList.size());
 		}
 		return ret;
 	}
-
 	public List<Float> getPriceList() {
 		return priceList;
 	}
@@ -92,13 +97,7 @@ public class AdminItemListAction extends ActionSupport {
 		this.priceList = priceList;
 	}
 
-	public List<Integer> getCountList() {
-		return countList;
-	}
 
-	public void setCountList(List<Integer> countList) {
-		this.countList = countList;
-	}
 
 	public int getItemId() {
 		return itemId;
@@ -124,13 +123,6 @@ public class AdminItemListAction extends ActionSupport {
 		this.price = price;
 	}
 
-	public String getItemCount() {
-		return itemCount;
-	}
-
-	public void setItemCount(String itemCount) {
-		this.itemCount = itemCount;
-	}
 
 	public String getCategory() {
 		return category;
@@ -154,6 +146,22 @@ public class AdminItemListAction extends ActionSupport {
 
 	public void setDtoList(List<ItemDTO> dtoList) {
 		this.dtoList = dtoList;
+	}
+
+	public int getStockNumber() {
+		return stockNumber;
+	}
+
+	public void setStockNumber(int stockNumber) {
+		this.stockNumber = stockNumber;
+	}
+
+	public List<Integer> getStockNumberList() {
+		return stockNumberList;
+	}
+
+	public void setStockNumberList(List<Integer> stockNumberList) {
+		this.stockNumberList = stockNumberList;
 	}
 
 }

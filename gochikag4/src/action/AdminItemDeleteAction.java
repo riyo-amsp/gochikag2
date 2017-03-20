@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package action;
 
@@ -22,7 +22,6 @@ public class AdminItemDeleteAction extends ActionSupport {
 	public String execute() {
 
 		String result = ERROR;
-		this.deletMsg = "lang.managementProductDelete.deletemsgng";
 
 		AdminItemDeleteDAO deleteDao = new AdminItemDeleteDAO();
 		int count = 0;

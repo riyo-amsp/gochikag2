@@ -13,25 +13,24 @@ public class ItemAction extends ActionSupport {
 	private String itemId;
 	private ItemDTO dto;
 	private int count;
-	private List<Integer>countList;
+	private List<Integer> stockNumberList;
 
-	//public ArrayList<ItemDTO> itemList = new ArrayList<ItemDTO>();
-
+	// public ArrayList<ItemDTO> itemList = new ArrayList<ItemDTO>();
 
 	public String execute() {
 
 		ItemDAO dao = new ItemDAO();
 		dto = dao.select(Integer.parseInt(itemId));
-		count = dto.getItemCount();
-		countList = new ArrayList<Integer>();
-		for(int i=0; i<=count; i++){
-			countList.add(i);
+		count = dto.getStockNumber();
+		stockNumberList = new ArrayList<Integer>();
+		for (int i = 0; i <= count; i++) {
+			stockNumberList.add(i);
 		}
 
-		//itemList= dao.select(item_id);
+		// itemList= dao.select(item_id);
 
 		return SUCCESS;
-		}
+	}
 
 	public String getItemId() {
 		return itemId;
@@ -57,14 +56,12 @@ public class ItemAction extends ActionSupport {
 		this.count = count;
 	}
 
-	public List<Integer> getCountList() {
-		return countList;
+	public List<Integer> getStockNumberList() {
+		return stockNumberList;
 	}
 
-	public void setCountList(List<Integer> countList) {
-		this.countList = countList;
+	public void setStockNumberList(List<Integer> stockNumberList) {
+		this.stockNumberList = stockNumberList;
 	}
-
-
 
 }
