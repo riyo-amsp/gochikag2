@@ -1,12 +1,16 @@
 package action;
 
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
-import java.util.*;
+
 import org.apache.struts2.interceptor.SessionAware;
+
+import com.opensymphony.xwork2.ActionSupport;
+
 import dao.LoginDAO;
 import dto.LoginDTO;
-import com.opensymphony.xwork2.ActionSupport;
 
 
 
@@ -36,15 +40,15 @@ public class LoginAction2 extends ActionSupport implements SessionAware{
 			}
 		}
 		session.put("name",dto.getName());
-		dto.setId(1);
+		dto.setUser_id(1);
 		list.add(dto);
-		
+
 		LoginDTO dto2 = new LoginDTO();
-		dto2.setId(2);
+		dto2.setUser_id(2);
 		dto2.setName("hige");
 		dto2.setPassword("kkk");
 		list.add(dto2);
-		
+
 		return ret;
 	}
 
@@ -79,7 +83,7 @@ public class LoginAction2 extends ActionSupport implements SessionAware{
 	public void setList(List<LoginDTO> list) {
 		this.list = list;
 	}
-	
+
 	public LoginDTO getDto() {
 		return dto;
 	}
