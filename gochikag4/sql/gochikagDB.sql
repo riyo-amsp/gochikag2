@@ -16,13 +16,9 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 drop database if exists gochikag;
+
 create database gochikag;
 use gochikag;
-
-
---
--- Table structure for table `cart`
---
 
 DROP TABLE IF EXISTS `cart`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -51,6 +47,11 @@ LOCK TABLES `cart` WRITE;
 /*!40000 ALTER TABLE `cart` DISABLE KEYS */;
 /*!40000 ALTER TABLE `cart` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `credit`
+--
+
 
 --
 -- Table structure for table `credit`
@@ -93,7 +94,6 @@ CREATE TABLE `detail` (
   `item_id` int(11) NOT NULL AUTO_INCREMENT,
   `detail_ja` varchar(255) DEFAULT NULL,
   `detail_en` varchar(255) DEFAULT NULL,
-  `pictures` varchar(255) DEFAULT NULL,
   `deleteflg` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`item_id`),
   KEY `index_item_id` (`item_id`),
@@ -122,10 +122,10 @@ CREATE TABLE `item` (
   `item_name` varchar(255) NOT NULL,
   `price` float NOT NULL,
   `main_picture` varchar(255) DEFAULT NULL,
-  `item_count` int(11) NOT NULL,
+  `stock_number` int(11) NOT NULL,
   `delete_flg` tinyint(1) NOT NULL DEFAULT '0',
   `registration_date` datetime NOT NULL,
-  `updated_date` datetime NOT NULL,
+  `updated_date` datetime NOT NULL, /* timestump‘«‚·‚©‚à */
   `category` enum('kagu','kaden','sale') NOT NULL,
   PRIMARY KEY (`item_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -149,7 +149,9 @@ DROP TABLE IF EXISTS `pictures`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pictures` (
   `item_id` int(11) NOT NULL,
-  `pictures` varchar(255) DEFAULT NULL,
+  `sub_picture1` varchar(255) NOT NULL,
+  `sub_picture2` varchar(255) NOT NULL,
+  `sub_picture3` varchar(255) NOT NULL,
   `delete_flg` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`item_id`),
   CONSTRAINT `pictures_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `item` (`item_id`)
@@ -196,61 +198,38 @@ LOCK TABLES `purchase` WRITE;
 /*!40000 ALTER TABLE `purchase` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Table structure for table `strage`
---
 
-DROP TABLE IF EXISTS `strage`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `strage` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `item_id` int(11) NOT NULL,
-  `item_count` int(11) NOT NULL,
-  `amount` float NOT NULL,
-  `registration_date` datetime NOT NULL,
-  `updated_date` datetime NOT NULL,
-  PRIMARY KEY (`user_id`),
-  KEY `item_id` (`item_id`),
-  CONSTRAINT `strage_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
-  CONSTRAINT `strage_ibfk_2` FOREIGN KEY (`item_id`) REFERENCES `item` (`item_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `strage`
---
 
-LOCK TABLES `strage` WRITE;
-/*!40000 ALTER TABLE `strage` DISABLE KEYS */;
-/*!40000 ALTER TABLE `strage` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
--- Table structure for table `user`
+-- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `user`;
+DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `user` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `password` varchar(255) NOT NULL,
+CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL,
+  `phone_email` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
   `login_flg` tinyint(1) NOT NULL DEFAULT '0',
-  `user_flg` enum('1','2','3') NOT NULL,
+  `user_flg` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `user`
+-- Dumping data for table `users`
 --
 
-LOCK TABLES `user` WRITE;
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -263,3 +242,130 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2017-03-06 18:38:47
+
+
+/*kagu_item*/
+
+insert into item values(1,'cabinet_main',15800,'img/item/kagu/cabinet_main.jpg',10,'0','2017/03/17','2017/03/17','kagu');
+
+insert into item values(2,'chest_main',7800,'img/item/kagu/chest_main.jpg',10,'0','2017/03/17','2017/03/17','kagu');
+
+insert into item values(3,'table_main',5800,'img/item/kagu/table_main.jpg',10,'0','2017/03/17','2017/03/17','kagu');
+
+insert into item values(4,'dresser_main',15800,'img/item/kagu/dresser_main.jpg',10,'0','2017/03/17','2017/03/17','kagu');
+
+insert into item values(5,'sofa_main',10100,'img/item/kagu/sofa_main.jpg',10,'0','2017/03/17','2017/03/17','kagu');
+
+insert into item values(6,'chair_main',12800,'img/item/kagu/chair_main.jpg',10,'0','2017/03/17','2017/03/17','kagu');
+
+/*kagu_pictures*/
+
+insert into pictures values(1,'img/item/kagu/cabinet_sub1.jpg','img/item/kagu/cabinet_sub2.jpg','img/item/kagu/cabinet_sub3.jpg','0');
+
+insert into pictures values(2,'img/item/kagu/chest_sub1.jpg','img/item/kagu/chest_sub2.jpg','img/item/kagu/chest_sub3.jpg','0');
+
+insert into pictures values(3,'img/item/kagu/table_sub1.jpg','img/item/kagu/table_sub2.jpg','img/item/kagu/table_sub3.jpg','0');
+
+insert into pictures values(4,'img/item/kagu/dresser_sub1.jpg','img/item/kagu/dresser_sub2.jpg','img/item/kagu/dresser_sub3.jpg','0');
+
+insert into pictures values(5,'img/item/kagu/sofa_sub1.jpg','img/item/kagu/sofa_sub2.jpg','img/item/kagu/sofa_sub3.jpg','0');
+
+insert into pictures values(6,'img/item/kagu/chair_sub1.jpg','img/item/kagu/chair_sub2.jpg','img/item/kagu/chair_sub3.jpg','0');
+
+
+/*kaden_item*/
+
+insert into item values(7,'coffee_maker',10000,'img/item/kaden/coffee_maker.jpg',20,'0','2017-03-17-12:00','2017-03-17-12:00','kaden');
+
+insert into item values(8,'toaster',1500,'img/item/kaden/toaster.jpg',20,'0','2017-03-17-12:00','2017-03-17-12:00','kaden');
+
+insert into item values(9,'air_clean',2500,'img/item/kaden/coffee_maker.jpg',20,'0','2017-03-17-12:00','2017-03-17-12:00','kaden');
+
+insert into item values(10,'chikuonki',5000,'img/item/kaden/chikuonki.jpg',20,'0','2017-03-17-12:00','2017-03-17-12:00','kaden');
+
+insert into item values(11,'danro',8000,'img/item/kaden/danro.jpg',20,'0','2017-03-17-12:00','2017-03-17-12:00','kaden');
+
+insert into item values(12,'light',4000,'img/item/kaden/light.jpg',20,'0','2017-03-17-12:00','2017-03-17-12:00','kaden');
+
+
+/*kaden_picture*/
+
+insert into pictures values(7,'img/item/kaden/coffee_maker2.jpg','img/item/kaden/coffee_maker3.jpg','img/item/kaden/coffee_maker4.jpg','0');
+
+insert into pictures values(8,'img/item/kaden/air_clean2.jpg','img/item/kaden/air_clean3.jpg','img/item/kaden/air_clean4.jpg','0');
+
+insert into pictures values(9,'img/item/kaden/toaster2.jpg','img/item/kaden/toaster3.jpg','img/item/kaden/toaster4.jpg','0');
+
+insert into pictures values(10,'img/item/kaden/chikuonki_sub1.jpg','img/item/kaden/chikuonki_sub2.jpg','img/item/kaden/chikuonki_sub3.jpg','0');
+
+insert into pictures values(11,'img/item/kaden/danro_sub1.jpg','img/item/kaden/danro_sub2.jpg','img/item/kaden/danro_sub3.jpg','0');
+
+insert into pictures values(12,'img/item/kaden/light_sub1.jpg','img/item/kaden/light_sub2.jpg','img/item/kaden/light_sub3.jpg','0');
+
+
+/*SALE item*/
+insert into item values(13,"cabinet", 6000, "img/item/sale/cabinet_main.jpg", 20, false, "2017-03-17-12:00", "2017-03-17-12:00", "sale");
+insert into item values(14,"chandelier",8000, "img/item/sale/chandelier_main.jpg",20,false,"2017-03-17-12:00","2017-03-17-12:00","sale");
+
+insert into item values(15,"clock", 3500, "img/item/sale/clock_main.jpg", 20,false,"2017-03-17-12:00","2017-03-17-12:00","sale");
+
+insert into item values(16,"sofa", 7000,"img/item/sale/sofa_main.jpg",20,false,"2017-03-17-12:00","2017-03-17-12:00","sale");
+insert into item values(17,"dust_box",2000,"img/item/sale/dust_box_main.jpg",20,false,"2017-03-17-12:00","2017-03-17-12:00","sale");
+
+insert into item values(18,"tea_time",2000,"img/item/sale/tea_time_main.jpg",20,false,"2017-03-17-12:00","2017-03-17-12:00","sale");
+
+
+
+/*SALE_picture*/
+
+insert into pictures values(13,'img/item/sale/cabinet_sub1.jpg','img/item/sale/cabinet_sub2.jpg','img/item/sale/cabinet_sub3.jpg', false);
+
+insert into pictures values(14,'img/item/sale/chandelier_sub1.jpg','img/item/sale/chandelier_sub2.jpg','img/item/sale/chandelier_sub3.jpg', false);
+
+insert into pictures values(15,'img/item/sale/clock_sub1.jpg','img/item/sale/clock_sub2.jpg','img/item/sale/clock_sub3.jpg',false);
+
+insert into pictures values(16,'img/item/sale/dust_box_sub1.jpg','img/item/sale/dust_box_sub2.jpg','img/item/sale/dust_box_sub3.jpg', false);
+
+insert into pictures values(17,'img/item/sale/sofa_sub1.jpg','img/item/sale/sofa_sub2.jpg','img/item/sale/sofa_sub3.jpg', false);
+insert into pictures values(18,'img/item/sale/tea_time_sub1.jpg','img/item/sale/tea_time_sub2.jpg','img/item/sale/tea_time_sub3.jpg',false);
+
+
+
+
+/*INSERT detail*/
+
+insert into detail values(1,'これは机1です','this is table1','0');
+
+insert into detail values(2,'これは机2です','this is table2','0');
+
+insert into detail values(3,'これは机3です','this is table3','0');
+
+insert into detail values(4,'これは机4です','this is table4','0');
+
+insert into detail values(5,'これは机5です','this is table5','0');
+
+insert into detail values(6,'これは机6です','this is table6','0');
+
+insert into detail values(7,'これは机7です','this is table7','0');
+
+insert into detail values(8,'これは机8です','this is table8','0');
+
+insert into detail values(9,'これは机9です','this is table9','0');
+
+insert into detail values(10,'これは机10です','this is table10','0');
+
+insert into detail values(11,'これは机1です','this is table11','0');
+
+insert into detail values(12,'これは机12です','this is table12','0');
+
+insert into detail values(13, "ココアやカプチーノを入れて、素敵なティータイムをどうぞ!", "Anytime can be wonderful tea time with this cabinet! You absolutely wanna have some cocoa, captino or whatever coming to your mind", false);
+
+insert into detail values(14,'これは机14です','this is table14','0');
+
+insert into detail values(15,'これは机15です','this is table15','0');
+
+insert into detail values(16,'これは机16です','this is table16','0');
+
+insert into detail values(17,'これは机17です','this is table17','0');
+
+insert into detail values(18,'これは机18です','this is table18','0');
