@@ -4,7 +4,12 @@ import java.util.ArrayList;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import dao.ItemSearchDAO;
+import dto.ItemSearchDTO;
+
 public class ItemSearchAction extends ActionSupport {
+
+	private int itemId;
 
 	private String itemName;
 
@@ -13,6 +18,8 @@ public class ItemSearchAction extends ActionSupport {
 	private String mainPicture;
 
 	private String registrationDate;
+
+	private String search;
 
 	private String searchItem;
 
@@ -26,7 +33,7 @@ public class ItemSearchAction extends ActionSupport {
 	  if (searchItem != null){
 		  itemList = dao.select(searchItem, searchSort);
 		  if( itemList.size() > 0) {
-			  result = SUCCESS;	  
+			  result = SUCCESS;
 		}
 	  }
 	  return result;
@@ -48,13 +55,23 @@ public class ItemSearchAction extends ActionSupport {
 		this.searchSort = searchSort;
 	}
 
-	public ArrayList<ItemSearchDTO> getItmeList() {
+	public ArrayList<ItemSearchDTO> getItemList() {
 		return itemList;
 	}
 
-	public void setItmeList(ArrayList<ItemSearchDTO> itmeList) {
-		this.itemList = itmeList;
+	public void setItemList(ArrayList<ItemSearchDTO> itemList) {
+		this.itemList = itemList;
 	}
+
+
+	public int getItemId() {
+		return itemId;
+	}
+
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
+	}
+
 
 	public String getItemName() {
 		return itemName;
@@ -86,6 +103,14 @@ public class ItemSearchAction extends ActionSupport {
 
 	public void setRegistrationDate(String registrationDate) {
 		this.registrationDate = registrationDate;
+	}
+
+	public String getSearch() {
+		return search;
+	}
+
+	public void setSearch(String search) {
+		this.search = search;
 	}
 
 }
