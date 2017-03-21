@@ -3,26 +3,30 @@ package action;
 
 import java.sql.SQLException;
 import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
 import org.apache.struts2.interceptor.SessionAware;
+
+import com.opensymphony.xwork2.ActionSupport;
+
 import dao.LoginOauthDAO;
 import dto.UsersDTO;
 import util.FacebookOauth;
-import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * FACEBOOKでログインする為のクラス
- * @author SYUNTA KUMATA
- *@since 2017/02/08
- *@version 1.0
+ * @author MIYAGI KAZUNE
+ *@since 2017/03/21
+ *@version 1.1
  */
 public class LoginFacebookAction extends ActionSupport implements SessionAware,ServletResponseAware, ServletRequestAware{
 
 	public static final int NETWORK_NAME_FACEBOOK = 2;
-	
+
 	/**
 	 * シリアルバージョンUID
 	 */
@@ -73,7 +77,7 @@ public class LoginFacebookAction extends ActionSupport implements SessionAware,S
 		String rtn = ERROR;
 		FacebookOauth oauth = new FacebookOauth();
 		Map<String,String> userMap = null;
-		
+
 		//ERROR発生解除
 		System.out.println(oauth.getAccessToken(request,response));
 		userMap = oauth.getAccessToken(request,response);
@@ -81,19 +85,19 @@ public class LoginFacebookAction extends ActionSupport implements SessionAware,S
 		if(userMap == null){
 			return rtn;
 		}
-		
+
 		String oauthId = userMap.get("id");
 		System.out.println("ouathId: " + oauthId);
 		String oauthAccount = userMap.get("name");
 		System.out.println("ouathAccount: " + oauthAccount);
-		
+
 		LoginOauthDAO dao = new LoginOauthDAO();
 		UsersDTO dto = new UsersDTO();
 		//足したよ
 		dto = dao.select(oauthId,oauthAccount);
-		
+
 		System.out.println("めっちゃ変えたよ");
-		
+
 		//dao.select(oauthId,oauthAccount)
 		if(dto.isAlredyUser()){
 			loginFlg = dto.isLoginFlg();
@@ -112,7 +116,7 @@ public class LoginFacebookAction extends ActionSupport implements SessionAware,S
 			return rtn;
 		}
 		boolean result = dao.insert(oauthId,oauthAccount,NETWORK_NAME_FACEBOOK);
-		
+
 		System.out.println("LoginFacebookAction100");
 		if(!result){
 			return rtn;
