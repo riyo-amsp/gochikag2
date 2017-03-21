@@ -242,3 +242,61 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2017-03-06 18:38:47
+/*kagu_item*/
+
+insert into item values(1,'キャビネット',15800,'img/item/kagu/cabinet_main.jpg',10,'0','2017/03/17','2017/03/17','kagu');
+insert into item values(2,'アンティークチェスト',7800,'img/item/kagu/chest_main.jpg',10,'0','2017/03/17','2017/03/17','kagu');
+insert into item values(3,'テーブル',5800,'img/item/kagu/table_main.jpg',10,'0','2017/03/17','2017/03/17','kagu');
+insert into item values(4,'ドレッシングチェスト',15800,'img/item/kagu/dresser_main.jpg',10,'0','2017/03/17','2017/03/17','kagu');
+insert into item values(5,'ソファー',10100,'img/item/kagu/sofa_main.jpg',10,'0','2017/03/17','2017/03/17','kagu');
+insert into item values(6,'サロンチェアー',12800,'img/item/kagu/chair_main.jpg',10,'0','2017/03/17','2017/03/17','kagu');
+
+/*kagu_pictures*/
+
+insert into pictures values(1,'img/item/kagu/cabinet_sub1.jpg','img/item/kagu/cabinet_sub2.jpg','img/item/kagu/cabinet_sub3.jpg','0');
+insert into pictures values(2,'img/item/kagu/chest_sub1.jpg','img/item/kagu/chest_sub2.jpg','img/item/kagu/chest_sub3.jpg','0');
+insert into pictures values(3,'img/item/kagu/table_sub1.jpg','img/item/kagu/table_sub2.jpg','img/item/kagu/table_sub3.jpg','0');
+insert into pictures values(4,'img/item/kagu/dresser_sub1.jpg','img/item/kagu/dresser_sub2.jpg','img/item/kagu/dresser_sub3.jpg','0');
+insert into pictures values(5,'img/item/kagu/sofa_sub1.jpg','img/item/kagu/sofa_sub2.jpg','img/item/kagu/sofa_sub3.jpg','0');
+insert into pictures values(6,'img/item/kagu/chair_sub1.jpg','img/item/kagu/chair_sub2.jpg','img/item/kagu/chair_sub3.jpg','0');
+
+
+/*kaden_item*/
+
+insert into item values(7,'コーヒーメーカー',10000,'img/item/kaden/coffee_maker.jpg',20,'0','2017-03-17-12:00','2017-03-17-12:00','kaden');
+insert into item values(8,'トースター',1500,'img/item/kaden/toaster.jpg',20,'0','2017-03-17-12:00','2017-03-17-12:00','kaden');
+insert into item values(9,'空気清浄器',2500,'img/item/kaden/coffee_maker.jpg',20,'0','2017-03-17-12:00','2017-03-17-12:00','kaden');
+insert into item values(10,'蓄音機',5000,'img/item/kaden/chikuonki.jpg',20,'0','2017-03-17-12:00','2017-03-17-12:00','kaden');
+insert into item values(11,'暖炉',8000,'img/item/kaden/danro.jpg',20,'0','2017-03-17-12:00','2017-03-17-12:00','kaden');
+insert into item values(12,'ライト',4000,'img/item/kaden/light.jpg',20,'0','2017-03-17-12:00','2017-03-17-12:00','kaden');
+
+
+/*kaden_picture*/
+
+insert into pictures values(7,'img/item/kaden/coffee_maker2.jpg','img/item/kaden/coffee_maker3.jpg','img/item/kaden/coffee_maker4.jpg','0');
+insert into pictures values(8,'img/item/kaden/air_clean2.jpg','img/item/kaden/air_clean3.jpg','img/item/kaden/air_clean4.jpg','0');
+insert into pictures values(9,'img/item/kaden/toaster2.jpg','img/item/kaden/toaster3.jpg','img/item/kaden/toaster4.jpg','0');
+insert into pictures values(10,'img/item/kaden/chikuonki_sub1.jpg','img/item/kaden/chikuonki_sub2.jpg','img/item/kaden/chikuonki_sub3.jpg','0');
+insert into pictures values(11,'img/item/kaden/danro_sub1.jpg','img/item/kaden/danro_sub2.jpg','img/item/kaden/danro_sub3.jpg','0');
+insert into pictures values(12,'img/item/kaden/light_sub1.jpg','img/item/kaden/light_sub2.jpg','img/item/kaden/light_sub3.jpg','0');
+
+
+/*SALE item*/
+
+insert into item values(13,"キャビネット", 6000, "img/item/sale/cabinet_main.jpg", 20, false, "2017-03-17-12:00", "2017-03-17-12:00", "sale");
+insert into item values(14,"シャンデリア",8000, "img/item/sale/chandelier_main.jpg",20,false,"2017-03-17-12:00","2017-03-17-12:00","sale");
+insert into item values(15,"時計", 3500, "img/item/sale/clock_main.jpg", 20,false,"2017-03-17-12:00","2017-03-17-12:00","sale");
+insert into item values(16,"ソファー", 7000,"img/item/sale/sofa_main.jpg",20,false,"2017-03-17-12:00","2017-03-17-12:00","sale");
+insert into item values(17,"ゴミ箱",2000,"img/item/sale/dust_box_main.jpg",20,false,"2017-03-17-12:00","2017-03-17-12:00","sale");
+insert into item values(18,"ティータイム",2000,"img/item/sale/tea_time_main.jpg",20,false,"2017-03-17-12:00","2017-03-17-12:00","sale");
+
+
+
+/*SALE_picture*/
+
+insert into pictures values(13,'img/item/sale/cabinet_sub1.jpg','img/item/sale/cabinet_sub2.jpg','img/item/sale/cabinet_sub3.jpg', false);
+insert into pictures values(14,'img/item/sale/chandelier_sub1.jpg','img/item/sale/chandelier_sub2.jpg','img/item/sale/chandelier_sub3.jpg', false);
+insert into pictures values(15,'img/item/sale/clock_sub1.jpg','img/item/sale/clock_sub2.jpg','img/item/sale/clock_sub3.jpg',false);
+insert into pictures values(16,'img/item/sale/dust_box_sub1.jpg','img/item/sale/dust_box_sub2.jpg','img/item/sale/dust_box_sub3.jpg', false);
+insert into pictures values(17,'img/item/sale/sofa_sub1.jpg','img/item/sale/sofa_sub2.jpg','img/item/sale/sofa_sub3.jpg', false);
+insert into pictures values(18,'img/item/sale/tea_time_sub1.jpg','img/item/sale/tea_time_sub2.jpg','img/item/sale/tea_time_sub3.jpg',false);
