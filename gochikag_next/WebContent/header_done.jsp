@@ -15,7 +15,7 @@
 
 		<!-- ログインユーザーの名前表示 ... 別に出さなくてもいいかも... -->
 
-			<div class="ika">　アンティークの家具なら「ごちかぐ」でご注文をどうぞ。</div>
+			<div class="ika">　＊”すべてがかわいい”アンティークの家具なら、「ごちかぐ」でご注文をどうぞ！＊</div>
 
 
 		<!-- top.jspへ遷移 : 実装済み -->
@@ -25,7 +25,7 @@
 		<div align="right">
 			<table>
 				<th><s:form action="LogoutAction" class="karasi">
-						<input type=submit name=submit value="ログイン">
+						<input type=submit name=submit value="ログアウト">
 					</s:form></th>
 				<th><s:form action="MyPageAction" class="karasi">
 						<s:hidden name="userId" value="%{#session.id}" />
