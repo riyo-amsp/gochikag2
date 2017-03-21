@@ -10,9 +10,6 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.json.simple.JSONValue;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -22,8 +19,8 @@ import facebook4j.FacebookFactory;
 import facebook4j.auth.AccessToken;
 /**
 * FACEBOOK OAuthでログインする為のクラス
-* @author 堅田 一成
-* @since 1.0
+* @author Kazune Miyagi
+* @since 3/15
 * @version 1.0
 */
 public class FacebookOauth extends ActionSupport {
@@ -61,10 +58,10 @@ public class FacebookOauth extends ActionSupport {
        AccessToken at = new AccessToken(accessTokenString);
        facebook.setOAuthAccessToken(at);
        StringBuffer callbackURL = request.getRequestURL();
-       
+
        System.out.println("callbackURL");
        System.out.println(callbackURL);
-       
+
        int index = callbackURL.lastIndexOf("/");
        callbackURL.replace(index, callbackURL.length(), "").append(CALLBACK_PATH);
        try {
@@ -98,10 +95,10 @@ public class FacebookOauth extends ActionSupport {
                    + "&redirect_uri="
                    + URLEncoder.encode(callbackURL, "UTF-8")
                    + "&client_secret="
-                   + APP_SECRET 
-                   + "&code=" 
+                   + APP_SECRET
+                   + "&code="
                    + URLEncoder.encode(code, "UTF-8");
-           
+
            System.out.println(accessTokenURL);
        } catch (UnsupportedEncodingException e) {
            e.printStackTrace();
@@ -112,7 +109,7 @@ public class FacebookOauth extends ActionSupport {
        } catch (MalformedURLException e1) {
            e1.printStackTrace();
        }
-        
+
        String accessToken = null;
        String[] pairs = accessTokenResult.split("&");
        for (String pair : pairs) {
@@ -142,7 +139,7 @@ public class FacebookOauth extends ActionSupport {
        Map<String, String> userMap = (Map<String, String>) JSONValue.parse(apiResult);
        return userMap;
    }
-    
+
    /**
     * リクエスト用メソッド
     * @param url URL
@@ -159,7 +156,7 @@ public class FacebookOauth extends ActionSupport {
            BufferedReader reader = new BufferedReader(new InputStreamReader(
                    conn.getInputStream()));
            String line = null;
-            
+
            while ((line = reader.readLine()) != null) {
                response += line;
            }

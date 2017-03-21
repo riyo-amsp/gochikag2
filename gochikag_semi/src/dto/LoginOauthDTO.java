@@ -1,8 +1,8 @@
 package dto;
 /**
 * OAUTHで顧客情報を格納する為のDTOクラス
-* @author 堅田 一成
-* @since 1.0
+* @author Kazune Miyagi
+* @since 3/15
 * @version 1.0
 */
 public class LoginOauthDTO{

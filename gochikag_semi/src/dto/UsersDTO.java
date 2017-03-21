@@ -1,6 +1,20 @@
 package dto;
 
+/*
+ * UsersDTO
+ * @author Kazune Miyagi
+ * @since 3/9
+ * @version 1.1
+ */
+
 public class UsersDTO {
+
+	/*
+	 * ユーザー情報の値を格納するクラス
+	 * @author Kazune Miyagi
+     * @since 3/9
+     * @version 1.1
+	 */
 
 	private int userId;// ユーザーID
 	private String password;
@@ -28,7 +42,7 @@ public class UsersDTO {
 	private String oauthAccount;
 	private String registerDay;
 	private String updateDay;
-	
+
 	//ちょっと足すよ
 	private boolean isAlredyUser;
 
