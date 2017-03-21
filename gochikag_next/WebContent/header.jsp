@@ -15,14 +15,17 @@
 </head>
 
 <header>
-    <h1>"すべてが、かわいい。" アンティーク家具の通販サイト 『ごちかぐ』</h1>
-	<h2><a href="top.jsp"><img class="item" src="img/logo2.png"></a></h2>
 
-	
-	<div class = "menu">
+<div class = "menu">
 		<!--  info.jspへ遷移 : aタグのため実装なし-->
-		<a class = "menu" href="login.jsp">ログイン</a> <a class = "menu" href="info.jsp">問い合わせ</a>  
+		<a class = "menu" href="login.jsp">ログイン</a> <a class = "menu" href="info.jsp">問い合わせ</a>
 	</div>
 </header>
+
+    <div class = "title">"すべてが、かわいい。" アンティーク家具の通販サイト 『ごちかぐ』</div>
+	<div class = "logo"><a href="top.jsp"><img class="item" src="img/logo2.png"></a></div>
+
+
+	
 
 <HR size="8" color="#8b0000">
