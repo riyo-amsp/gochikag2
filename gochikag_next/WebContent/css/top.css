@@ -1,5 +1,11 @@
 @CHARSET "UTF-8";
 
+ul{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
 .btn_a {
 	width: 200px;
 	height: 200px;
@@ -7,7 +13,8 @@
 	border-radius: 50px;
 	background: url("../img/isu.jpg") no-repeat;
 	box-shadow:2px 2px 2px #555;
-	trandsition: 
+	trandsition: ;
+	cursor: pointer;
 
 }
 .btn_a:hover {
@@ -23,6 +30,7 @@
 	border-radius: 50px;
 	background: url("../img/kaden.jpg") no-repeat;
 	box-shadow:2px 2px 2px #555;
+		cursor: pointer;
 
 }
 .btn_b:hover {
@@ -39,10 +47,11 @@
 	background: url("../img/sale2.jpg") no-repeat;
 	porder-radius:100px;
 	box-shadow:2px 2px 2px #555;
+		cursor: pointer;
 
 }
 .btn_c:hover {
-	background: url("../img/Dust box_main.jpg") no-repeat;
+	background: url("../img/vr.jpg") no-repeat;
 	color: #FFF;
 	border: 1px solid #FFF;
 }
@@ -51,35 +60,82 @@
 /* トップ画面スライド */
 .wrapper {
 	width: 100%;
-	height: 200px;
+	height: 400px;
 }
 
 #slideshow {
   pointer-events: none;
-  width: 800px;
-  margin : 0px auto;
-  padding : 0px;
+  width: 64%;
+  margin: 0 auto;
 }
 
 #slideshow > li {
-  padding : 0px;
   box-align: center;  
-  width: 800px;
   list-style: none;
   opacity: 0;
   position: absolute;
   transition: opacity 1s;
+  width: 80%;
 
 }
 
 
 #slideshow > li.current {
-  padding : 0px;
+  width: 80%;
+  paddding: 0;
   opacity: 1;
+
 }
 
 .img{
-  width: 800px;
+  width: 80%;
+
   height: 400px;
+  animation: "slide";
+
+
 }
+
+
+
+table.ranking-wrapper {
+	border-radius: 5px;
+	padding-left:30px;
+	width:40%;
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1;
+    border-left: 1px solid #ccc;
+}
+ 
+table.ranking-wrapper thead th {
+    padding: 10px;
+    font-weight: bold;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 2px solid #c00;
+    background: #f0e68c;
+}
+table.ranking-wrapper tbody th {
+    width: 150px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    background: #ececec;
+}
+table.ranking-wrapper td {
+    width: 350px;
+    padding: 10px;
+    vertical-align: top;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+	
+
+
+
+
+
 
