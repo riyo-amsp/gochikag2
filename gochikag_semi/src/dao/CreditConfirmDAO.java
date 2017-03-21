@@ -3,38 +3,53 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import dto.CreditConfirmDTO;
 
+import dto.CreditConfirmDTO;
 import util.DBConnector;
 
-public class CreditConfirmDAO {	
-	
+/**
+ * クレジットカード情報を取得・更新するクラス
+ * @author Kazune Miyagi
+ * @since 2017/03/17
+ * @version 1.1
+ */
+public class CreditConfirmDAO {
+
+	/**
+	 * creditCard_managerから情報を取得・照合するメソッド
+	 * @param stringCardBrand カード会社
+	 * @param creditNumber6 カードの上6桁
+	 * @return checkNumberFlg 照合できたらtrue
+	 */
 	public boolean select1(String stringCardBrand, String creditNumber6){
 		DBConnector db = new DBConnector("creditcard_manager");
 		Connection con = db.getConnection();
 		boolean checkNumberFlag = false;
 		String sql = "SELECT card_number FROM m_creditcard_type WHERE card_name LIKE " + stringCardBrand;
-		
+
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
-			
+
 			while(rs.next()){
 				if(rs.getString("card_number").equals(creditNumber6)){
 					checkNumberFlag  = true;
 				}
 			}
-			
+
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
 		return checkNumberFlag;
 	}
 
-	
-	
+	/**
+	 * カード会社から顧客情報を取得するメソッド
+	 * @param cardBrand カード会社
+	 * @param creditNumber カード番号
+	 * @return CreditConfirmDTO 顧客情報
+	 */
+
 	public CreditConfirmDTO select2(String cardBrand, String creditNumber){
 		DBConnector db = new DBConnector(cardBrand);
 		Connection con = db.getConnection();
@@ -49,7 +64,7 @@ public class CreditConfirmDAO {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, creditNumber);
 			ResultSet rs = ps.executeQuery();
-			if(rs.next()){				
+			if(rs.next()){
 				dto.setLoginId(rs.getString("login_id"));
 				if(cardBrand.equals("visa")){
 					dto.setNameE(rs.getString("last_name") + " " +rs.getString("first_name"));
@@ -64,7 +79,7 @@ public class CreditConfirmDAO {
 		}
 		return dto;
 	}
-	
+
 	public int select3(int userId){
 		DBConnector db = new DBConnector("gochikag");
 		Connection con = db.getConnection();
@@ -82,18 +97,23 @@ public class CreditConfirmDAO {
 			e.printStackTrace();
 		}
 		return totalPrice;
-		
+
 	}
-	
-	
-	
+
+	/**
+	 * gochikagDBのcredit_flgをtrueにするメソッド
+	 * @param userId 顧客ID
+	 * @return checkCartFlg idが照合できたらtrue
+	 * @throws SQLException
+	 */
+
 	public boolean update(int userId) throws SQLException{
 		Connection con = new DBConnector("gochikag").getConnection();
 		PreparedStatement ps = null;
 		int rs = 0;
 		String sql = "update cart2 set credit_flg  = true where user_id = ?";
 		boolean checkCartFlag = false;
-		
+
 		try{
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, userId);
@@ -101,7 +121,7 @@ public class CreditConfirmDAO {
 			rs = ps.executeUpdate();
 			con.commit();
 			if(rs != 0) checkCartFlag = true;
-			
+
 		}catch(SQLException e){
 			con.rollback();
 			e.printStackTrace();

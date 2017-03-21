@@ -3,9 +3,26 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+
 import util.DBConnector;
 
+/**
+ * カート数量を更新するクラス
+ * @author Riyo Takahashi
+ * @since 2017/03/15
+ * @version 1.1
+ */
 public class CartUpdateDAO {
+	/**
+	 * カート数量を更新するメソッド
+	 * @param itemId 顧客ID
+	 * @param itemCount 商品数
+	 * @param price 金額
+	 * @param amount 合計金額
+	 * @param userId 顧客ID
+	 * @return 更新した行数
+	 * @throws SQLException
+	 */
 	public int update(int itemId,int itemCount,int price,int amount,int userId) throws SQLException{
 		//フィールド
 		DBConnector db=new DBConnector("gochikag");

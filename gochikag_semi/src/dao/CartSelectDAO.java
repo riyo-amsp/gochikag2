@@ -9,8 +9,20 @@ import java.util.List;
 import dto.CartSelectDTO;
 import util.DBConnector;
 
+/**
+ * カート情報を取得するクラス
+ * @author Kazune Miyagi
+ * @since 2017/03/15
+ * @version 1.1
+ */
 public class CartSelectDAO {
 	//selectメソッド構成
+	/**
+	 * カート取得するメソッド
+	 * @param userId 顧客ID
+	 * @return カート情報
+	 * @throws SQLException
+	 */
 	public List<CartSelectDTO> select(int userId) throws SQLException{
 
 		//フィールド

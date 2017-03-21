@@ -3,9 +3,21 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import util.DBConnector;
 
+import util.DBConnector;
+/**
+ * credit_flgを解除するクラス
+ * @author Ai Yoneshima
+ * @since 2017/03/16
+ * @version 1.1
+ */
 public class GoBackCreditConfirmDAO {
+
+	/**
+	 * credit_flgをfalseにするメソッド
+	 * @param userId 顧客ID
+	 * @return checkFlg 解除できたらfalse
+	 */
 	public boolean update(int userId){
 		DBConnector db = new DBConnector("gochikag");
 		Connection con = db.getConnection();

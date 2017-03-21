@@ -10,9 +10,20 @@ import java.util.List;
 import dto.CategoryDTO;
 import util.DBConnector;
 
-
+/**
+ * 各カテゴリー情報を取得するクラス
+ * @author Tomohiro Konasaka
+ * @since 2017/03/15
+ * @version 1.1
+ */
 public class CategoryDAO {
 
+	/**
+	 * カテゴリー情報を取得するメソッド
+	 * @param category
+	 * @return カテゴリー情報
+	 * @throws SQLException
+	 */
 	public List<CategoryDTO> select(String category) throws SQLException{
 		DBConnector db = new DBConnector("gochikag");
 		Connection con = db.getConnection();
@@ -20,9 +31,9 @@ public class CategoryDAO {
 		int itemCount = 0;
 		CategoryDTO dto;
 		List<CategoryDTO> dtoList = new ArrayList<CategoryDTO>();
-	
+
 		String sql = "select item_id, item_name, price, main_picture from item where category = ?";
-		
+
 		try{
 			ps= con.prepareStatement(sql);
 			ps.setString(1, category);

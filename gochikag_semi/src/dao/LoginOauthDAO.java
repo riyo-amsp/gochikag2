@@ -6,14 +6,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+
 import dto.UsersDTO;
 import util.DBConnector;
 
 /**
  * Oauthでログインに必要な情報を取得する為のクラス
- * @author SYUNTA KUMATA
- * @since 2017.02.09
- *
+ * @author Kazune Miyagi
+ * @since 2017/3/17
+ * @version 1.1
  */
 public class LoginOauthDAO {
 	/**

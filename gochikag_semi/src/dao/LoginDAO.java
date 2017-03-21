@@ -4,26 +4,31 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import dto.LoginDTO;
 import util.DBConnector;
 
+/**
+ * ログイン情報を取得するクラス
+ * @author Kayoko Ueki
+ * @since 2017/03/16
+ * @version 1.1
+ */
 public class LoginDAO {
-	/**
-	 *
-	 */
-	String url = null;
+
 	LoginDTO dto = new LoginDTO();
 	LoginDTO dto2 = new LoginDTO();
 	PreparedStatement ps;
+	String url = null;
 
 	/**
-	 * @param phoneEmail
-	 * @param password
-	 * @return
-	 * openconnectからアドレスとパスワードを持ってくる
+	 * openconnectから情報を取得するメソッド
+	 * @param phoneEmail アドレス
+	 * @param password パスワード
+	 * @return LoginDTO ログイン情報
 	 */
 	public LoginDTO select(String phoneEmail, String password){
-		url =  "openconnect";
+		url = "openconnect";
 		DBConnector db = new DBConnector(url);
 		Connection con =db.getConnection();
 		String sql = "select user_id, phone_email, login_flg, user_flg ,password "
@@ -54,10 +59,10 @@ public class LoginDAO {
 	}
 
 	/**
-	 * @param phoneEmail
-	 * @param password
-	 * @return
-	 * gochikagDBのデータ件数を持ってくる
+	 * gochikagDBに顧客情報があるか確認するメソッド
+	 * @param phoneEmail アドレス
+	 * @param password パスワード
+	 * @return count2 データの行数
 	 */
 	public int count (String phoneEmail, String password){
 		url = "gochikag";
@@ -84,10 +89,10 @@ public class LoginDAO {
         return count2;
 	}
 	/**
-	 * @param phoneEmail
-	 * @param password
-	 * @return
-	 * GochikagDBのログインフラグをtrueにする
+	 * GochikagDBのログインフラグをtrueにするメソッド
+	 * @param phoneEmail アドレス
+	 * @param password パスワード
+	 * @return flg 更新できればtrue
 	 */
 	public int update(String phoneEmail, String password){
 
@@ -148,13 +153,14 @@ public class LoginDAO {
 
 
 	/**
-	 * @param userId
-	 * @param phoneEmail
-	 * @param loginFlg
-	 * @param userFlg
-	 * @param password
-	 * @return
-	 * gochikagDBにデータをinsertする
+	 * gochikagDBに情報をinsertするメソッド
+	 * @param userId 顧客ID
+	 * @param phoneEmail アドレス
+	 * @param loginFlg ログインフラグ
+	 * @param userFlg ユーザーフラグ
+	 * @param password パスワード
+	 * @return LoginDTO 入力された情報
+	 *
 	 */
 	public LoginDTO insert(String userId, String phoneEmail, String loginFlg, String userFlg, String password){
 		url="gochikag";

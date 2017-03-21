@@ -1,10 +1,5 @@
 
-/**
- * 商品情報の検索及び更新、削除用クラス
- *@author Sakamoto
- *@since 2017/03/10
- *
- */
+
 
 
 package dao;
@@ -17,28 +12,33 @@ import java.util.ArrayList;
 
 import dto.ItemDTO;
 import util.DBConnector;
-
 /**
- * @author internousdev
- *
+ *AdminItemManageDAO 商品情報の検索用クラス
+ *@author Yoshikazu Sakamoto
+ *@since 2017/03/10
+ *@version 1.1
  */
 public class AdminItemManageDAO {
-	//public ArrayList<ItemDTO> searchList = new ArrayList<ItemDTO>();
+
+	public ArrayList<ItemDTO> searchList = new ArrayList<ItemDTO>();
 
 	/**
-	 *
-	 * @param item_name
-	 * @param item_id
-	 * @return searchList
+	 * カテゴリから商品情報を取得するメソッド
+	 * @param item_name 商品名
+	 * @param item_id 商品ID
+	 * @return searchList 商品の検索結果
+	 * @throws  SQLException
 	 */
 
-	public ArrayList<ItemDTO> select1(String category) {
+	public ArrayList<ItemDTO> select1(String category) throws SQLException{
+
+		//gochikagDBに接続
 		DBConnector db = new DBConnector("gochikag");
 		Connection con = db.getConnection();
 		ArrayList<ItemDTO> nameList = new ArrayList<ItemDTO>();
 
-		//String sql = "select item_name,item_id,price,stock_number,main_picture,detail_ja "
-		//		    + "from item inner join detail using(item_id) where category=?";
+		/*String sql = "select item_name,item_id,price,stock_number,main_picture,detail_ja "
+			    		+ "from item inner join detail using(item_id) where category=?";*/
 		String sql = "select item_name, item_id from item where category = ?";
 
 		try {
@@ -58,7 +58,6 @@ public class AdminItemManageDAO {
 				nameList.add(dto);
 			}
 		} catch (SQLException e) {
-			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
 		return searchList;

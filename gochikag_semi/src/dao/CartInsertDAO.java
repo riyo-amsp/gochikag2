@@ -7,14 +7,18 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+
 import util.DBConnector;
 
 
 
 /**
- * @author internousdev
- *
+ * カートの情報を更新するクラス
+ * @author Kazune Miyagi
+ * @since 2017/03/15
+ * @version 1.1
  */
 public class CartInsertDAO {
 
@@ -22,8 +26,17 @@ public class CartInsertDAO {
 	Connection con = db.getConnection();
 	int rs = 0;
 	PreparedStatement ps=null;
-	
-	public int insert(int userId, int itemId,int itemCount,int amount){
+
+	/**
+	 * カートの情報を更新するメソッド
+	 * @param userId 顧客ID
+	 * @param itemId 商品ID
+	 * @param itemCount 商品数
+	 * @param amount 合計
+	 * @return 更新した行数
+	 * @throws SQLException
+	 */
+	public int insert(int userId, int itemId,int itemCount,int amount)throws SQLException{
 		String sql = "insert into cart2 (user_id, item_id, item_count, amount) values(?, ?, ?, ?)";
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -52,7 +65,12 @@ public class CartInsertDAO {
 		return rs;
 	}
 
-	
+	/**
+	 * 商品IDを呼んでくるメソッド
+	 * @param userId 顧客ID
+	 * @param itemId 商品ID
+	 * @return itemIdList
+	 */
 	public List<Integer> select(int userId, int itemId){
 		String sql = "select item_id from cart2 where user_id = ? and item_id = ? ";
 		List<Integer> itemIdList = new ArrayList<Integer>();

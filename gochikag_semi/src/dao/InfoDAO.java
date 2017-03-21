@@ -6,9 +6,22 @@ import java.sql.SQLException;
 
 import util.DBConnector;
 
+/**
+ * 問い合わせ情報を登録するクラス
+ * @author Riyo Takahashi
+ * @since 2017/03/16
+ * @version 1.1
+ */
 public class InfoDAO{
-
-	public int  insert(String name,String email,String info) throws SQLException{
+	/**
+	 * 問い合わせ情報を登録するメソッド
+	 * @param name 名前
+	 * @param email アドレス
+	 * @param info
+	 * @return 登録した行数
+	 * @throws SQLException
+	 */
+	public int insert(String name,String email,String info) throws SQLException{
 	DBConnector db = new DBConnector("gochikag");
 	Connection con = db.getConnection();
 	PreparedStatement ps=null;

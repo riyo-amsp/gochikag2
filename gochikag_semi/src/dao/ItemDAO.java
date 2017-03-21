@@ -12,11 +12,17 @@ import dto.ItemDTO;
 import util.DBConnector;
 
 /**
- * @author internousdev
  *
+ * @author Tomohiro Konasaka
+ * @since 2017/03/15
+ * @version 1.1
  */
 public class ItemDAO {
-
+	/**
+	 * 商品情報を取得するメソッド
+	 * @param item_id 商品ID
+	 * @return ItemDTO 商品情報
+	 */
 	public ItemDTO select(int item_id) {
 		DBConnector db = new DBConnector("gochikag");
 		Connection con = db.getConnection();
