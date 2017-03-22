@@ -13,9 +13,11 @@
 
 	<div class="menu">
 
+<a href="top.jsp" class="ika">　　＊”すべてが、かわいい。”アンティークの家具なら、「ごちかぐ」でご注文をどうぞ！＊</a>
+
 		<!-- ログインユーザーの名前表示 ... 別に出さなくてもいいかも... -->
 
-			<div class="ika">　＊”すべてがかわいい”アンティークの家具なら、「ごちかぐ」でご注文をどうぞ！＊</div>
+
 
 
 		<!-- top.jspへ遷移 : 実装済み -->
@@ -32,19 +34,17 @@
 						<s:submit value="マイページ" />
 					</s:form></th>
 				<th><div class="karasi">
-						<a href="info.jsp">問い合わせ</a>
+						<a href="info.jsp">お問い合わせ</a>
 					</div>
 				<th><s:form action="CartSelectAction" class="karasi">
-						<s:submit value="カートへ" />
+						<s:submit value="カートへ"/>
 					</s:form></th>
-				</div>
-			</table>
-		</div>
-
+				</div></table></div><hr color="Salmon" width="100%" size="10" />
 		<div class="aaa">
 						<div class="logo">
-				<a href="top.jsp"><img class="logo" src="img/logo.png"></a>
+			<a href="top.jsp"><img class="logo" src="img/top-header-mainimg/logo.png"></a>
 			</div>
+
 
 		</div>
 	</div>

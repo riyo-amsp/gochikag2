@@ -69,9 +69,9 @@
 	</div>
 	<div class="wrapper">
 		<ul id="slideshow">
-			<li class="current"><img src="img/interia.jpg" class="img"></li>
-			<li><img src="img/child.jpg" class="img"></li>
-			<li><img src="img/usagi.jpg" class="img"></li>
+			<li class="current"><img src="img/top-header-mainimg/interia.jpg" class="img"></li>
+			<li><img src="img/top-header-mainimg/child.jpg" class="img"></li>
+			<li><img src="img/top-header-mainimg/usagi.jpg" class="img"></li>
 		</ul>
 	</div>
 <div align="center">
@@ -109,6 +109,6 @@
 <!-- 			</tr> -->
 <!-- 			</tbody> -->
 <!-- 		</table> -->
-	
+
 </body>
 </html>

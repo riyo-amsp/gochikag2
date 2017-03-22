@@ -2,7 +2,7 @@
 
 .aaa{
 
- background: url("../img/back.png");
+ background: url("../img/top-header-mainimg/back.png");
        background-repeat : repeat;
 
 }
@@ -23,10 +23,20 @@ transition: 0.5s;
 		transform: rotateY(180deg);
 }
 
+.ika{
+ color:brown;
+font-size:10px;
+	display: inline-block;
+	transition: .3s;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+text-decoration: none;
 }
 
-.ika{color:brown;
-font-size:10px;}
+.ika:hover {
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
+}
 
 .menu{
 color:brown;
@@ -36,11 +46,6 @@ background-color:wheat;
 display:block;
 }
 
-.karasi{
-
-display: inline;
-
-}
 
 .karasi:hover{
 	position:relative;
@@ -48,20 +53,16 @@ display: inline;
 	left:3px;
 }
 
-a {
+.karasii{
+	background-color:brown;
+
+}
+
+karasi {
 	font-weight: normal;
 	color: black;
 	text-decoration: none;
 }
-a:hover{
-	font-weight: normal;
-	color: black;
-	text-decoration: none;
-
-}
-
-a:link  { color : black; }
-a:visited  { color : black; }
 
 
 input[type="submit"]{
@@ -72,7 +73,7 @@ input[type="submit"]{
 html,body,
 ul,ol,li,
 h1,h2,h3,h4,h5,h6,p,div{
-	magin:0;
+	margin:0;
 	padding:0;
 }
 
@@ -81,5 +82,5 @@ li{
 }
 
 a{
-	text-decoration:none;
+	text-decrotation:none;
 }
