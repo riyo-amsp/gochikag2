@@ -5,10 +5,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html>
-<head>
-<fmt:setLocale value="${pageContext.request.locale.language}" />
-<fmt:setBundle basename="property.gochikag.property.item" var="lang" />
+	<fmt:setBundle basename="property.item" var="lang"/>
+	<html lang="ja">
+	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>商品詳細</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
@@ -78,7 +77,7 @@
   	</style>
 </head>
 <body>
-<h1><s:text name = "lang.item.itemDetail" /></h1>
+<h1><s:text name = "lang.item.item" /></h1>
 	<s:if test="%{#session.id != 0}">
 		<s:include value="header_done.jsp" />
 	</s:if>
@@ -132,6 +131,6 @@
 
 	</script>
 
-
+<s:text name="lang.item."/>
 </body>
 </html>

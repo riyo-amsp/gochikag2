@@ -2,9 +2,12 @@
 	contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html>
-<head>
+	<fmt:setBundle basename="property.kagu" var="lang"/>
+	<html lang="ja">
+	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>家具</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
@@ -29,7 +32,7 @@
   			float: left;
   			margin-right: 5%;
   			margin-bottom: 30px;
-  		}	
+  		}
   		.form2{
   			width: 45%;
   			margin: 0 auto;
@@ -58,11 +61,11 @@
 	<s:else>
 		<s:include value="header.jsp" />
 	</s:else>
-	
+
 
 <div class="top-wrapper">
 	<h1>家具商品一覧</h1>
-</div>	
+</div>
 
 <div class="form-wrapper">
 	<s:iterator value="items">
@@ -90,5 +93,6 @@
 		</s:iterator>
 	</s:iterator>
 </div>
+<s:text name="lang.kagu."/>
 </body>
 </html>

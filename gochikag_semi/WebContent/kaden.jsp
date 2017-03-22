@@ -5,10 +5,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html>
-<head>
-	<fmt:setLocale value="${pageContext.request.locale.language}"/>
-	<fmt:setBundle basename="property.gochikag.property.kaden" var="lang"/>
+	<fmt:setBundle basename="property.kaden" var="lang"/>
+	<html lang="ja">
+	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>家電</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
@@ -66,7 +65,9 @@
 
 <div class="top-wrapper">
 	<h1>家電商品一覧</h1>
-	<h1><s:text name="lang.kaden.kaden"/></h1>
+	<h1><s:text name="lang.kaden.electricMachine"/></h1>
+
+		<s:text name="lang.kaden.yen"/>
 </div>
 
 <div class="form-wrapper">
