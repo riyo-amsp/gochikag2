@@ -4,7 +4,11 @@
 "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-	<constant name="struts.custom.il8n.resources" value="property.gochikag.property.main,property.gochikag.property.kaden" />
+	<constant name="struts.custom.il8n.resources" value="property.kaden,
+	property.item,
+	property.sale,
+	property.kagu"/>
+	<constant name="struts.devMode" value="true" ></constant>
 	<package name="action" extends="struts-default">
 
 <!-- Login系 -->
