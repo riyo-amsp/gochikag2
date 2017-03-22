@@ -11,14 +11,14 @@ ul{
 	height: 200px;
 	font-size: 100%;
 	border-radius: 50px;
-	background: url("../img/isu.jpg") no-repeat;
+	background: url("../img/top-header-mainimg/isu.jpg") no-repeat;
 	box-shadow:2px 2px 2px #555;
 	trandsition: ;
 	cursor: pointer;
 
 }
 .btn_a:hover {
-	background: url("../img/isu2.jpg") no-repeat;
+	background: url("../img/top-header-mainimg/isu2.jpg") no-repeat;
 	color: #FFF;
 	border: 1px solid #FFF;
 }
@@ -28,13 +28,13 @@ ul{
 	height: 200px;
 	font-size: 100%;
 	border-radius: 50px;
-	background: url("../img/kaden.jpg") no-repeat;
+	background: url("../img/top-header-mainimg/kaden.jpg") no-repeat;
 	box-shadow:2px 2px 2px #555;
 		cursor: pointer;
 
 }
 .btn_b:hover {
-	background: url("../img/kaden2.jpg") no-repeat;
+	background: url("../img/top-header-mainimg/kaden2.jpg") no-repeat;
 	color: #FFF;
 	border: 1px solid #FFF;
 }
@@ -44,14 +44,14 @@ ul{
 	height: 200px;
 	font-size: 100%;
 	border-radius: 50px;
-	background: url("../img/sale2.jpg") no-repeat;
+	background: url("../img/top-header-mainimg/sale2.jpg") no-repeat;
 	porder-radius:100px;
 	box-shadow:2px 2px 2px #555;
 		cursor: pointer;
 
 }
 .btn_c:hover {
-	background: url("../img/vr.jpg") no-repeat;
+	background: url("../img/top-header-mainimg/vr.jpg") no-repeat;
 	color: #FFF;
 	border: 1px solid #FFF;
 }
@@ -70,7 +70,7 @@ ul{
 }
 
 #slideshow > li {
-  box-align: center;  
+  box-align: center;
   list-style: none;
   opacity: 0;
   position: absolute;
@@ -107,7 +107,7 @@ table.ranking-wrapper {
     line-height: 1;
     border-left: 1px solid #ccc;
 }
- 
+
 table.ranking-wrapper thead th {
     padding: 10px;
     font-weight: bold;
@@ -132,7 +132,7 @@ table.ranking-wrapper td {
     border-right: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
 }
-	
+
 
 
 
