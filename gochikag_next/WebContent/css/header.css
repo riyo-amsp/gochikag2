@@ -3,7 +3,7 @@
 /*背景を設定するためのクラス*/
 .aaa{
 
- background: url("../img/back.png");
+ background: url("../img/top-header-mainimg/back.png");
        background-repeat : repeat;
 
 }
@@ -17,6 +17,7 @@ font-size:10px;
 	transition: .3s;
 	-webkit-transform: scale(1);
 	transform: scale(1);
+text-decoration: none;
 }
 
 .ika:hover {
@@ -69,7 +70,7 @@ transition: 0.5s;
 html,body,
 ul,ol,li,
 h1,h2,h3,h4,h5,h6,p,div{
-	magin:0;
+	margin:0;
 	padding:0;
 }
 
@@ -78,5 +79,5 @@ li{
 }
 
 a{
-	text-decoration:none;
+	text-decrotation:none;
 }

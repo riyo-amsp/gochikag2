@@ -19,11 +19,11 @@
 			<hr color="Salmon" width="100%" size="10" />
 		<div class="aaa">
 						<div class="logo">
-			<a href="top.jsp"><img class="logo" src="img/logo2.png"></a>
+			<a href="top.jsp"><img class="logo" src="img/top-header-mainimg/logo2.png"></a>
 			</div>
 
-		</div>
-	</div>
+		</div></div>
+
 
 </body>
 
