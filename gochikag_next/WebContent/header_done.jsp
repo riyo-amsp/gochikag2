@@ -13,9 +13,11 @@
 
 	<div class="menu">
 
+<a href="top.jsp" class="ika">　　＊”すべてが、かわいい。”アンティークの家具なら、「ごちかぐ」でご注文をどうぞ！＊</a>
+
 		<!-- ログインユーザーの名前表示 ... 別に出さなくてもいいかも... -->
 
-			<div class="ika">　＊”すべてが、かわいい。”アンティークの家具なら、「ごちかぐ」でご注文をどうぞ！＊</div>
+
 
 
 		<!-- top.jspへ遷移 : 実装済み -->
@@ -35,11 +37,9 @@
 						<a href="info.jsp">お問い合わせ</a>
 					</div>
 				<th><s:form action="CartSelectAction" class="karasi">
-						<s:submit value="カートへ" />
+						<s:submit value="カートへ"/>
 					</s:form></th>
-				</div>
-			</table></div>
-			<hr color="brouwn" width="100%" size="10" />
+				</div></table></div><hr color="Salmon" width="100%" size="10" />
 		<div class="aaa">
 						<div class="logo">
 			<a href="top.jsp"><img class="logo" src="img/logo.png"></a>

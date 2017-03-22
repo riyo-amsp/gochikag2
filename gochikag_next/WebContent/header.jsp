@@ -9,14 +9,14 @@
 
 <body>
 <div class="menu">
-			<div class="ika">　＊”すべてが、かわいい。”アンティークの家具なら、「ごちかぐ」でご注文をどうぞ！＊</div>
+			<a href="top.jsp" class="ika">　　＊”すべてが、かわいい。”アンティークの家具なら、「ごちかぐ」でご注文をどうぞ！＊</a>
 
 
 
 
 		<div align="right">
-			<a class = "karasi" href="login.jsp">ログイン</a>　<a class = "karasi" href="info.jsp">問い合わせ</a>　</div>
-			<hr color="brouwn" width="100%" size="10" />
+			<a class = "karasi" href="login.jsp">ログイン</a>　<a class = "karasi" href="info.jsp">お問い合わせ</a>　</div>
+			<hr color="Salmon" width="100%" size="10" />
 		<div class="aaa">
 						<div class="logo">
 			<a href="top.jsp"><img class="logo" src="img/logo2.png"></a>
