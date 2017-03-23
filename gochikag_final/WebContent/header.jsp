@@ -8,7 +8,7 @@
 <div class="menu">
 	<a href="top.jsp" class="header-comment">　　＊”すべてが、かわいい。”アンティークの家具なら、「ごちかぐ」でご注文をどうぞ！＊</a>
 	<div align="right">
-		<a class = "header-form" href="login.jsp">ログイン</a>　<a class = "karasi" href="info.jsp">お問い合わせ</a>　
+		<a class = "header-form" href="login.jsp"><s:text name="lang.header.login"/></a>　<a class = "karasi" href="info.jsp"><s:text name="lang.header.contact"/></a>　
 	</div>
 	<hr color="Salmon" width="100%" size="10" />
 	<div class="back-img">

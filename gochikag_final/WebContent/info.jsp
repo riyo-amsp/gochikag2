@@ -43,7 +43,7 @@
 	<s:form action="InfoAction">
 		<div class="container">
 			<div class="contents">
-				<h1>お問い合わせ</h1>
+				<h1><s:text name="lang.info.contact"/></h1>
 				<div>
 					<h2> <s:textfield name="name" label = "名前"/></h2>
 					<h2> <s:textfield name="email" label = "メールアドレス"/></h2>
@@ -53,10 +53,10 @@
 				</div>
 			</div>
 		</div>
-	
-	    <s:submit value="送信"/>
+
+	    <s:submit value="%{getText('lang.info.submit')}"/>
 	</s:form>
-	
+
 	<s:property value="name"/>
 	<s:property value="email"/>
 	<s:property value="info"/>

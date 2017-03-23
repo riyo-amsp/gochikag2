@@ -29,9 +29,9 @@
 		<s:include value="header.jsp" />
 	</s:else>
 
-	<h1>お問い合わせ</h1>
-	<h1>完了しました</h1>
-	
+	<h1><s:text name="lang.infoDone.message"/></h1>
+	<h1><s:text name="lang.infoDone.Message"/></h1>
+
 	<s:property value="name"/><br>
 	<s:property value="email"/><br>
 	<s:property value="info"/><br>

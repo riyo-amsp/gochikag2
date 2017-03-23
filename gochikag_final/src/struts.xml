@@ -6,7 +6,7 @@
 <struts>
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.custom.i18n.resources"
-			  value="property.sale, property.kagu, property.kaden" />
+			  value="property.sale, property.kagu, property.kaden, property.headerDone" />
 	<package name="action" extends="struts-default">
 
 <!-- Login系 -->

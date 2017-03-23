@@ -1,4 +1,4 @@
-<%@ page language="java" 
+<%@ page language="java"
 	contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
@@ -15,18 +15,18 @@
 </head>
 <body>
 	<div align="center">
-		<h1>ご注文確認画面</h1>
+		<h1><s:text name="lang.confirm.orderConfirmation"/></h1>
 	</div>
 
-	<div class="credit-wrapper">	
+	<div class="credit-wrapper">
 		<div class="pay">
-			<h2>お支払い方法</h2>
-			<p>クレジットカード: <s:property value="cardBrand" /></p>
-			<p>下4桁: <s:property value="lastFourDigits" /></p>
+			<h2><s:text name="lang.confirm.paymentMethod"/></h2>
+			<p><s:text name="lang.confirm.creditCard"/>: <s:property value="cardBrand" /></p>
+			<p><s:text name="lang.confirm.lastFourDigits"/>: <s:property value="lastFourDigits" /></p>
 		</div>
 		<div class="detail">
-			<h2>ご注文詳細</h2>
-			<p>小計: <s:property value="totalPrice" />円</p>
+			<h2><s:text name="lang.confirm.detail"/></h2>
+			<p><s:text name="lang.confirm.total"/>: <s:property value="totalPrice" /><s:text name="lang.confirm.yen"/></p>
 			<form action="PayConfirmAction">
 				<s:hidden name="loginId" value="%{loginId}" />
 				<s:hidden name="lastName" value="%{lastName}" />
@@ -35,16 +35,16 @@
 				<s:hidden name="cardBrand" value="%{cardBrand}" />
 				<s:hidden name="firstSixDigits" value="%{firstSixDigits}" />
 				<s:hidden name="totalPrice" value="%{totalPrice}"/>
-				<input type="submit" value="注文確定" class="btn btn-success submit-btn"/>
+				<input type="submit" value=<s:text name="lang.confirm.submit"/> class="btn btn-success submit-btn"/>
 			</form>
 		</div>
 	</div>
 	<div class="btn-wrapper">
 		<form action="GoBackCartSelectAction" class="form1">
-			<input type="submit" value="買い物カゴへ戻る" class="btn btn-danger"/>
+			<input type="submit" value=<s:text name="lang.confirm.backToCart"/> class="btn btn-danger"/>
 		</form>
 		<form action="GoBackCreditConfirmAction" class="form2">
-			<input type="submit" value="購入手続きへ戻る" class="btn btn-danger"/>
+			<input type="submit" value=<s:text name="lang.confirm.backToPurchase"/> class="btn btn-danger"/>
 		</form>
 	</div>
 </body>

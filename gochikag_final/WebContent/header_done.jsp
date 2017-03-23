@@ -1,4 +1,4 @@
-<%@ page language="java" 
+<%@ page language="java"
 	contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
@@ -13,23 +13,23 @@
 				<tr>
 					<th>
 						<s:form action="LogoutAction" class="header-form">
-							<input type=submit name=submit value="ログアウト">
+							<input type=submit name=submit value=<s:text name="lang.headerDone.logout"/>>
 						</s:form>
 					</th>
 					<th>
 						<s:form action="MyPageAction" class="header-form">
 							<s:hidden name="userId" value="%{#session.userId}" />
-							<s:submit value="マイページ" />
+							<s:submit value="%{getText('lang.headerDone.mypage')}" />
 						</s:form>
 					</th>
 					<th>
 						<div class="header-form">
-							<a href="info.jsp">お問い合わせ</a>
+							<a href="info.jsp"><s:text name="lang.headerDone.contact"/></a>
 						</div>
 					</th>
 					<th>
 						<s:form action="CartSelectAction" class="header-form">
-							<s:submit value="カートへ"/>
+							<s:submit value="%{getText('lang.headerDone.cart')}"/>
 						</s:form>
 					</th>
 				</tr>
