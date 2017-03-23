@@ -3,7 +3,7 @@
 -- Host: localhost    Database: gochikag
 -- ------------------------------------------------------
 -- Server version   5.7.17-log
- 
+
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -14,11 +14,15 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
- 
+
 --
 -- Table structure for table `cart`
 --
- 
+DROP DATABASE IF EXISTS gochikag;
+CREATE DATABASE gochikag;
+
+use gochikag;
+
 DROP TABLE IF EXISTS `cart`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -37,20 +41,20 @@ CREATE TABLE `cart` (
   CONSTRAINT `cart_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
- 
+
 --
 -- Dumping data for table `cart`
 --
- 
+
 LOCK TABLES `cart` WRITE;
 /*!40000 ALTER TABLE `cart` DISABLE KEYS */;
 /*!40000 ALTER TABLE `cart` ENABLE KEYS */;
 UNLOCK TABLES;
- 
+
 --
 -- Table structure for table `cart2`
 --
- 
+
 DROP TABLE IF EXISTS `cart2`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -66,20 +70,20 @@ CREATE TABLE `cart2` (
   CONSTRAINT `cart2_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `item` (`item_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
- 
+
 --
 -- Dumping data for table `cart2`
 --
- 
+
 LOCK TABLES `cart2` WRITE;
 /*!40000 ALTER TABLE `cart2` DISABLE KEYS */;
 /*!40000 ALTER TABLE `cart2` ENABLE KEYS */;
 UNLOCK TABLES;
- 
+
 --
 -- Table structure for table `credit`
 --
- 
+
 DROP TABLE IF EXISTS `credit`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -96,20 +100,20 @@ CREATE TABLE `credit` (
   CONSTRAINT `credit_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
- 
+
 --
 -- Dumping data for table `credit`
 --
- 
+
 LOCK TABLES `credit` WRITE;
 /*!40000 ALTER TABLE `credit` DISABLE KEYS */;
 /*!40000 ALTER TABLE `credit` ENABLE KEYS */;
 UNLOCK TABLES;
- 
+
 --
 -- Table structure for table `credit2`
 --
- 
+
 DROP TABLE IF EXISTS `credit2`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -125,20 +129,20 @@ CREATE TABLE `credit2` (
   CONSTRAINT `credit2_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
- 
+
 --
 -- Dumping data for table `credit2`
 --
- 
+
 LOCK TABLES `credit2` WRITE;
 /*!40000 ALTER TABLE `credit2` DISABLE KEYS */;
 /*!40000 ALTER TABLE `credit2` ENABLE KEYS */;
 UNLOCK TABLES;
- 
+
 --
 -- Table structure for table `detail`
 --
- 
+
 DROP TABLE IF EXISTS `detail`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -152,20 +156,20 @@ CREATE TABLE `detail` (
   CONSTRAINT `detail_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `item` (`item_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
- 
+
 --
 -- Dumping data for table `detail`
 --
- 
+
 LOCK TABLES `detail` WRITE;
 /*!40000 ALTER TABLE `detail` DISABLE KEYS */;
 /*!40000 ALTER TABLE `detail` ENABLE KEYS */;
 UNLOCK TABLES;
- 
+
 --
 -- Table structure for table `item`
 --
- 
+
 DROP TABLE IF EXISTS `item`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -182,21 +186,21 @@ CREATE TABLE `item` (
   PRIMARY KEY (`item_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
- 
+
 --
 -- Dumping data for table `item`
 --
- 
+
 LOCK TABLES `item` WRITE;
 /*!40000 ALTER TABLE `item` DISABLE KEYS */;
 INSERT INTO `item` VALUES (1,'cabinet_main',15800,'img/item/kagu/cabinet_main.jpg',10,0,'2017-03-17 00:00:00','2017-03-17 00:00:00','kagu'),(2,'chest_main',7800,'img/item/kagu/chest_main.jpg',10,0,'2017-03-17 00:00:00','2017-03-17 00:00:00','kagu'),(3,'table_main',5800,'img/item/kagu/table_main.jpg',10,0,'2017-03-17 00:00:00','2017-03-17 00:00:00','kagu'),(4,'dresser_main',15800,'img/item/kagu/dresser_main.jpg',10,0,'2017-03-17 00:00:00','2017-03-17 00:00:00','kagu'),(5,'sofa_main',10100,'img/item/kagu/sofa_main.jpg',10,0,'2017-03-17 00:00:00','2017-03-17 00:00:00','kagu'),(6,'chair_main',12800,'img/item/kagu/chair_main.jpg',10,0,'2017-03-17 00:00:00','2017-03-17 00:00:00','kagu'),(7,'coffee_maker',10000,'img/item/kaden/coffee_maker.jpg',20,0,'2017-03-17 12:00:00','2017-03-17 12:00:00','kaden'),(8,'toaster',1500,'img/item/kaden/toaster.jpg',20,0,'2017-03-17 12:00:00','2017-03-17 12:00:00','kaden'),(9,'air_clean',2500,'img/item/kaden/coffee_maker.jpg',20,0,'2017-03-17 12:00:00','2017-03-17 12:00:00','kaden');
 /*!40000 ALTER TABLE `item` ENABLE KEYS */;
 UNLOCK TABLES;
- 
+
 --
 -- Table structure for table `pictures`
 --
- 
+
 DROP TABLE IF EXISTS `pictures`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -210,21 +214,21 @@ CREATE TABLE `pictures` (
   CONSTRAINT `pictures_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `item` (`item_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
- 
+
 --
 -- Dumping data for table `pictures`
 --
- 
+
 LOCK TABLES `pictures` WRITE;
 /*!40000 ALTER TABLE `pictures` DISABLE KEYS */;
 INSERT INTO `pictures` VALUES (1,'img/item/kagu/cabinet_sub1.jpg','img/item/kagu/cabinet_sub2.jpg','img/item/kagu/cabinet_sub3.jpg',0),(2,'img/item/kagu/chest_sub1.jpg','img/item/kagu/chest_sub2.jpg','img/item/kagu/chest_sub3.jpg',0),(3,'img/item/kagu/table_sub1.jpg','img/item/kagu/table_sub2.jpg','img/item/kagu/table_sub3.jpg',0),(4,'img/item/kagu/dresser_sub1.jpg','img/item/kagu/dresser_sub2.jpg','img/item/kagu/dresser_sub3.jpg',0),(5,'img/item/kagu/sofa_sub1.jpg','img/item/kagu/sofa_sub2.jpg','img/item/kagu/sofa_sub3.jpg',0),(6,'img/item/kagu/chair_sub1.jpg','img/item/kagu/chair_sub2.jpg','img/item/kagu/chair_sub3.jpg',0),(7,'img/item/kaden/coffee_maker2.jpg','img/item/kaden/coffee_maker3.jpg','img/item/kaden/coffee_maker4.jpg',0),(8,'img/item/kaden/air_clean2.jpg','img/item/kaden/air_clean3.jpg','img/item/kaden/air_clean4.jpg',0),(9,'img/item/kaden/toaster2.jpg','img/item/kaden/toaster3.jpg','img/item/kaden/toaster4.jpg',0);
 /*!40000 ALTER TABLE `pictures` ENABLE KEYS */;
 UNLOCK TABLES;
- 
+
 --
 -- Table structure for table `purchase`
 --
- 
+
 DROP TABLE IF EXISTS `purchase`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -242,20 +246,20 @@ CREATE TABLE `purchase` (
   CONSTRAINT `purchase_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
- 
+
 --
 -- Dumping data for table `purchase`
 --
- 
+
 LOCK TABLES `purchase` WRITE;
 /*!40000 ALTER TABLE `purchase` DISABLE KEYS */;
 /*!40000 ALTER TABLE `purchase` ENABLE KEYS */;
 UNLOCK TABLES;
- 
+
 --
 -- Table structure for table `purchase2`
 --
- 
+
 DROP TABLE IF EXISTS `purchase2`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -269,20 +273,20 @@ CREATE TABLE `purchase2` (
   CONSTRAINT `purchase2_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
- 
+
 --
 -- Dumping data for table `purchase2`
 --
- 
+
 LOCK TABLES `purchase2` WRITE;
 /*!40000 ALTER TABLE `purchase2` DISABLE KEYS */;
 /*!40000 ALTER TABLE `purchase2` ENABLE KEYS */;
 UNLOCK TABLES;
- 
+
 --
 -- Table structure for table `users`
 --
- 
+
 DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -295,17 +299,17 @@ CREATE TABLE `users` (
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
- 
+
 --
 -- Dumping data for table `users`
 --
- 
+
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
- 
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
@@ -313,5 +317,5 @@ UNLOCK TABLES;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
- 
+
 -- Dump completed on 2017-03-21 13:30:11
