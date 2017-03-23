@@ -34,6 +34,7 @@ public class CartDeleteAction extends ActionSupport implements SessionAware{
 	 *カート削除する
 	 * @author UEKI KAYO
 	 * @return result
+	 * @throws SQLException
 	 */
 	public String execute() throws SQLException{
 		userId=0;

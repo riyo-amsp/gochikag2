@@ -1,4 +1,5 @@
 package action;
+import java.sql.SQLException;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -24,8 +25,9 @@ public class GoBackCreditConfirmAction extends ActionSupport implements SessionA
 	 *クレジット認証を解除する実行メソッド
 	 *@author YONESHIMA AI
 	 *@return result
+	 *@throws SQLException
 	 */
-	public String execute(){
+	public String execute() throws SQLException{
 		int userId = 0;
 		if(session.containsKey("userId")){
 			userId= Integer.parseInt((String) session.get("userId"));

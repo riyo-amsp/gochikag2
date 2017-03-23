@@ -1,4 +1,5 @@
 package action;
+import java.sql.SQLException;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -49,9 +50,11 @@ public class LoginTwitterAction extends ActionSupport implements ServletResponse
 
     /**
      * Twitter認証の実行メソッド
-     * @return String
+     * @author MIYAGI KAZUNE
+     * @return rtn
+     * @throws SQLException
      */
-    public String execute() {
+    public String execute() throws SQLException{
     	System.out.println("LoginTWEEET");
         String rtn = ERROR;
         TwitterOauth twitterOauth = new TwitterOauth();

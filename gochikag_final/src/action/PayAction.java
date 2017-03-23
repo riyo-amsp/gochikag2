@@ -25,6 +25,9 @@ public class PayAction extends ActionSupport implements SessionAware{
 	/**
 	 * 実行メソッド
 	 * カート内商品の支払い方法
+	 * @author TAKAHASHI RIYO
+	 * @return ret
+	 * @throws SQLException
 	 *
 	 */
 	public String execute() throws SQLException{

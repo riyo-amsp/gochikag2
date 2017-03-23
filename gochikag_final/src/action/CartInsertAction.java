@@ -41,7 +41,7 @@ public class CartInsertAction extends ActionSupport implements SessionAware {
 	 * カートにアイテムを入れるアクション
 	 * @author UEKI KAYO
 	 * @return result
-	 * @throws SQLException 
+	 * @throws SQLException
 	 */
 	public String execute() throws SQLException {
 		int userId = 0;

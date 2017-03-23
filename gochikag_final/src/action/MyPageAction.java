@@ -27,6 +27,8 @@ public class MyPageAction extends ActionSupport{
 
 	/** マイページの実行メソッド
 	 * @author KONAKASAKA TOMOHIRO
+	 * @return result
+	 * @throws SQLException
 	 */
 	public String execute() throws NumberFormatException, SQLException{
 		MyPageDAO dao = new MyPageDAO();

@@ -48,6 +48,7 @@ public class CartUpdateAction extends ActionSupport implements SessionAware{
 	 *カート情報を取得するアクション
 	 * @author RIYO TAKAHASHI
 	 * @return result
+	 * @throws SQLException
 	 */
 	//executeメソッド
 	public String execute() throws SQLException{

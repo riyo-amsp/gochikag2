@@ -40,11 +40,13 @@ public class LogoutAction extends ActionSupport implements SessionAware{
 	 * 商品ID
 	 */
 	private String itemId;
-	
-	
+
+
 	/**
 	 * ログアウト実行メソッド
-	 * @author WATANABE JUNA
+	 * @author WATANABE JUNNNA
+	 * @return ret
+	 * @throws SQLException
 	 */
 	public String execute()throws SQLException{
 
@@ -58,11 +60,11 @@ public class LogoutAction extends ActionSupport implements SessionAware{
 		int flg2 = 0;
 		flg= dao.update(phoneEmail, password);
 		flg2 = dao.update2(phoneEmail, password);
-		
+
 		//gochikagDBのcartテーブルのデータを削除
 		int rs=dao.delete(userId);
-		
-		//sessionを破棄する 
+
+		//sessionを破棄する
 		if((flg==0)&&(flg2==0)){
 			((SessionMap<String, Object>)session).invalidate();
 			ret = SUCCESS;

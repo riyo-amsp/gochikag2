@@ -1,7 +1,8 @@
 package dto;
 
-/*
+/**
  * UsersDTO
+ * ユーザー情報の値を格納するクラス
  * @author Kazune Miyagi
  * @since 3/9
  * @version 1.1
@@ -9,12 +10,7 @@ package dto;
 
 public class UsersDTO {
 
-	/*
-	 * ユーザー情報の値を格納するクラス
-	 * @author Kazune Miyagi
-     * @since 3/9
-     * @version 1.1
-	 */
+
 
 	private int userId;// ユーザーID
 	private String password;

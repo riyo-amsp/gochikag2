@@ -21,7 +21,7 @@ public class AdminItemManageDAO {
 	 *
 	 * @param item_name
 	 * @param item_id
-	 * @return searchList
+	 * @return nameList
 	 */
 
 	public ArrayList<String> select1(String category) {
@@ -39,10 +39,15 @@ public class AdminItemManageDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} 
+		}
 		return nameList;
 	}
-	
+
+	/**
+	 * @param itemName 
+	 * @return
+	 * @throws SQLException 
+	 */
 	public ItemDTO select2(String itemName) throws SQLException{
 		DBConnector db = new DBConnector("gochikag");
 		Connection con = db.getConnection();
@@ -68,7 +73,13 @@ public class AdminItemManageDAO {
 		}
 		return dto;
 	}
-	
+
+	/**
+	 * @param itemId 
+	 * @param stockNumber 
+	 * @return
+	 * @throws SQLException 
+	 */
 	public int update(int itemId, int stockNumber) throws SQLException{
 		//フィールド
 		DBConnector db=new DBConnector("gochikag");
@@ -92,7 +103,7 @@ public class AdminItemManageDAO {
 		}
 		return rs;
 	}
-	
+
 	public int deleteFromDetail(int itemId,int userId) throws SQLException{
 
 		//フィールド
@@ -119,5 +130,5 @@ public class AdminItemManageDAO {
 		}
 		return rs;
 	}
-	
+
 }

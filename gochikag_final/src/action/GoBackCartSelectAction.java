@@ -21,6 +21,7 @@ public class GoBackCartSelectAction extends ActionSupport implements SessionAwar
 	 * クレジット認証およびカートフラグを解除するアクション
 	 * @author SAKAMOTO YOSHIKAZU
 	 * @return result
+	 * @throws SQLException
 	 */
 	public String execute() throws SQLException{
 		int userId = 0;

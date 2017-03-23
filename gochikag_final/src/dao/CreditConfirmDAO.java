@@ -80,7 +80,13 @@ public class CreditConfirmDAO {
 		return dto;
 	}
 
-	public int select3(int userId){
+	/**
+	 *
+	 * @param userId 顧客ID
+	 * @return totalPrice 合計金額
+	 * @throws SQLException
+	 */
+	public int select3(int userId) throws SQLException{
 		DBConnector db = new DBConnector("gochikag");
 		Connection con = db.getConnection();
 		PreparedStatement ps = null;

@@ -26,6 +26,9 @@ public class CategoryAction extends ActionSupport{
 	/**
 	 * 実行メソッド
 	 * 各カテゴリーページへ遷移するアクション
+	 * @author TOMOYA IKARASHI
+	 * @return category
+	 * @throws SQLException
 	 */
 	public String execute() throws SQLException{
 		CategoryDAO dao = new CategoryDAO();

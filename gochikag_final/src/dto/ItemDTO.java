@@ -6,11 +6,7 @@ package dto;
  * @version 1.1
  */
 public class ItemDTO {
-	/**
-	 * @author Yoshikazu Sakamoto
-	 * @since 3/9
-	 * @version 1.1
-	 */
+
 	private String itemName;
 	private int itemId;
 	private String mainPicture;

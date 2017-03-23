@@ -1,21 +1,16 @@
 package dto;
 
-/*
- * MyPageDTO
+/** MyPageDTO
+ * アイテムの値を格納するクラス
  * @author Tomoya Ikarashi
  * @since  3/10
  * @version 1.1
  */
 
 public class MyPageDTO {
-	
-	/*
-	 * アイテムの値を格納するクラス
-	 * @author Tomoya Ikarashi 
-	 * @since 3/10
-	 * @version 1.1
-	 */
-	
+
+
+
 	private String date;
 	private String itemName;
 	private int amount;
@@ -61,5 +56,5 @@ public class MyPageDTO {
 	public void setAmount(int amount) {
 		this.amount = amount;
 	}
-	
+
 }

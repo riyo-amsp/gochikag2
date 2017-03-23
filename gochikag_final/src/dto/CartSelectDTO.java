@@ -1,6 +1,7 @@
 package dto;
 
 /** CartSelectDTO
+ * カートの値を格納するクラス
  * @author Junna Watababe
  * @since 3/10
  * @version 1.1
@@ -8,12 +9,7 @@ package dto;
 
 public class CartSelectDTO {
 
-	/**
-	 * カートの値を格納するクラス
-	 * @author Junna Watanabe
-	 * @since 3/10
-	 * @version 1.1
-	 */
+
 
 	//フィールド
 	private int itemId;

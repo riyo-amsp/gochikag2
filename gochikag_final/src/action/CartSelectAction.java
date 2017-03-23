@@ -39,6 +39,7 @@ public class CartSelectAction extends ActionSupport implements SessionAware{
 	 *カート情報を取得するアクション
 	 *@author MIYAGI KAZUNE
 	 *@return result
+	 *@throws SQLException
 	 */
 	public String execute() throws SQLException{
 		System.out.println("here");

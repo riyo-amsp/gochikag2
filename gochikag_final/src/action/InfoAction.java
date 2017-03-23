@@ -32,6 +32,7 @@ public class InfoAction extends ActionSupport{
 	 *  実行メソッド 問い合わせをDBに入れる
 	 * @author MIYAGI KAZUNE
 	 * @return result
+	 * @throws SQLException
 	 */
 	public String execute() throws SQLException{
 		InfoDAO dao = new InfoDAO();

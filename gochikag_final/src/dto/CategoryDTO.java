@@ -2,6 +2,7 @@ package dto;
 
 /**
  * CategoryDTO
+ * アイテムの値を格納するクラス
  * @author Tomohiro Konasaka
  * @since 3/10
  * @version 1.1
@@ -9,12 +10,7 @@ package dto;
 
 public class CategoryDTO {
 
-	/*
-	 * アイテムの値を格納するクラス
-	 * @author Tomohiro Konasaka
-     * @since 3/10
-     * @version1.1
-	 */
+
 
 	private int itemId;
 	private String itemName;

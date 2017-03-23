@@ -1,5 +1,6 @@
 package action;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,8 +44,9 @@ public class ItemAction extends ActionSupport {
 	 * 実行メソッド 商品詳細に遷移
 	 * @author SAKAMOTO YOSHIKAZU
 	 * @return result
+	 * @throws SQLException
 	 */
-	public String execute() {
+	public String execute() throws SQLException{
 
 		ItemDAO dao = new ItemDAO();
 		dto = dao.select(Integer.parseInt(itemId));

@@ -1,25 +1,20 @@
 package dto;
 
-/*
+/**
  * PayConfirmDTO
+ * アイテムの値を格納するクラス
  * @author Kayoko Ueki
  * @since 3/10
  * @version 1.1
  */
 
 public class PayConfirmDTO {
-	
-	/*
-	 * アイテムの値を格納するクラス
-	 * @author Kayoko Ueki
-     * @since 3/10
-     * @version 1.1
-	 */
-	
+
+
 	private int itemId;
 	private int itemCount;
 	private int amount;
-	
+
 	/**
 	 * itemIdを取得します。
 	 * @return itemId

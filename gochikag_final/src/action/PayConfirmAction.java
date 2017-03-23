@@ -57,6 +57,7 @@ public class PayConfirmAction extends ActionSupport implements SessionAware {
 	 * 実行メソッド 全ての購入手続きを完遂し、gochikagDBと使用されたクレジット会社のDBそれぞれにクレジットの領収書を発行する
 	 * @author KONASAKA TOMOHIRO
 	 * @return result
+	 * @throws SQLException
 	 */
 	public String execute() throws SQLException{
 		int userId = 0;

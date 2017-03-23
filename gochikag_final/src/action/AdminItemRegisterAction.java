@@ -1,10 +1,10 @@
 package action;
 
-import com.opensymphony.xwork2.ActionSupport;
-
-import java.util.Calendar;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
+import com.opensymphony.xwork2.ActionSupport;
 
 import dao.AdminItemRegisterDAO;
 
@@ -66,16 +66,17 @@ public class AdminItemRegisterAction extends ActionSupport {
 	 * 新しい商品を追加する
 	 * @author Tomohiro Konasaka
 	 * @return result
+	 * @throws SQLException
 	 */
 	public String execute() {
 		AdminItemRegisterDAO dao = new AdminItemRegisterDAO();
 		Calendar cal = Calendar.getInstance();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		String now = sdf.format(cal.getTime());
-		
+
 		if(dao.insertIntoItem(itemName, price, stockNumber, mainPicture, now, category) == 1){
 			int itemId = dao.select();
-			if(dao.insertIntoPictures(itemId, subPicture1, subPicture2, subPicture3) == 1){ 
+			if(dao.insertIntoPictures(itemId, subPicture1, subPicture2, subPicture3) == 1){
 				if(dao.insertIntoDetail(itemId, detailJa, detailEn) == 1){
 					System.out.println("追加しました");
 					return SUCCESS;

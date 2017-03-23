@@ -1,5 +1,6 @@
 package action;
 
+import java.sql.SQLException;
 import java.util.Map;
 
 import org.apache.struts2.dispatcher.SessionMap;
@@ -52,7 +53,8 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	/**
 	 * 実行メソッド ユーザーIDとパスワードでログインする
 	 * @author TOMOYA IKARASHI
-	 * @return result
+	 * @return ret
+	 * @throws SQLException
 	 */
 	public String execute()throws Exception{
 

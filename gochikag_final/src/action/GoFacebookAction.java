@@ -1,5 +1,7 @@
 
 package action;
+import java.sql.SQLException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -34,9 +36,11 @@ public class GoFacebookAction  extends ActionSupport implements ServletResponseA
     private HttpServletResponse response;
     /**
      * FaceBookからTokenを取得するメソッド
-     * @return String
+     * @author MIYAGI KAZUNE
+     * @return result
+     * @throws SQLException
      */
-    public String execute() {
+    public String execute() throws SQLException{
     	System.out.println("GoFacebookAction");
         FacebookOauth oauth = new FacebookOauth();
         oauth.getRequestToken(request, response);

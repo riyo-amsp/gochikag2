@@ -70,8 +70,8 @@ public class LoginFacebookAction extends ActionSupport implements SessionAware,S
 
 	/**
 	 * FACEBOOK 認証の実行メソッド ユーザー認証をセッションする
-	 * @return SUCCESS ERROR
-	 * @throws SQLException エラー処理
+	 * @return rtn
+	 * @throws SQLException
 	 */
 	public String execute()throws SQLException{
 		String rtn = ERROR;

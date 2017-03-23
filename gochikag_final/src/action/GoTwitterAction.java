@@ -1,5 +1,6 @@
 package action;
 
+import java.sql.SQLException;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -42,9 +43,11 @@ public class GoTwitterAction extends ActionSupport implements ServletResponseAwa
 
     /**
      * TwitterリクエストTokenを取得するメソッド
-     * @return  SUCCESS ERROR
+     * @author MIYAGI KAZUNE
+     * @return  result
+     * @throws SQLException
      */
-    public String execute() {
+    public String execute() throws SQLException{
     	System.out.println("GOTWEEET");
         TwitterOauth twitterOauth = new TwitterOauth();
         if (!twitterOauth.getRequestToken(request, response)) {

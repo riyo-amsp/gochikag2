@@ -1,7 +1,8 @@
 package dto;
 
-/*
+/**
  * LoginDTO
+ * ユーザー情報の値を格納するクラス
  * @author Ai Yoneshima
  * @since 3/10
  * @version 1.1
@@ -9,12 +10,7 @@ package dto;
 
 public class LoginDTO {
 
-	/*
-	 * ユーザー情報の値を格納するクラス
-	 * @author Ai Yoneshima
-     * @since 3/10
-     * @version 1.1
-	 */
+
 
 	private String password;
 	private String phoneEmail;

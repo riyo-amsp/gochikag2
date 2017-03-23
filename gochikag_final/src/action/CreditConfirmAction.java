@@ -49,6 +49,7 @@ public class CreditConfirmAction extends ActionSupport implements SessionAware{
 	 *クレジット情報を認証するアクション
 	 *@author MIYAGI KAZUNE
 	 *@return result
+	 *@throws SQLException
 	 */
 	public String execute() throws SQLException{
 

@@ -8,14 +8,8 @@ package dto;
  */
 
 public class CreditConfirmDTO {
-	
-	/*
-	 * ユーザー情報の値を格納するクラス
-     * @author Riyo Takahashi
-     * @since 3/9
-     * @version 1.1
-	 */
-	
+
+
 	private String loginId;
 	private String nameE; //last_name + first_name
 	private int securityCode;
