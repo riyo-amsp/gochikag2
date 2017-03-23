@@ -21,7 +21,7 @@
 
 <s:form action="AdminInfoAction">
 	<s:hidden name="" value=""/>
-	<s:submit value="お問い合わせ管理"/>
+	<s:submit value="%{getText('lang.admin.infoManage')}"/>
 </s:form>
 
 </body>

@@ -2,14 +2,17 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<fmt:setLocale value="${pageContext.request.locale.language}" />
+	<fmt:setBundle basename="property.main" var="lang" />
 <link rel="stylesheet" type="text/css" href="css/header.css">
 <link rel="stylesheet" type="text/css" href="css/top.css">
 <link rel="stylesheet" type="text/css" href="css/sakura.css">
-<title>トップ</title>
+<title><s:text name="lang.main.top"/></title>
 	<script src="js/jquery-3.1.1.min.js"></script>
 	<script src="js/slider.js"></script>
 	<!-- ファビコンです　米島 -->
@@ -51,7 +54,7 @@
 			<li><img src="img/top-header-mainimg/usagi.jpg" class="img"></li>
 		</ul>
 	</div>
-	
+
 	<div align="center">
 		<%-- <c:import url="http://localhost:8080/openconnect/footer.jsp" /> --%>
 	</div>

@@ -66,7 +66,7 @@
 								<td class="text-center">
 									<form action="CartDeleteAction">
 										<input type="hidden" name="itemId" value="<s:property value="itemId" />"/>
-										<input type="submit" type="button" value="カートから削除する" class="form-control"/>
+										<input type="submit" type="button" value="%{getText('lang.cart.delete')}" class="form-control"/>
 									</form>
 								</td>
 							</tr>
@@ -82,7 +82,7 @@
 					<!-- 購入画面へ遷移 -->
 					<!-- カートが空のとき、クレジットカード入力画面へ進もうとするとエラーメッセージを表示 -->
 					<form action="PayAction">
-						<input type="submit" value="購入画面へ"/>
+						<input type="submit" value="購入画面へ" />
 					</form>
 				</div>
 			</div>

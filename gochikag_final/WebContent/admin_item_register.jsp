@@ -11,7 +11,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<fmt:setLocale value="${pageContext.request.locale.language}" />
 	<fmt:setBundle basename="property.adminItemRegister" var="lang" />
-	<title><s:text name="lang.admin_item_register.regi"/></title>
+	<title><s:text name="lang.adminItemRegister.regi"/></title>
 	<style>
 		.manage {
 			display: block;
@@ -21,21 +21,21 @@
 <body>
 
 	<s:form action="AdminItemRegisterAction">
-		<s:textfield name="itemName" label="商品名" required="required" cssClass="manage" theme="css_xhtml"/>
-		<s:textfield name="price" label="価格" required="required" cssClass="manage" theme="css_xhtml"/>
-		<s:textfield name="stockNumber" label="在庫数" required="required" cssClass="manage" theme="css_xhtml"/>
-		<s:textfield name="mainPicture" label="写真" required="required" cssClass="manage" theme="css_xhtml"/>
-		<s:textfield name="subPicture1" label="サブ写真1" required="required" cssClass="manage" theme="css_xhtml"/>
-		<s:textfield name="subPicture2" label="サブ写真2" required="required" cssClass="manage" theme="css_xhtml"/>
-		<s:textfield name="subPicture3" label="サブ写真3" required="required" cssClass="manage" theme="css_xhtml"/>
-		<s:textfield name="detailJa" label="詳細（日本語）" required="required" cssClass="manage" theme="css_xhtml"/>
-		<s:textfield name="detailEn" label="詳細（英語）" required="required" cssClass="manage" theme="css_xhtml"/>
+		<s:textfield name="itemName" label="%{getText('lang.adminItemRegister.itemName')}" required="required" cssClass="manage" theme="css_xhtml"/>
+		<s:textfield name="price" label="%{getText('lang.adminItemRegister.price')}" required="required" cssClass="manage" theme="css_xhtml"/>
+		<s:textfield name="stockNumber" label="%{getText('lang.adminItemRegister.stockNumber')}" required="required" cssClass="manage" theme="css_xhtml"/>
+		<s:textfield name="mainPicture" label="%{getText('lang.adminItemRegister.mainPicture')}" required="required" cssClass="manage" theme="css_xhtml"/>
+		<s:textfield name="subPicture1" label="%{getText('lang.adminItemRegister.subPicture1')}" required="required" cssClass="manage" theme="css_xhtml"/>
+		<s:textfield name="subPicture2" label="%{getText('lang.adminItemRegister.subPicture2')}" required="required" cssClass="manage" theme="css_xhtml"/>
+		<s:textfield name="subPicture3" label="%{getText('lang.adminItemRegister.subPicture3')}" required="required" cssClass="manage" theme="css_xhtml"/>
+		<s:textfield name="detailJa" label="%{getText('lang.adminItemRegister.detailJa')}" required="required" cssClass="manage" theme="css_xhtml"/>
+		<s:textfield name="detailEn" label="%{getText('lang.adminItemRegister.detailEn')}" required="required" cssClass="manage" theme="css_xhtml"/>
 		<select name="category">
-			<option value="kagu"><s:text name="lang.admin_item_register.furniture"></s:text></option>
-			<option value="kaden"><s:text name="lang.admin_item_register.electricMachine"></s:text></option>
-			<option value="sale"><s:text name="lang.admin_item_register.sale"></s:text></option>
+			<option value="kagu"><s:text name="lang.adminItemRegister.furniture"></s:text></option>
+			<option value="kaden"><s:text name="lang.adminItemRegister.electricMachine"></s:text></option>
+			<option value="sale"><s:text name="lang.adminItemRegister.sale"></s:text></option>
 		</select>
-		<s:submit value="送信" cssClass="manage" theme="css_xhtml"/>
+		<s:submit value="%{getText('lang.adminItemRegister.submit')}" cssClass="manage" theme="css_xhtml"/>
 	</s:form>
 </body>
 </html>

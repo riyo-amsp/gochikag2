@@ -10,7 +10,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<fmt:setLocale value="${pageContext.request.locale.language}" />
 	<fmt:setBundle basename="property.adminItemManage" var="lang" />
-	<title><s:text name="manage"/></title>
+	<title><s:text name="lang.adminItemManage.manage"/></title>
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -40,17 +40,17 @@
 </head>
 <body>
 	<div class="direction">
-		<h1><s:text name="lang.admin_item_manage.up&del"/></h1>
+		<h1><s:text name="lang.adminItemManage.up&del"/></h1>
 	</div>
 
 	<div class="phase1">
 		<form action="AdminItemManageAction">
 			<input type="hidden" name="phase" value="1">
 			<select name="category" onChange="this.form.submit()" class="form-control">
-				<option value="" selected="selected"><s:text name="lang.admin_item_manage.chooseCate"/></option>
-				<option value="kagu"><s:text name="lang.admin_item_manage.furniture"/></option>
-				<option value="kaden"><s:text name="lang.admin_item_manage.electricMachine"/></option>
-				<option value="sale"><s:text name="lang.admin_item_manage.sale"/></option>
+				<option value="" selected="selected"><s:text name="lang.adminItemManage.chooseCate"/></option>
+				<option value="kagu"><s:text name="lang.adminItemManage.furniture"/></option>
+				<option value="kaden"><s:text name="lang.adminItemManage.electricMachine"/></option>
+				<option value="sale"><s:text name="lang.adminItemManage.sale"/></option>
 			</select>
 		</form>
 	</div>
