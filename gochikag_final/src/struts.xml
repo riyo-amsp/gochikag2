@@ -6,7 +6,27 @@
 <struts>
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.custom.i18n.resources"
-			  value="property.sale, property.kagu, property.kaden, property.headerDone" />
+			  value="property.admin,
+			  		property.adminDone,
+			  		property.adminInfo,
+			  		property.adminItemManage,
+			  		property.adminItemRegister,
+			  		poperty.cart,
+			  		property.confirm,
+			  		property.confirmDone,
+			  		property.headerDone,
+			  		property.header,
+			  		property.infoDone,
+			  		property.info,
+			  		propert.item,
+			  		property.kaden,
+			  		property.kagu,
+			  		property.login,
+			  		property.main,
+			  		property.mayPage,
+			  		property.pay,
+			  		property.sale,
+			  		property.top"  />
 	<package name="action" extends="struts-default">
 
 <!-- Login系 -->
