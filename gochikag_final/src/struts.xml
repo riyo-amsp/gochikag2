@@ -11,7 +11,7 @@
 			  		property.adminInfo,
 			  		property.adminItemManage,
 			  		property.adminItemRegister,
-			  		poperty.cart,
+			  		property.cart,
 			  		property.confirm,
 			  		property.confirmDone,
 			  		property.headerDone,
@@ -26,7 +26,7 @@
 			  		property.mayPage,
 			  		property.pay,
 			  		property.sale,
-			  		property.top"  />
+			  		property.top"/>
 	<package name="action" extends="struts-default">
 
 <!-- Login系 -->
