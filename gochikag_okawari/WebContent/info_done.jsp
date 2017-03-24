@@ -63,7 +63,6 @@
 				</dl>
 			</div>
 			<div class="panel-footer">
-				<s:property value="date"/>
 			</div>
 		</div>
 	</div>
