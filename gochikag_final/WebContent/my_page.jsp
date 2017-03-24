@@ -15,37 +15,11 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  	<style>
-  		.my-page-header-wrapper{
-  			width: 80%;
-  			margin: 10px auto;
-  			text-align: center;
-  		}
+  	<link rel="stylesheet" type="text/css" href="css/my_page.css">
 
-  		.table-wrapper{
-  			width: 80%;
-  			margin: 10px auto;
-  		}
-
-  		.message-wrapper{
-  			width: 80%;
-  			margin: 10px auto;
-  			text-align: center;
-  		}
-
-  		.my-page-footer{
-  			width: 80%;
-  			margin: 10px auto;
-  			text-align: center;
-  		}
-
-  		.message-wrapper {
-  		padding: 500px;
-  		}
-
-  	</style>
 </head>
 <body>
+	<div class="body-design">
 	<s:include value="header_done.jsp" />
 
 	<div class="my-page-header-wrapper">
@@ -55,19 +29,23 @@
 	<!-- 購入履歴の処理にD3.jsを加える予定 -->
 	<s:if test="%{!myInfo.isEmpty()}">
 		<div class="table-wrapper">
-			<table class="table table-bordered">
+			<table class="table-bordered" align="center">
+				<thead>
 				<tr class="something">
 					<th class="text-center col-md-4"><s:text name="lang.myPage.PurchaseDate" /></th>
 					<th class="text-center col-md-4"><s:text name="lang.myPage.ItemName" /></th>
 					<th class="text-center col-md-4"><s:text name="lang.myPage.Amount" /></th>
 				</tr>
+				</thead>
 				<s:iterator value="myInfo">
 					<s:iterator>
+					<tbody>
 						<tr class="something">
 							<td class="text-center col-md-4"><s:property value="date" /></td>
 							<td class="text-center col-md-4"><s:property value="itemName" /></td>
 							<td class="text-center col-md-4"><s:property value="amount" /></td>
-						<tr>
+						</tr>
+						</tbody>
 					</s:iterator>
 				</s:iterator>
 			</table>
@@ -79,8 +57,31 @@
 		</div>
 	</s:else>
 
+
 	<div class="my-page-footer">
 		<a href="main.jsp"><s:text name="lang.myPage.Top" /></a>
+	</div>
+	
+	<div align="center">
+	<ul class="botan">
+	<li><a href="#"><span class="check">check</span></a></li>
+	</ul></div>
+
+	<div align="center">
+	<ul class="botan">
+	<li><a href="#"><span class="sample2">stripe</span></a></li>
+  <li><a href="#"><span class="sample3">Diagonal stripe</span></a></li>
+  <li><a href="#"><span class="sample4">Vertical stripe</span></a></li>
+ <li> <a href="#"><span class="sample5">Diagonal check</span></a></li>
+  <li><a href="#"><span class="a">Plaid</span></a></li>
+ <li> <a href="#"><span class="b">b</span></a></li>
+  <li><a href="#"><span class="c">c</span></a></li>
+  <li><a href="#"><span class="d">d</span></a></li>
+ <li> <a href="#"><span class="e">e</span></a></li>
+  <li><a href="#"><span class="sample7">Check 2</span></a>
+</ul>
+</div>
+
 	</div>
 </body>
 </html>

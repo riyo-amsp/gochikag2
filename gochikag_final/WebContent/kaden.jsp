@@ -6,7 +6,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>家電</title>
+	<title><s:text name="lang.kaden.title"/></title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/header_done.css">
 	<link rel="stylesheet" type="text/css" href="css/kagu_kaden_sale.css">
