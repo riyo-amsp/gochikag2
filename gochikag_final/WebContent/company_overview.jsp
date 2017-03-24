@@ -15,37 +15,38 @@
 <%@ include file="header.jsp"%>
 
 	<div class="contents">
-		<h1>会社概要</h1>
+		<h1><FONT color="pink"><div style="background:#e6e6fa; padding:10px; border:2px dotted #dda0dd;">✿会社概要✿ ᕱ⑅ᕱ" ゜｡:+*.゜｡:+*.゜｡:+*.゜｡:+*.゜｡:+*.゜｡:+*.゜｡:+*.゜｡:+*.゜｡:+*
+		</div></FONT></h1>
 		<br>
 
 		<div class="nakayose">
 		<div class="alt-table-responsive">
 			<table class="table table-bordered tbl">
 				<tr>
-					<th>会社名</th>
-					<td>プログラマカレッジ（御茶ノ水研修所）</td>
+					<th><FONT color="pink">❀会社名❀</FONT></th>
+					<td><FONT color="#db7093">プログラマカレッジ（御茶ノ水研修所）</FONT></td>
 				</tr>
 				<tr>
-					<th>住所</th>
-					<td>〒113-0034<br> 東京都文京区湯島3-2-12 御茶ノ水天神ビル２F
+					<th><FONT color="pink">❀住所❀</FONT></th>
+				<td><br><FONT color="#db7093">〒113-0034</FONT><br> <FONT color="#db7093">東京都文京区湯島3-2-12 御茶ノ水天神ビル２F</FONT>
 					</td>
 					</tr>
 
 				<tr>
-					<th>実施カリキュラム</th>
+					<th><FONT color="pink">❀実施カリキュラム❀</FONT></th>
 					<td>
-						<p>アルゴリズム演習</p>
-						<p>データベース演習</p>
-						<p>バージョン管理システム演習</p>
-						<p>Linux/UNIX演習</p>
-						<p>サイト構築の流れ</p>
-						<p>Java演習</p>
-						<p>Java-DB接続</p>
-						<p>Javaサーバーサイド技術</p>
-						<p>MVCモデルとフレームワーク</p>
-						<p>フレームワークを使ったサイト構築</p>
-						<p>プロトタイプサイト構築</p>
-						<p>ECサイト構築実践</p>
+				<br>	<p><FONT color="#db7093">アルゴリズム演習</FONT></p>
+						<p><FONT color="#db7093">データベース演習</FONT></p>
+						<p><FONT color="#db7093">バージョン管理システム演習</FONT></p>
+						<p><FONT color="#db7093">Linux/UNIX演習</FONT></p>
+						<p><FONT color="#db7093">サイト構築の流れ</FONT></p>
+						<p><FONT color="#db7093">Java演習</FONT></p>
+						<p><FONT color="#db7093">Java-DB接続</FONT></p>
+						<p><FONT color="#db7093">Javaサーバーサイド技術</FONT></p>
+						<p><FONT color="#db7093">MVCモデルとフレームワーク</FONT></p>
+						<p><FONT color="#db7093">フレームワークを使ったサイト構築</FONT></p>
+						<p><FONT color="#db7093">プロトタイプサイト構築</FONT></p>
+						<p><FONT color="#db7093">ECサイト構築実践</FONT></p>
 					</td>
 				</tr>
 			</table>
