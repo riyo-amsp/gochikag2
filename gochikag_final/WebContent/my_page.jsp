@@ -39,6 +39,10 @@
   			text-align: center;
   		}
 
+  		.message-wrapper {
+  		padding: 500px;
+  		}
+
   	</style>
 </head>
 <body>

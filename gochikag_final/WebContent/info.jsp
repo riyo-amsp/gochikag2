@@ -41,20 +41,23 @@
 
 
 	<s:form action="InfoAction">
-		<div class="container">
+		<>
 			<div class="contents">
 				<h1><s:text name="lang.info.contact"/></h1>
-				<div>
-					<h2> <s:textfield name="name" label = "名前"/></h2>
-					<h2> <s:textfield name="email" label = "メールアドレス"/></h2>
-					<h2>
-						<s:textfield name="info" size="45" label = "内容"/>
-					</h2>
-				</div>
+					<div class="form-group">
+					<label for ="name"><s:text name="lang.info.name"/></label>
+					<input type="text" name="name"  placeholder ="name" class="form-control"/>
+					</div>
+					<div class="form-group">
+					<label for ="email"><s:text name="lang.info.email"/></label>
+					<input type="text" name="email" placeholder="email" class="form-control"/>
+					</div>
+					<div class="form-group">
+					<label for="info"><s:text name="lang.info.info"/></label>
+					<input type="text"  name="info" size="45"  placeholder="infomation" class="form-control"/>
+					</div>
 			</div>
-		</div>
-
-	    <s:submit value="%{getText('lang.info.submit')}"/>
+			<button type="submit" class="form-control" ><s:text name="lang.info.submit"/></button>
 	</s:form>
 
 	<s:property value="name"/>
