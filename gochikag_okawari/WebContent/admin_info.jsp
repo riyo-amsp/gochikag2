@@ -27,6 +27,10 @@
 			width : 80% ;
 			margin : 0 auto ;
 		}
+		.button{
+			text-align : center;
+		}
+
 	</style>
 </head>
 <body>
@@ -37,7 +41,7 @@
 		<table class="table table-bordered">
 			<tr>
 				<th class="text-center">No.</th>
-				<th class="text-center"><s:text name="lang.adminInfo.empty"/></th>
+				<th class="text-center"><s:text name="lang.adminInfo.title"/></th>
 				<th class="text-center"><s:text name="lang.adminInfo.name"/></th>
 				<th class="text-center"><s:text name="lang.adminInfo.show"/></th>
 				<th class="text-center"><s:text name="lang.adminInfo.delete"/></th>
@@ -112,8 +116,9 @@
 
 		</table>
 	</div>
-	
-	<a href="admin.jsp"><s:text name="lang.adminInfo.admin"/></a>
-		
+	<div class="button">
+		<input type="button" onClick="location.href='admin.jsp'" value="<s:text name="lang.adminInfo.admin"/>">
+	</div>
+
 </body>
 </html>
