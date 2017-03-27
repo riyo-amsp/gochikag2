@@ -1,6 +1,7 @@
 package action;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -25,15 +26,22 @@ public class ItemSearchAction extends ActionSupport {
 
 	private int searchSort;
 
-	private String searchItem;
 
-	public ArrayList<ItemSearchDTO> itemList = new ArrayList<ItemSearchDTO>();
+	public List<ItemSearchDTO> itemList = new ArrayList<ItemSearchDTO>();
+
 
 	public String execute(){
 	  String result = ERROR;
 	  ItemSearchDAO dao = new ItemSearchDAO();
+
+	  System.out.println(category);
+	  System.out.println(searchSort);
+
+
 	  if (itemList != null){
-		  itemList = dao.select(searchSort);
+		  itemList = dao.select(category, searchSort);
+		  System.out.println("itemList");
+		  System.out.println(itemList);
 		  if( itemList.size() > 0) {
 			  result = SUCCESS;
 		}
@@ -50,7 +58,7 @@ public class ItemSearchAction extends ActionSupport {
 		this.searchSort = searchSort;
 	}
 
-	public ArrayList<ItemSearchDTO> getItemList() {
+	public List<ItemSearchDTO> getItemList() {
 		return itemList;
 	}
 
@@ -120,13 +128,5 @@ public class ItemSearchAction extends ActionSupport {
 	}
 
 
-	public String getSearchItem() {
-		return searchItem;
-	}
-
-
-	public void setSearchItem(String searchItem) {
-		this.searchItem = searchItem;
-	}
 
 }
