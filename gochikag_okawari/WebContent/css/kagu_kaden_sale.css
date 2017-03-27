@@ -1,3 +1,12 @@
+
+body{
+background-image: url(../img/40789203.jpeg);
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-position: right bottom;
+}
+
+
 .top-wrapper{
 	width: 100%;
 	text-align: center;
