@@ -22,7 +22,7 @@ public class CreditConfirmDAO {
 	 * @return checkNumberFlg 照合できたらtrue
 	 */
 	public boolean select1(String stringCardBrand, String creditNumber6){
-		DBConnector db = new DBConnector("creditcard_manager");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","creditcard_manager","root","mysql");
 		Connection con = db.getConnection();
 		boolean checkNumberFlag = false;
 		String sql = "SELECT card_number FROM m_creditcard_type WHERE card_name LIKE " + stringCardBrand;
@@ -51,7 +51,7 @@ public class CreditConfirmDAO {
 	 */
 
 	public CreditConfirmDTO select2(String cardBrand, String creditNumber){
-		DBConnector db = new DBConnector(cardBrand);
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","cardBrand","root","mysql");
 		Connection con = db.getConnection();
 		CreditConfirmDTO dto = new CreditConfirmDTO();
 		String sql = null;
@@ -81,7 +81,7 @@ public class CreditConfirmDAO {
 	}
 
 	public int select3(int userId){
-		DBConnector db = new DBConnector("gochikag");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql");
 		Connection con = db.getConnection();
 		PreparedStatement ps = null;
 		String sql = "select sum(amount) from cart2 where user_id = ?";
@@ -100,7 +100,7 @@ public class CreditConfirmDAO {
 
 	}
 
-	
+
 	/**
 	 * gochikagDBのcredit_flgをtrueにするメソッド
 	 * @param userId 顧客ID
@@ -108,7 +108,7 @@ public class CreditConfirmDAO {
 	 * @throws SQLException
 	 */
 	public boolean update(int userId) throws SQLException{
-		Connection con = new DBConnector("gochikag").getConnection();
+		Connection con = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql").getConnection();
 		PreparedStatement ps = null;
 		int rs = 0;
 		String sql = "update cart2 set credit_flg = true where user_id = ?";

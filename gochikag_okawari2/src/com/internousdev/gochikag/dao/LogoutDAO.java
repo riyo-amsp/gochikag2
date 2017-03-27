@@ -16,7 +16,7 @@ import com.internousdev.gochikag.util.DBConnector;
  * @version 1.1
  */
 public class LogoutDAO {
-	
+
 	/**
 	 * gochikagDBのlogin_flgの値をfalseにするメソッド
 	 * @param phoneEmail
@@ -24,8 +24,7 @@ public class LogoutDAO {
 	 * @return updateFlg GochikagDBのlogin_flgを値をfalseしようと試みたときの真偽値
 	 */
 	public boolean updateGochikagLoginFlg(int userId){
-		String url = "gochikag";
-		DBConnector db = new DBConnector(url);
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con =db.getConnection();
 		PreparedStatement ps = null;
 		String sql = "update users set login_flg = false where user_id = ?";
@@ -53,8 +52,7 @@ public class LogoutDAO {
 	 * @return updateFlg OpenConnectDBのlogin_flgを値をfalseしようと試みたときの真偽値
 	 */
 	public boolean updateOCLoginFlg(int userId){
-		String url="openconnect";
-		DBConnector db = new DBConnector(url);
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con =db.getConnection();
 		PreparedStatement ps = null;
 		String sql = "update users set login_flg = false where user_id = ?";

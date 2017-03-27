@@ -23,12 +23,11 @@ public class LoginDAO {
 	 * @return LoginDTO ログイン情報
 	 */
 	public LoginDTO select(String phoneEmail, String password){
-		String url = "openconnect";
-		DBConnector db = new DBConnector(url);
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con =db.getConnection();
 		PreparedStatement ps = null;
 		LoginDTO dto = new LoginDTO();
-		
+
 		String sql = "select user_id, phone_email, login_flg, user_flg ,password "
 				   + "from users where phone_email = ? and password = ?";
 		try{
@@ -61,8 +60,7 @@ public class LoginDAO {
 	 * @return userFlg gochikagDBに顧客情報があるかの真偽値
 	 */
 	public boolean checkUserExistence (String phoneEmail, String password){
-		String url = "gochikag";
-		DBConnector db = new DBConnector(url);
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql");
 		Connection con =db.getConnection();
 		PreparedStatement ps = null;
 		boolean userFlg = false;
@@ -86,8 +84,8 @@ public class LoginDAO {
         }
         return userFlg;
 	}
-	
-	
+
+
 	/**
 	 * GochikagDBのログインフラグをtrueにするメソッド
 	 * @param phoneEmail アドレス
@@ -95,8 +93,7 @@ public class LoginDAO {
 	 * @return updateFlg gochikagDBのupdate後のloginFlgの真偽値
 	 */
 	public boolean updateGochikagLoginFlg(String phoneEmail, String password){
-		String url="gochikag";
-		DBConnector db = new DBConnector(url);
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql");
 		Connection con =db.getConnection();
 		PreparedStatement ps = null;
 		int rs = 0;
@@ -119,7 +116,7 @@ public class LoginDAO {
         return updateFlg;
 	}
 
-	
+
 	/**
 	 * @param phoneEmail
 	 * @param password
@@ -127,8 +124,7 @@ public class LoginDAO {
 	 */
 	public boolean updateOCLoginlg(String phoneEmail, String password){
 
-		String url="openconnect";
-		DBConnector db = new DBConnector(url);
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con =db.getConnection();
 		PreparedStatement ps = null;
 		int rs = 0;
@@ -163,8 +159,7 @@ public class LoginDAO {
 	 * @return insertFlg 値の挿入に成功したかどうかの真偽値
 	 */
 	public boolean insertIntoUsers(int userId, String phoneEmail, String loginFlg, String userFlg, String password){
-		String url="gochikag";
-		DBConnector db = new DBConnector(url);
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql");
 		Connection con =db.getConnection();
 		PreparedStatement ps = null;
 		int rs = 0;
@@ -189,7 +184,7 @@ public class LoginDAO {
         if(rs != 0) insertFlg = true;
         return insertFlg;
 	}
-	
+
 	/**
 	 * @param itemId
 	 * @param userId
@@ -197,8 +192,7 @@ public class LoginDAO {
 	 * @throws SQLException
 	 */
 	public void delete(int userId) throws SQLException{
-		String url="gochikag";
-		DBConnector db = new DBConnector(url);
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql");
 		Connection con =db.getConnection();
 		PreparedStatement ps = null;
 		String sql = "delete from cart2 where user_id = ?";

@@ -21,7 +21,7 @@ public class PayDAO {
 	 * @throws SQLException
 	 */
 	public boolean update(int userId) throws SQLException{
-		Connection con = new DBConnector("gochikag").getConnection();
+		Connection con = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql").getConnection();
 		PreparedStatement ps = null;
 		int rs = 0;
 		String sql = "update cart2 set cart_flg = true where user_id = ?";

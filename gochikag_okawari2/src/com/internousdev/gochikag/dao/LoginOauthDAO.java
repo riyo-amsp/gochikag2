@@ -30,7 +30,7 @@ public class LoginOauthDAO {
 	public UsersDTO select(String oauthId,String oauthAccount){
 		//boolean result = false;
 		//String option = "?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull";
-		Connection con = new DBConnector("gochikag").getConnection();
+		Connection con = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql").getConnection();
 		String sql = "SELECT * FROM users WHERE oauth_id = ? AND oauth_account = ?";
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -69,7 +69,7 @@ public class LoginOauthDAO {
 	public boolean insert(String oauthId,String oauthAccount,int oauthName){
 		System.out.println("INSERT");
 		String option = "?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull";
-		Connection con = new DBConnector("gochikag" + option).getConnection();
+		Connection con = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql" + option).getConnection();
 		boolean result = false;
 		Calendar cal = Calendar.getInstance();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -114,7 +114,7 @@ public class LoginOauthDAO {
 	public int update(int userId,int loginFlg) throws SQLException{
 		int count = 0;
 		//String option = "?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull";
-		Connection con = new DBConnector("gochikag").getConnection();
+		Connection con = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql").getConnection();
 		String sql = "UPDATE users SET login_flg = ? where user_id = ?";
 
 		try{

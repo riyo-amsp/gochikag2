@@ -19,7 +19,7 @@ public class GoBackCreditConfirmDAO {
 	 * @return checkFlg 解除できたらfalse
 	 */
 	public boolean update(int userId){
-		DBConnector db = new DBConnector("gochikag");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql");
 		Connection con = db.getConnection();
 		PreparedStatement ps = null;
 		String sql = "update cart2 set credit_flg = false where user_id = ?";

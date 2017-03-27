@@ -23,7 +23,7 @@ public class AdminItemManageDAO {
 	 */
 
 	public ArrayList<String> select1(String category) {
-		DBConnector db = new DBConnector("gochikag");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql");
 		Connection con = db.getConnection();
 		ArrayList<String> nameList = new ArrayList<String>();
 
@@ -37,17 +37,17 @@ public class AdminItemManageDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} 
+		}
 		return nameList;
 	}
-	
+
 	/**
 	 * 商品名に紐付いた商品情報を取得するメソッド
 	 * @param itemName
 	 * @return dto
 	 */
 	public ItemDTO select2(String itemName) throws SQLException{
-		DBConnector db = new DBConnector("gochikag");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql");
 		Connection con = db.getConnection();
 		ItemDTO dto = new ItemDTO();
 		PreparedStatement ps = null;
@@ -71,7 +71,7 @@ public class AdminItemManageDAO {
 		}
 		return dto;
 	}
-	
+
 	/**
 	 * 商品の在庫数を更新するメソッド
 	 * @param itemId
@@ -79,7 +79,7 @@ public class AdminItemManageDAO {
 	 * @return rs
 	 */
 	public int update(int itemId, int stockNumber) throws SQLException{
-		DBConnector db=new DBConnector("gochikag");
+		DBConnector db=new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql");
 		Connection con=db.getConnection();
 		PreparedStatement ps = null;
 		int rs=0;
@@ -100,14 +100,14 @@ public class AdminItemManageDAO {
 		}
 		return rs;
 	}
-	
+
 	/**
 	 * 商品の詳細情報を削除する
 	 * @param itemId
 	 * @return deleteFlg 削除できたかどうかの真偽値
 	 */
 	public boolean deleteFromDetail(int itemId) throws SQLException{
-		DBConnector db = new DBConnector("gochikag");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql");
 		Connection con = db.getConnection();
 		PreparedStatement ps = null;
 		int rs = 0;
@@ -137,7 +137,7 @@ public class AdminItemManageDAO {
 	 * @return deleteFlg 削除できたかどうかの真偽値
 	 */
 	public boolean deleteFromPictures(int itemId) throws SQLException{
-		DBConnector db=new DBConnector("gochikag");
+		DBConnector db=new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql");
 		Connection con=db.getConnection();
 		PreparedStatement ps = null;
 		int rs = 0;
@@ -159,14 +159,14 @@ public class AdminItemManageDAO {
 		if(rs != 0) deleteFlg = true;
 		return deleteFlg;
 	}
-	
+
 	/**
 	 * 商品の基本情報を削除する
 	 * @param itemId
 	 * @return deleteFlg 削除できたかどうかの真偽値
 	 */
 	public boolean deleteFromItem(int itemId) throws SQLException{
-		DBConnector db=new DBConnector("gochikag");
+		DBConnector db=new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql");
 		Connection con=db.getConnection();
 		PreparedStatement ps = null;
 		int rs = 0;
@@ -189,5 +189,5 @@ public class AdminItemManageDAO {
 		if(rs != 0) deleteFlg = true;
 		return deleteFlg;
 	}
-	
+
 }

@@ -24,7 +24,7 @@ public class ItemDAO {
 	 * @return ItemDTO 商品情報
 	 */
 	public ItemDTO select(int item_id) {
-		DBConnector db = new DBConnector("gochikag");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql");
 		Connection con = db.getConnection();
 		PreparedStatement ps = null;
 		ItemDTO dto = new ItemDTO();
