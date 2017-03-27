@@ -37,7 +37,6 @@ public class CartDeleteDAO {
 			con.setAutoCommit(false);
 			rs=ps.executeUpdate();
 			con.commit();
-			System.out.println("CartDeleteDAO");
 		}catch(SQLException e){
 			con.rollback();
 			e.printStackTrace();

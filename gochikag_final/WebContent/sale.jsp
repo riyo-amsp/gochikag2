@@ -11,7 +11,7 @@
 	<fmt:setBundle basename="property.sale" var="lang" />
 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>セール</title>
+	<title><s:text name="lang.sale.title" /></title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/header_done.css">
 	<link rel="stylesheet" type="text/css" href="css/kagu_kaden_sale.css">

@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="css/header.css">
 	<link rel="stylesheet" type="text/css" href="css/top.css">
 	<link rel="stylesheet" type="text/css" href="css/sakura.css">
-	<title>トップ</title>
+	<title><s:text name="lang.top.title" /></title>
 	<script src="js/jquery-3.1.1.min.js"></script>
 	<script src="js/slider.js"></script>
 	<!-- ファビコンです　米島 -->

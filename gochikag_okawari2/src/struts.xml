@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.custom.i18n.resources"
+			  value="com.internousdev.gochikag.property.admin,
+			  		 com.internousdev.gochikag.property.adminDone,
+			  		 com.internousdev.gochikag.property.adminInfo,
+			  		 com.internousdev.gochikag.property.adminItemManage,
+			  		 com.internousdev.gochikag.property.adminItemRegister,
+			  		 com.internousdev.gochikag.property.cart,
+			  		 com.internousdev.gochikag.property.confirm,
+			  		 com.internousdev.gochikag.property.confirmDone,
+			  		 com.internousdev.gochikag.property.headerDone,
+			  		 com.internousdev.gochikag.property.header,
+			  		 com.internousdev.gochikag.property.infoDone,
+			  		 com.internousdev.gochikag.property.info,
+			  		 com.internousdev.gochikag.property.item,
+			  		 com.internousdev.gochikag.property.kaden,
+			  		 com.internousdev.gochikag.property.kagu,
+			  		 com.internousdev.gochikag.property.login,
+			  		 com.internousdev.gochikag.property.main,
+			  		 com.internousdev.gochikag.property.myPage,
+			  		 com.internousdev.gochikag.property.pay,
+			  		 com.internousdev.gochikag.property.sale,
+			  		 com.internousdev.gochikag.property.top
+			  		 com.internousdev.gochikag.property.login"/>
+	<package name="com.internousdev.gochikag.action" extends="struts-default">
+	
+<!-- Login系 -->
+	<!-- LoginAction ログイン用アクション -->
+		<action name="LoginAction" class="com.internousdev.gochikag.action.LoginAction" method="execute">
+			<result name="success">main.jsp</result>
+			<result name="error">login.jsp</result>
+			<result name="admin">admin.jsp</result>
+		</action>
+	
+	<!-- LogoutAction ログアウト用アクション -->	
+		<action name="LogoutAction" class="com.internousdev.gochikag.action.LogoutAction" method="execute">
+			<result name="success">top.jsp</result>
+			<result name="error">top.jsp</result>
+		</action>
+		
+<!-- ヘッダー系 -->	
+	<!-- MyPageAction マイページ確認用アクション -->	
+		<action name="MyPageAction" class="com.internousdev.gochikag.action.MyPageAction" method="execute">
+			<result name="success">my_page.jsp</result>
+			<result name="error" type="chain">LogoutAction</result>
+		</action>
+		
+	 <!-- InfoMongoAction お問い合わせ用アクション -->
+        <action name="InfoMongoAction" class="com.internousdev.gochikag.action.InfoMongoAction" method="execute">
+            <result name="success">info_done.jsp</result>
+            <result name="error">info.jsp</result>
+        </action>
+	
+
+<!--  Item系 -->
+	<!-- CategoryAction 各カテゴリーページへ遷移するアクション -->	
+		<action name="CategoryAction" class="com.internousdev.gochikag.action.CategoryAction" method="execute">
+			<result name="kagu">kagu.jsp</result>
+			<result name="kaden">kaden.jsp</result>
+			<result name="sale">sale.jsp</result>
+			<result name="error1">top.jsp</result>
+			<result name="error2">main.jsp</result>
+		</action>
+	<!-- ItemAction 各商品ページへ遷移するアクション -->	
+		<action name="ItemAction" class="com.internousdev.gochikag.action.ItemAction" method="execute">
+			<result name="success">item.jsp</result>
+			<result name="error1">top.jsp</result>
+			<result name="error2">main.jsp</result>
+		</action>
+		
+
+<!-- Cart系 -->
+	<!-- CartSelectAction カート情報を取得するアクション -->
+		<action name="CartSelectAction" class="com.internousdev.gochikag.action.CartSelectAction" method="execute">
+			<result name="success">cart.jsp</result>
+			<result name="error" type="chain">LogoutAction</result>
+		</action>
+		
+	<!-- CartInsertAction カートにアイテムを入れるアクション -->	
+		<action name="CartInsertAction" class="com.internousdev.gochikag.action.CartInsertAction" method="execute">
+			<result name="success" type="chain">CartSelectAction</result>
+			<result name="error">login.jsp</result>
+		</action>	
+
+	<!-- CartUpdateAction カート数量を更新するアクション -->
+		<action name="CartUpdateAction" class="com.internousdev.gochikag.action.CartUpdateAction" method="execute">
+			<result name="success" type="chain">CartSelectAction</result>
+			<result name="error" type="chain">LogoutAction</result>
+		</action>
+
+	<!-- CartDeleteAction カート情報を削除するアクション -->
+		<action name="CartDeleteAction" class="com.internousdev.gochikag.action.CartDeleteAction" method="execute">
+			<result name="success" type="chain">CartSelectAction</result>
+			<result name="error" type="chain">LogoutAction</result>
+		</action>
+
+		
+<!-- 購入処理系 -->
+	<!-- PayAction  cart_flgをtrueにするアクション -->	
+		<action name="PayAction" class="com.internousdev.gochikag.action.PayAction" method="execute">
+			<result name="success">pay.jsp</result>
+			<result name="error" type="chain">LogoutAction</result>
+		</action>
+
+	<!-- CreditConfirmAction  クレジット情報を認証するアクション -->		
+		<action name="CreditConfirmAction" class="com.internousdev.gochikag.action.CreditConfirmAction" method="execute">
+			<result name="success">confirm.jsp</result>
+			<result name="error" type="chain">LogoutAction</result>
+			<result name="missing">pay.jsp</result>
+		</action>
+	
+	<!-- GoBackCreditConfirmAction クレジット認証を解除するアクション -->		
+		<action name="GoBackCreditConfirmAction" class="com.internousdev.gochikag.action.GoBackCreditConfirmAction" method="execute">
+			<result name="success">pay.jsp</result>
+			<result name="error" type="chain">LogoutAction</result>
+		</action>
+		
+	<!-- GoBackCartSelectAction クレジット認証およびカートフラグを解除するアクション -->		
+		<action name="GoBackCartSelectAction" class="com.internousdev.gochikag.action.GoBackCartSelectAction" method="execute">
+			<result name="success" type="chain">CartSelectAction</result>
+			<result name="error" type="chain">LogoutAction</result>
+		</action>
+	
+	<!-- PayConfirmAction 全ての購入手続きを完遂し、gochikagDBと使用されたクレジット会社のDBそれぞれにクレジットの領収書を発行する -->		
+		<action name="PayConfirmAction" class="com.internousdev.gochikag.action.PayConfirmAction" method="execute">
+			<result name="success">confirm_done.jsp</result>
+			<result name="error" type="chain">LogoutAction</result>
+		</action>
+		
+
+<!-- 管理者系 -->	
+	<!-- 管理画面で商品を管理するアクション -->
+		<action name="AdminItemManageAction" class="com.internousdev.gochikag.action.AdminItemManageAction" method="execute">
+			<result name="success">admin_item_manage.jsp</result>
+			<result name="error">admin.jsp</result>
+		</action>
+	<!-- 管理画面で商品を登録するアクション -->
+		<action name="AdminItemRegisterAction" class="com.internousdev.gochikag.action.AdminItemRegisterAction" method="execute">
+			<result name="success">admin_done.jsp</result>
+			<result name="error">admin.jsp</result>
+		</action>
+	<!-- 管理画面でお問い合わせ情報を確認するアクション -->
+		 <action name="AdminInfoAction" class="com.internousdev.gochikag.action.AdminInfoAction" method="execute">
+            <result name="success">admin_info.jsp</result>
+            <result name="error">admin.jsp</result>
+        </action>
+ 	<!-- 管理画面でお問い合わせ情報を削除するアクション -->
+        <action name="AdminInfoDeleteAction" class="com.internousdev.gochikag.action.AdminInfoDeleteAction" method="execute">
+            <result name="success" type="chain">AdminInfoAction</result>
+            <result name="error">admin.jsp</result>
+        </action>			
+		
+<!--  OAUTH系 -->	
+	<!-- Twitter認証を行うアクション -->
+		<action name="TwitterAction" class="com.internousdev.gochikag.action.GoTwitterAction" method="execute">
+           <result name="success" type="redirectAction">main.jsp</result>
+           <result name="error">top.jsp</result>
+       </action>
+
+	<!-- Twitter認証のコールバックアクション -->
+		<action name="LoginTwitterAction" class="com.internousdev.gochikag.action.LoginTwitterAction" method="execute">
+			<result name="success" type="redirectAction">main</result>
+			<result name="error">top.jsp</result>
+        </action>
+        
+	<!-- Facebook認証を行うアクション -->
+		<action name="LoginFacebook" class="com.internousdev.gochikag.action.GoFacebookAction" method="execute">
+            <result name="success">main.jsp</result>
+            <result name="error">login.jsp</result>
+		</action>
+
+	<!-- Facebook認証のコールバックアクション -->
+		<action name="LoginFacebookAction" class="com.internousdev.gochikag.action.LoginFacebookAction" method="execute">
+            <!--  <result name="success" type="redirectAction">InfoAction</result> -->
+            <result name="success">main.jsp</result>
+            <result name="error">login.jsp</result>
+		</action>
+	</package>
+</struts>
