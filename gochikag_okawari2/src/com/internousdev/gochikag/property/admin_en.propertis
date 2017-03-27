@@ -1,4 +1,5 @@
 lang.admin.admin = admin
+lang.admin.heading = admin top page
 lang.admin.regi = Item registration
 lang.admin.manage = Item search/update/delete
 lang.admin.infoManage = Information Management
