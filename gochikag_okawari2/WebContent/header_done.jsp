@@ -8,7 +8,7 @@
 <html>
 <body>
 	<div class="menu">
-		<a href="top.jsp" class="header-comment">　　＊”すべてが、かわいい。”アンティークの家具なら、「ごちかぐ」でご注文をどうぞ！＊</a>
+		<a href="main.jsp" class="header-comment">　　＊”すべてが、かわいい。”アンティークの家具なら、「ごちかぐ」でご注文をどうぞ！＊</a>
 		<div align="right">
 			<table>
 				<tr>
