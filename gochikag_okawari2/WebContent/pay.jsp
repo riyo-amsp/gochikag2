@@ -10,16 +10,16 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   	<meta http-equiv="X-UA-Compatible" content="IE=edge">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
-  	
+
 	<fmt:setLocale value="${pageContext.request.locale.language}" />
 	<fmt:setBundle basename="com.internousdev.gochikag.property.pay" var="lang" />
-	
+
 	<title><s:text name="lang.pay.PaymentPage" /></title>
-	
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  	
+
   	<link rel="stylesheet" type="text/css" href="css/pay.css">
 </head>
 <body>
@@ -51,7 +51,7 @@
 			<h5><s:text name="lang.pay.Error" /></h5>
 		</div>
 	</s:elseif>
-	
+
 
 	<s:form action="CreditConfirmAction">
 		<div class="cover cover1">
@@ -95,7 +95,7 @@
 			<p class="card-expiration-text"><s:text name="lang.pay.CardExpiration" /></p>
 			<div class="card-expiration-box">
 				<s:select list="years" name="expirationYear" cssClass="card-expiration-year" theme="css_xhtml"/>
-				
+
 				<select name="expirationMonth" class="card-expiration-month">
 					<option value="01">1</option>
 					<option value="02">2</option>
@@ -116,6 +116,16 @@
 	 		<input type="submit" value=<s:text name="lang.pay.Next" /> class="form-control submit"/>
 	 	</div>
 	</s:form>
+
+
+	<input type="hidden" value="<s:text name="lang.pay.error1"/>" class="last-name-error" />
+	<input type="hidden" value="<s:text name="lang.pay.error2"/>" class="first-name-error" />
+	<input type="hidden" value="<s:text name="lang.pay.error3"/>" class="card-number-error" />
+	<input type="hidden" value="<s:text name="lang.pay.error4"/>" class="security-code-error" />
+	<input type="hidden" value="<s:text name="lang.pay.error5"/>" class="enter-last-name" />
+	<input type="hidden" value="<s:text name="lang.pay.error6"/>" class="enter-first-name" />
+	<input type="hidden" value="<s:text name="lang.pay.error7"/>" class="card-info-error" />
+
 
 	<script src="js/pay.js"></script>
 </body>

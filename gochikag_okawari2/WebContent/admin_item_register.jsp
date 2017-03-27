@@ -79,6 +79,21 @@
 		</form>
 	</div>
 
+	<input type="hidden" value="<s:text name="lang.adminItemRegister.error1"/>" class="input-error" />
+	<input type="hidden" value="<s:text name="lang.adminItemRegister.error2"/>" class="enter-numerals" />
+	<input type="hidden" value="<s:text name="lang.adminItemRegister.error3"/>" class="enter-alphanumeric" />
+	<input type="hidden" value="<s:text name="lang.adminItemRegister.error4"/>" class="enter-255" />
+	<input type="hidden" value="<s:text name="lang.adminItemRegister.error5"/>" class="no-item-name" />
+	<input type="hidden" value="<s:text name="lang.adminItemRegister.error6"/>" class="no-price" />
+	<input type="hidden" value="<s:text name="lang.adminItemRegister.error7"/>" class="no-stock-number" />
+	<input type="hidden" value="<s:text name="lang.adminItemRegister.error8"/>" class="no-photo-pass" />
+	<input type="hidden" value="<s:text name="lang.adminItemRegister.error9"/>" class="no-pass-sub1" />
+	<input type="hidden" value="<s:text name="lang.adminItemRegister.error10"/>" class="no-pass-sub2" />
+	<input type="hidden" value="<s:text name="lang.adminItemRegister.error11"/>" class="no-pass-sub3" />
+	<input type="hidden" value="<s:text name="lang.adminItemRegister.error12"/>" class="no-exp-ja" />
+	<input type="hidden" value="<s:text name="lang.adminItemRegister.error13"/>" class="no-exp-en" />
+
+
 <script src="js/admin_item_register.js"></script>
 </body>
 </html>
