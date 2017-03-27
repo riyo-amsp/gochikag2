@@ -1,5 +1,16 @@
 @CHARSET "UTF-8";
 
+body{
+
+background-attachment:fixed;
+background-image : url("../img/top-header-mainimg/pyon.png");
+background-repeat:no-repeat;
+background-position:100% 100%;}
+
+
+
+
+
 ul {
 	margin: 0;
 	padding: 0;
@@ -11,7 +22,7 @@ ul {
 	height: 200px;
 	font-size: 100%;
 	border-radius: 50px;
-	background: url("../img/top-header-mainimg/isu.jpg") no-repeat;
+	background: url("../img/top-header-mainimg/sale.jpeg") no-repeat;
 	box-shadow: 2px 2px 2px #555;
 	trandsition:;
 	cursor: pointer;
@@ -44,7 +55,7 @@ ul {
 	height: 200px;
 	font-size: 100%;
 	border-radius: 50px;
-	background: url("../img/top-header-mainimg/sale2.jpg") no-repeat;
+	background: url("../img/top-header-mainimg/kagujpg") no-repeat;
 	porder-radius: 100px;
 	box-shadow: 2px 2px 2px #555;
 	cursor: pointer;
