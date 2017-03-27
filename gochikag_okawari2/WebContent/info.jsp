@@ -40,17 +40,17 @@
 					</div>
 					<div class="panel-body" align="center">
 						<p class="left"><s:text name="lang.info.title"/>(*)<br>
-							<input type="text" name="title" required/></p>
+							<input type="text" name="title" class="input-title"/></p>
 						<p class="left"><s:text name="lang.info.name"/>(*)<br>
-							<input type="text" name="name" required/></p>
+							<input type="text" name="name" class="input-name"/></p>
 						<p class="left"><s:text name="lang.info.mail"/>(*)<br>
-							<input type="email" name="mail" required/></p><br>
+							<input type="text" name="mail" class="input-mail"/></p><br>
 						<p class="left"><s:text name="lang.info.info"/>(*)<br>
-							<textarea name="info" cols="40" rows="20" required></textarea></p>
+							<textarea name="info" cols="40" rows="20" class="input-text"></textarea></p>
 							<small>(*)<s:text name="lang.info.required"/></small><br>
 					</div>
 					<div class="panel-footer" align="center">
-						<input type="submit" value="<s:text name="lang.info.submit"/>"/>
+						<input type="submit" value="<s:text name="lang.info.submit"/>" onclick="check"/>
 					</div>
 				</div>
 			</div>
