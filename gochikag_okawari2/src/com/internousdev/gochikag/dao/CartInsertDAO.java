@@ -27,13 +27,13 @@ public class CartInsertDAO {
 	 * @throws SQLException
 	 */
 	public boolean insert(int userId, int itemId,int itemCount,int amount)throws SQLException{
-		DBConnector db = new DBConnector("gochikag");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql");
 		Connection con = db.getConnection();
 		PreparedStatement ps = null;
 		String sql = "insert into cart2 (user_id, item_id, item_count, amount) values(?, ?, ?, ?)";
 		int rs = 0;
 		boolean insertFlg = false;
-		
+
 		try{
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, userId);
@@ -69,7 +69,7 @@ public class CartInsertDAO {
 	 * @return itemIdList
 	 */
 	public List<Integer> select(int userId){
-		DBConnector db = new DBConnector("gochikag");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql");
 		Connection con = db.getConnection();
 		PreparedStatement ps=null;
 		String sql = "select item_id from cart2 where user_id = ?";

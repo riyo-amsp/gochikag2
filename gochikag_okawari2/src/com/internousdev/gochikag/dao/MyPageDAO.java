@@ -24,7 +24,7 @@ public class MyPageDAO {
 	 * @throws SQLException
 	 */
 	public List<MyPageDTO> select(int userId) throws SQLException{
-		DBConnector db = new DBConnector("gochikag");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql");
 		Connection con = db.getConnection();
 		MyPageDTO dto;
 		List<MyPageDTO> dtoList = new ArrayList<MyPageDTO>();

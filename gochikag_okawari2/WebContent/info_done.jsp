@@ -5,39 +5,22 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
-<head>	
+<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   	<meta http-equiv="X-UA-Compatible" content="IE=edge">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
-  	
+
   	<fmt:setLocale value="${pageContext.request.locale.language}" />
 	<fmt:setBundle basename="com.internousdev.gochikag.property.infoDone" var="lang" />
-  	
+
 	<title><s:text name="lang.infoDone.top"/></title>
-	
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-	<style>
-		BODY{
-			background-size :  30%;
-			background-image : url("img/usagi.jpg");
-			background-repeat : no-repeat;
-			background-position : 10% 60%;
-			background-attachment : fixed;
-		}
+	<link rel="stylesheet" type="text/css" href="css/info_done.css">
 
-		.container{
-			width : 30%;
-			height : 50%;
-			margin : 100px auto;
-			padding : 50px auto;
-		}
-		.button,.panel-heading{
-			text-align : center;
-		}
-	</style>
 </head>
 <body>
 <!--  ここで"sタグ"を使ってheader.jspを読み込むよ -->
@@ -83,14 +66,6 @@
 		<input type="button" name="link" onclick="jump()" value="<s:text name="lang.infoDone.goTop"/>"/>
 	</div>
 
-	<script>
-		function jump(){
-			if(window.sessionStorage.length==0){
-				location.href="top.jsp";
-			}else{
-				location.href="main.jsp";
-			}
-		}
-	</script>
+	<script src="js/info.js"></script>
 </body>
 </html>

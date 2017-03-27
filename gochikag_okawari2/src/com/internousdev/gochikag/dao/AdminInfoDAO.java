@@ -1,5 +1,5 @@
 package com.internousdev.gochikag.dao;
- 
+
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,8 +12,8 @@ import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import com.opensymphony.xwork2.ActionSupport;
- 
- 
+
+
 /**
  * AdminInfoDAO お問い合わせ管理画面の検索・削除用クラス
  * @author YONEJIMA AI
@@ -21,15 +21,15 @@ import com.opensymphony.xwork2.ActionSupport;
  * @version 1.1
  */
 public class AdminInfoDAO extends ActionSupport{
- 
- 
+
+
     /**
      * select
      * Listの作成
      */
- 
+
     public List<AdminInfoDTO> infoList = new ArrayList<>();
- 
+
     /**
      * カテゴリからお問い合わせ情報を取得するメソッド
      * @param title 件名
@@ -39,29 +39,27 @@ public class AdminInfoDAO extends ActionSupport{
      * @param date registration_date お問い合わせ日時
      * @throws UnknownHostException
      */
- 
+
     public List<AdminInfoDTO> select() throws UnknownHostException {
- 
+
         /**
          * Mongoに接続
          */
         MongoDBConnector con = new MongoDBConnector();
         DB db = con.getConnection();
- 
- 
+
+
         /**
          * コレクション名
          */
         DBCollection coll = db.getCollection("info");
- 
+
         /**
          * select カーソルリストの検索
          */
- 
+
         DBCursor cursor = coll.find();
- 
-        //System.out.println("cursor"+cursor);
- 
+
         try{
                 while(cursor.hasNext()){
                     /**
@@ -82,72 +80,68 @@ public class AdminInfoDAO extends ActionSupport{
             /**
              * Mongo切断
              */
- 
+
             if(con != null) con.closeConnection();
         }
         return infoList;
     }
- 
+
     /**
      * delete
      */
- 
+
     public boolean delete(String mail,String date) throws UnknownHostException{
- 
+
         boolean result = false;
- 
+
         /**
          * 選択された情報の削除を行うメソッド
          * @param mail メールアドレス
          * @param date [mongo:registration_date] お問い合わせ日時
          * （paramで照合）
          */
- 
+
         MongoDBConnector con = new MongoDBConnector();
         DB db = con.getConnection();
- 
+
         /*
          * コレクション名
          */
         DBCollection coll = db.getCollection("info");
- 
+
         /*
          * delete
          */
- 
- 
+
+
         try{
- 
+
             BasicDBObject doc = new BasicDBObject("mail",mail).append("registration_date",date);
             DBCursor cursor = coll.find(doc);
- 
-            //System.out.println(doc);
- 
             coll.remove(coll.findOne(doc));
- 
             result = true;
- 
+
             try{
                 while(cursor.hasNext()){
- 
+
                 }
- 
+
             }finally{
                 cursor.close();
             }
- 
+
         }finally{
- 
+
             /*
              * Mongo切断
              */
- 
+
             if(con != null) con.closeConnection();
         }
- 
+
         return result;
- 
- 
+
+
     }
- 
+
 }

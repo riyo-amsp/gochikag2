@@ -24,7 +24,7 @@ public class CartDeleteDAO {
 	public boolean delete(int itemId,int userId) throws SQLException{
 
 		//フィールド
-		DBConnector db=new DBConnector("gochikag");
+		DBConnector db=new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql");
 		Connection con=db.getConnection();
 		PreparedStatement ps = null;
 		int rs = 0;

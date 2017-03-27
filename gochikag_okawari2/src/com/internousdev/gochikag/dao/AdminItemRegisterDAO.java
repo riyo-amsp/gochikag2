@@ -8,11 +8,11 @@ import java.sql.SQLException;
 import com.internousdev.gochikag.util.DBConnector;
 
 /**
- * 
+ *
  * @author Tomohiro Konasaka
  * @since 2017/03/13
  * @version 1.1
- * 
+ *
  */
 
 public class AdminItemRegisterDAO {
@@ -20,15 +20,15 @@ public class AdminItemRegisterDAO {
 	 * 商品情報を格納するメソッド
 	 * @param itemName 商品名
 	 * @param price 商品価格
-	 * @param stockNumber 在庫数 
+	 * @param stockNumber 在庫数
 	 * @param mainPicture 商品画像
 	 * @param now 格納時間
 	 * @param category 商品分類
 	 * @return rs 格納結果
 	 */
 	public int insertIntoItem(String itemName, float price, int stockNumber, String mainPicture, String now, String category){
-		
-		DBConnector db = new DBConnector("gochikag");
+
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql");
 		Connection con = db.getConnection();
 		PreparedStatement ps = null;
 		int rs = 0;
@@ -57,13 +57,13 @@ public class AdminItemRegisterDAO {
 		}
 		return rs;
 	}
-	
+
 	/**
 	 * 商品IDを取得するメソッド
 	 * @return itemId 商品ID
 	 */
 	public int select(){
-	   DBConnector db = new DBConnector("gochikag");
+	   DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql");
 	   Connection con = db.getConnection();
 	   PreparedStatement ps = null;
 	   String sql = "select max(item_id) from item";
@@ -82,7 +82,7 @@ public class AdminItemRegisterDAO {
 		}
 		return itemId;
 	 }
-	
+
 	/**
 	 * 商品詳細画像を格納するメソッド
 	 * @param itemId 商品ID
@@ -92,7 +92,7 @@ public class AdminItemRegisterDAO {
 	 * @return rs 格納結果
 	 */
 	public int insertIntoPictures(int itemId, String subPicture1, String subPicture2, String subPicture3){
-		DBConnector db = new DBConnector("gochikag");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql");
 		Connection con = db.getConnection();
 		PreparedStatement ps = null;
 		int rs = 0;
@@ -116,7 +116,7 @@ public class AdminItemRegisterDAO {
 		}
         return rs;
 	}
-	
+
 	/**
 	 * 商品詳細情報を格納するメソッド
 	 * @param itemId 商品ID
@@ -125,7 +125,7 @@ public class AdminItemRegisterDAO {
 	 * @return rs 格納結果
 	 */
 	public int insertIntoDetail(int itemId, String detailJa, String detailEn){
-		DBConnector db = new DBConnector("gochikag");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql");
 		Connection con = db.getConnection();
 		PreparedStatement ps = null;
 		int rs = 0;

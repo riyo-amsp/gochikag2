@@ -24,7 +24,7 @@ public class PayConfirmDAO {
 	 * @throws SQLException
 	 */
 	public boolean updateConfirmFlg(int userId) throws SQLException{
-		DBConnector db = new DBConnector("gochikag");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql");
 		Connection con = db.getConnection();
 		PreparedStatement ps = null;
 		String sql = "update cart2 set confirm_flg = true where user_id = ?";
@@ -51,7 +51,7 @@ public class PayConfirmDAO {
 	 * @throws SQLException
 	 */
 	public ArrayList<PayConfirmDTO> selectCartData(int userId) throws SQLException{
-		DBConnector db = new DBConnector("gochikag");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql");
 		Connection con = db.getConnection();
 		PreparedStatement ps = null;
 		PayConfirmDTO dto = null;
@@ -88,7 +88,7 @@ public class PayConfirmDAO {
 	 * @throws SQLException
 	 */
 	public boolean insertIntoPurchase(int itemId, int userId, int itemCount, int amount, String now) throws SQLException{
-		DBConnector db = new DBConnector("gochikag");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql");
 		Connection con = db.getConnection();
 		PreparedStatement ps = null;
 		String sql = "insert into purchase2(item_id, user_id, item_count, amount, purchase_day) values(?, ?, ?, ?, ?)";
@@ -125,7 +125,7 @@ public class PayConfirmDAO {
 	 * @throws SQLException
 	 */
 	public boolean insertIntoCredit(int userId, String cardBrand, String nameE, String loginId, String firstSixDigits, int amount, String now) throws SQLException{
-		DBConnector db = new DBConnector("gochikag");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql");
 		Connection con = db.getConnection();
 		PreparedStatement ps = null;
 		String sql = "insert into credit2(user_id, card_brand, name_e, login_id, first_six_digits, amount, use_day) values(?, ?, ?, ?, ?, ?, ?)";
@@ -164,7 +164,7 @@ public class PayConfirmDAO {
 	 * @throws SQLException
 	 */
 	public boolean insertIntoUserHistroy(String cardBrand, String loginId, String now, int amount, String nameE, String lastName, String firstName) throws SQLException{
-		DBConnector db = new DBConnector(cardBrand);
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","cardBrand","root","mysql");
 		Connection con = db.getConnection();
 		String sql = null;
 		PreparedStatement ps = null;
@@ -209,7 +209,7 @@ public class PayConfirmDAO {
 	 * @throws SQLException
 	 */
 	public boolean updateItemStock(int itemId, int itemCount) throws SQLException{
-		DBConnector db = new DBConnector("gochikag");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql");
 		Connection con = db.getConnection();
 		PreparedStatement ps = null;
 		String sql = "update item set stock_number = stock_number - ? where item_id = ?";
@@ -238,7 +238,7 @@ public class PayConfirmDAO {
 	 * @throws SQLException
 	 */
 	public boolean deleteCartData(int itemId, int userId) throws SQLException{
-		DBConnector db = new DBConnector("gochikag");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","gochikag","root","mysql");
 		Connection con = db.getConnection();
 		PreparedStatement ps = null;
 		String sql = "delete from cart2 where item_id = ? and user_id = ?";

@@ -11,41 +11,18 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   	<meta http-equiv="X-UA-Compatible" content="IE=edge">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
-  	
+
 	<fmt:setLocale value="${pageContext.request.locale.language}" />
 	<fmt:setBundle basename="com.internousdev.gochikag.property.login" var="lang" />
-	
+
 	<title>Login</title>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<style>
-	.form-wrapper{
-		width:40%;
-		margin:0 auto;
-	}
-	.form-wrapper button{
-		width:30%;
-		margin:0 auto;
-	}
 
-	.oauth-wrapper{
-		width: 80%;
-		margin: 30px auto;
-	}
+	<link rel="stylesheet" type="text/css" href="css/login.css">
 
-	.oauth-wrapper a{
-		dispaly: block;
-		float: left:
-		width: 30%;
-	}
-
-	.error-message{
-		text-align : center;
-		color : red;
-	}
-	</style>
 </head>
 <body>
 	<div>
