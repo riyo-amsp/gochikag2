@@ -40,22 +40,22 @@
 	</div>
 	<div class="searchBOX">
 		<s:form action="ItemSearchAction">
-			<s:textfield name="searchItem" />
-			<select name="searchSort">
-				<option value="1"><s:text name="安い順" /></option>
-				<option value="2"><s:text name="高い順" /></option>
-				<option value="3"><s:text name="古い順" /></option>
-				<option value="4"><s:text name="新着順" /></option>
-				<option value="5"><s:text name="￥0-￥2499" /></option>
-				<option value="6"><s:text name="￥3000-￥5000" /></option>
-			</select>
 			<select name="category">
-				<option value="kagu"><s:text name="家具" /></option>
-				<option value="kaden"><s:text name="家電" /></option>
-				<option value="sale"><s:text name="セール" /></option>
+				<option value="kagu">家具</option>
+				<option value="kaden">家電</option>
+				<option value="sale">セール</option>
 			</select>
-			<s:submit value="検索" />
+			<select name="searchSort">
+				<option value="1">安い順</option>
+				<option value="2">高い順</option>
+				<option value="3">古い順</option>
+				<option value="4">新着順</option>
+				<option value="5">￥0-￥2499</option>
+				<option value="6">￥3000-￥5000"</option>
+			</select>
+			<s:submit  value="検索" />
 		</s:form>
+
 	</div>
 	<div class="form-wrapper">
 		<s:iterator value="items">

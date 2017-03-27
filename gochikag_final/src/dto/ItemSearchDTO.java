@@ -14,6 +14,8 @@ public class ItemSearchDTO {
 
   private String category;
 
+  private int searchSort;
+
 public int getItemId() {
 	return itemId;
 }
@@ -60,6 +62,20 @@ public String getCategory() {
 
 public void setCategory(String category) {
 	this.category = category;
+}
+
+/**
+ * @return searchSort
+ */
+public int getSearchSort() {
+	return searchSort;
+}
+
+/**
+ * @param searchSort セットする searchSort
+ */
+public void setSearchSort(int searchSort) {
+	this.searchSort = searchSort;
 }
 
 }
