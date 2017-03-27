@@ -40,12 +40,17 @@
 	</div>
 	<div class="searchBOX">
 		<s:form action="ItemSearchAction">
+			<div>
 			<select name="category">
+				<option value="" disabled></option>
 				<option value="kagu">家具</option>
 				<option value="kaden">家電</option>
 				<option value="sale">セール</option>
 			</select>
-			<select name="searchSort">
+			</div>
+			<div>
+			<select name="searchSort" size="5">
+				<option value="" disabled></option>
 				<option value="1">安い順</option>
 				<option value="2">高い順</option>
 				<option value="3">古い順</option>
@@ -53,6 +58,7 @@
 				<option value="5">￥0-￥2499</option>
 				<option value="6">￥3000-￥5000"</option>
 			</select>
+			</div>
 			<s:submit  value="検索" />
 		</s:form>
 
