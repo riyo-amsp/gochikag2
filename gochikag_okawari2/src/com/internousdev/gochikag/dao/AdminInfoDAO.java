@@ -104,22 +104,17 @@ public class AdminInfoDAO extends ActionSupport{
         MongoDBConnector con = new MongoDBConnector();
         DB db = con.getConnection();
 
-        /*
-         * コレクション名
-         */
         DBCollection coll = db.getCollection("info");
-
-        /*
-         * delete
-         */
-
 
         try{
 
             BasicDBObject doc = new BasicDBObject("mail",mail).append("registration_date",date);
             DBCursor cursor = coll.find(doc);
-            coll.remove(coll.findOne(doc));
-            result = true;
+
+            if(!(coll.findOne(doc)==null)){
+	            coll.remove(coll.findOne(doc));
+	            result = true;
+            }
 
             try{
                 while(cursor.hasNext()){
@@ -132,15 +127,10 @@ public class AdminInfoDAO extends ActionSupport{
 
         }finally{
 
-            /*
-             * Mongo切断
-             */
-
             if(con != null) con.closeConnection();
         }
 
         return result;
-
 
     }
 

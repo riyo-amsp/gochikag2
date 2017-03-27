@@ -49,28 +49,16 @@
 				<td class="text-center"><button data-toggle="modal"
 							data-target="#info-<s:property value="#aoi.count"/>"><s:text name="lang.adminInfo.show"/></button>
 
-			<!-- modal -->
-			<!-- class=modal →モーダルダイアログの範囲 -->
 			<div class="modal" id="info-<s:property value="#aoi.count"/>">
-
-				<!--  modal-dialog:ダイアログの書式決定（位置、サイズなど）-->
 				<div class="modal-dialog">
-
-					<!-- modal-content:ダイアログの書式設定（枠線、角丸、角など）-->
 					<div class="modal-content">
-
-						<!-- modal-header:ヘッダーの領域（省略可） -->
 						<div class="modal-header">
 							<button class="close" data-dismiss="modal">
 								<span aria-hidden="true">&times;</span>
 							</button>
-
-							<!-- modal-title:見出し文字の余白や行間の設定 -->
 							<h4 class="modal-title">
 								<s:text name="lang.adminInfo.title"/> : <s:property value="title"/></h4>
 						</div>
-
-						<!-- modal-body:本文の領域 -->
 						<div class="modal-body">
 							<dl>
 								<dt><s:text name="lang.adminInfo.name"/></dt>
@@ -81,8 +69,6 @@
 									<dd><s:property value="info"/></dd>
 							</dl>
 						</div>
-
-						<!-- modal-fotter:フッターの領域（省略可能） -->
 						<div class="modal-footer">
 							<p><s:property value="date"/></p>
 							<button data-dismiss="modal"><s:text name="lang.adminInfo.close"/></button>

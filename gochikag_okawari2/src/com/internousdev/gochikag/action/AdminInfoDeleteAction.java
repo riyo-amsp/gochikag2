@@ -2,6 +2,7 @@ package com.internousdev.gochikag.action;
 
 import java.net.UnknownHostException;
 
+import com.internousdev.gochikag.dao.AdminInfoDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -30,25 +31,23 @@ public class AdminInfoDeleteAction extends ActionSupport{
      * 実行メソッド
      * データを削除するため
      * @author IKARASHI TOMOYA
+     * @throws UnknownHostException
      * @result result
      */
 
-    public String execute(){
-
+    public String execute() throws UnknownHostException{
         String ret = ERROR;
-        com.internousdev.gochikag.dao.AdminInfoDAO dao = new com.internousdev.gochikag.dao.AdminInfoDAO();
+        AdminInfoDAO dao = new AdminInfoDAO();
 
         try{
-
             boolean deleteFlg = dao.delete(mail, date);
-            if(deleteFlg){
-
-                ret = SUCCESS;
-            }
+            if(deleteFlg) ret = SUCCESS;
+            	else return ret;
 
 
         }catch(UnknownHostException e){
             e.printStackTrace();
+
         }
 
         return ret;
