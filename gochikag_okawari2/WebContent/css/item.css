@@ -84,7 +84,7 @@ a {
 }
 
 .select-wrapper {
-	width: 30%;
+	width: 100%;
 	height: 30px;
 	clear: both;
 }
@@ -97,7 +97,7 @@ a {
 
 .select-wrapper select {
 	height: 30px;
-	width: 30%;
+	width: 80px;
 }
 
 .submit {
