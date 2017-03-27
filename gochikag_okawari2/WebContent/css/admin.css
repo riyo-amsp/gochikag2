@@ -1,0 +1,15 @@
+.heading{
+	text-align : center;
+	margin : 10px auto;
+}
+
+.button{
+	text-align : center;
+	margin : 5%;
+}
+
+.btn{
+	padding : 10px 50px;
+	background-color : lightsalmon;
+	font-weight : bold;
+}

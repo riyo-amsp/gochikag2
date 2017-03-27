@@ -1,0 +1,17 @@
+BODY{
+	background-size :  30%;
+	background-image : url("img/usagi.jpg");
+	background-repeat : no-repeat;
+	background-position : 10% 60%;
+	background-attachment : fixed;
+}
+
+.container{
+	width : 30%;
+	height : 50%;
+	margin : 100px auto;
+	padding : 50px auto;
+}
+.button,.panel-heading{
+	text-align : center;
+}

@@ -1,4 +1,4 @@
-<%@ page language="java" 
+<%@ page language="java"
 	contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
@@ -11,57 +11,16 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
+
 	<fmt:setLocale value="${pageContext.request.locale.language}" />
 	<fmt:setBundle basename="com.internousdev.gochikag.property.adminItemRegister" var="lang" />
-	
+
 	<title><s:text name="lang.adminItemRegister.regi"/></title>
-	
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<style>
-		.title-wrapper{
-			width: 60%;
-			margin: 20px auto;
-			text-align: center;
-			border-bottom: 1px dashed black;
-		}
-	
-		.form-wrapper{
-			width: 80%;
-			margin: 20px auto;
-		}
-		.form-item-wrapper{
-			margin-bottom: 10px;
-			width: 100%;
-			height: 30px;
-			clear: both;
-		}
-		.form-item-wrapper p{
-			width: 45%;
-			margin-right: 5%;
-			font-size: 20px;
-			text-align: right;
-			float: left;
-		}
-		.form-item-wrapper input{
-			width: 35%;
-			margin-right: 15%;
-			float: left;
-		}
-		.form-item-wrapper select{
-			width: 35%;
-			margin-right: 15%;
-			float: left;
-		}
-		
-		.form-submit{
-			width: 20%;
-			margin: 20px auto;
-		}
-	
-	</style>
+	<link rel="stylesheet" type="text/css" href="css/admin_item_register.css">
 </head>
 <body>
 	<div class="title-wrapper">
@@ -119,7 +78,7 @@
 			</div>
 		</form>
 	</div>
-	
+
 <script src="js/admin_item_register.js"></script>
 </body>
 </html>

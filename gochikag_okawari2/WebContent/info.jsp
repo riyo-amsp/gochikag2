@@ -20,28 +20,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-		<style>
-			.panel{
-				padding : 30px auto;
-				margin : 30px auto;
-				width : 50%;
-			}
-			.panel-heading{
-				width : 80%;
-				margin : 30px auto;
+	<link rel="stylesheet" type="text/css" href="css/info.css">
 
-			}
-			.txt{
-				align : left;
-			}
-
-			.button,.panel-body{
-			text-align : center;
-			}
-
-		</style>
 	</head>
-
 	<body>
 		<s:if test="%{#session.id != 0}">
 			<s:include value="header_done.jsp" />
@@ -79,15 +60,6 @@
 			<input type="button" name="link" onclick="jump()" value="<s:text name="lang.info.goTop"/>"/>
 		</div>
 
-	<script>
-		function jump(){
-			if(window.sessionStorage.length==0){
-				location.href="top.jsp";
-			}else{
-				location.href="main.jsp";
-			}
-		}
-	</script>
-
+	<script src="js/info.js"></script>
 	</body>
 </html>

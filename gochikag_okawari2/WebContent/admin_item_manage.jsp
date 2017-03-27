@@ -11,34 +11,17 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
+
 	<fmt:setLocale value="${pageContext.request.locale.language}" />
 	<fmt:setBundle basename="com.internousdev.gochikag.property.adminItemManage" var="lang" />
-	
+
 	<title><s:text name="lang.adminItemManage.manage"/></title>
-	
+
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	
-	<style>
-		.direction{
-			text-align: center;
-			margin: 20px auto;
-		}
-		.phase1{
-			width: 80%;
-			margin: 20px auto;
-		}
-		.phase2{
-			width: 80%;
-			margin: 20px auto;
-		}
-		.phase3{
-			width: 80%;
-			margin: 20px auto;
-		}
-	</style>
+
+	<link rel="stylesheet" type="text/css" href="css/admin_item_manage.css">
 
 </head>
 <body>
