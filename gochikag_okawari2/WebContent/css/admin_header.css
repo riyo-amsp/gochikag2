@@ -1,0 +1,27 @@
+@CHARSET "UTF-8";
+
+html, body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, div {
+	margin: 0;
+	padding: 0;
+}
+
+.menu {
+	background-color: wheat;
+}
+
+.back-img {
+	background: url("../img/top-header-mainimg/back.png");
+	background-repeat: repeat;
+}
+
+.logo {
+	width: 120px;
+	height: 150px;
+	transition: 0.5;
+	display: inline;
+}
+
+.admin_header-form {
+	margin: 0;
+	padding-right: 1%;
+}
